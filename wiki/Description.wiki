@@ -1,0 +1,16 @@
+#summary Describes project and members.
+#labels Featured,Phase-Requirements
+
+= Project Description =
+
+== Introduction ==
+
+Project tentatively named pManagr is a way to manage parallel projects. Examples are the Netflix algorithm contest and Computer Science class projects.
+
+An administrator will set project deadlines, milestones, and tasks per milestone to complete. They can also set up general meetings, where all involved people are invited. These can be used for Q&A sessions and the such.
+
+== Project Members ==
+  * Alan Choi
+  * Anhang Zhu
+  * Karl He
+  * Tian Wang
