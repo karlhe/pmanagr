@@ -5,7 +5,8 @@ class CreateTasks < ActiveRecord::Migration
       t.references :task
       t.string :name
       t.text :desc
-      t.datetime :due
+      t.datetime :due_by
+      t.datetime :completed_at
 
       t.timestamps
     end
