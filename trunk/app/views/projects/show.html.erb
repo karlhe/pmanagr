@@ -1,0 +1,27 @@
+<p>
+  <b>Name:</b>
+  <%=h @project.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%=h @project.desc %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%=h @project.public %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%=h @project.due %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'View Tasks', project_tasks_path(@project) %>
+<% if current_user.present? and not @members.include?(current_user) -%>
+| <%= link_to 'Join Project', join_project_path(@project) %>
+<% end -%>
