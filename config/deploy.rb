@@ -1,8 +1,8 @@
 set :user, "root"
-set :application, "pmanagr"
+set :application, "ec2-75-101-252-188.compute-1.amazonaws.com"
 set :repository,  "https://pmanagr.googlecode.com/svn/trunk/"
-
-set :deploy_to, "/#{user}/#{application}"
+set :ssh_options, {:forward_agent => true}
+set :deploy_to, "/#{user}/pmanagr"
 
 set :scm, :subversion
 set :scm_username, "anhang"
