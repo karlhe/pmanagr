@@ -1,0 +1,31 @@
+<p>
+  <b>Project:</b>
+  <%=h @task.project %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%=h @task.task %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @task.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%=h @task.desc %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%=h @task.due %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_task_path(@task.project,@task) %> |
+<%= link_to 'Back', project_tasks_path(@task.project) %>
+<% if current_user.present? and not @task.users.include?(current_user) -%>
+| <%= link_to 'Assign Task', assign_task_path(@task.project,@task) %>
+<% end -%>

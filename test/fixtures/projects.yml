@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyText
+  public: false
+  due: 2009-11-07 19:34:00
+
+two:
+  name: MyString
+  desc: MyText
+  public: false
+  due: 2009-11-07 19:34:00

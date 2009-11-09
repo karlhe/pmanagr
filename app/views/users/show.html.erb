@@ -1,0 +1,17 @@
+<h2>User page for <%= @user.name %></h2>
+
+<p>Member since <%= @user.created_at %>.</p>
+
+<h3>Project Memberships:</h3>
+<ul>
+<% @user.projects.each do |project| -%>
+  <li><%= link_to "#{project.name}", project_path(project) %></li>
+<% end -%>
+</ul>
+
+<h3>Task Assignments:</h3>
+<ul>
+<% @user.tasks.each do |task| -%>
+  <li><%= link_to "#{task.name}", project_task_path(task.project,task) %></li>
+<% end -%>
+</ul>

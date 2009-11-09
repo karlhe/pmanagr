@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project: 
+  task: 
+  name: MyString
+  desc: MyText
+  due: 2009-11-07 19:38:07
+
+two:
+  project: 
+  task: 
+  name: MyString
+  desc: MyText
+  due: 2009-11-07 19:38:07
