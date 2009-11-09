@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(:version => 20091108055719) do
     t.integer  "task_id"
     t.string   "name"
     t.text     "desc"
-    t.datetime "due"
+    t.datetime "due_by"
+    t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

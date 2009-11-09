@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :login_required, :only => :add_member
+  before_filter :login_required, :only => [:join, :new, :create, :edit, :update, :destroy]
   
   def join
     @project = Project.find(params[:project_id])
@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
-        format.html { redirect_to(@project) }
+        format.html { redirect_to join_project_path(@project) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }

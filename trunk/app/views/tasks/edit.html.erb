@@ -20,8 +20,12 @@
     <%= f.text_area :desc %>
   </p>
   <p>
-    <%= f.label :due %><br />
-    <%= f.datetime_select :due %>
+    <%= f.label :due_by %><br />
+    <%= f.datetime_select :due_by %>
+  </p>
+  <p>
+    <%= f.label :completed_at %><br />
+    <%= f.datetime_select :completed_at %>
   </p>
   <p>
     <%= f.submit 'Update' %>
