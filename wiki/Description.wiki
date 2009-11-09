@@ -5,9 +5,9 @@
 
 == Introduction ==
 
-Project tentatively named pManagr is a way to manage parallel projects. Examples are the Netflix algorithm contest and Computer Science class projects.
+Project tentatively named PManagr is a way to manage projects.
 
-An administrator will set project deadlines, milestones, and tasks per milestone to complete. They can also set up general meetings, where all involved people are invited. These can be used for Q&A sessions and the such.
+Any user can create a project, and any user can join a project. From the project view, users can assign themselves tasks, create new tasks/subtasks, and set deadlines for tasks. The goal is to have a system that greatly aids productivity while being intuitive and straightforward for even first-time users.
 
 == Project Members ==
   * Alan Choi
