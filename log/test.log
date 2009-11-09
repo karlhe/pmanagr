@@ -1116,3 +1116,13 @@ Rendering users/new
 Completed in 5ms (View: 1, DB: 1) | 200 OK [http://test.host/register?user%5Bemail%5D=&user%5Blogin%5D=quire&user%5Bpassword%5D=quire69&user%5Bpassword_confirmation%5D=quire69]
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
   [4;36;1mMembership Create (0.5ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "project_id", "updated_at", "user_id", "privilege") VALUES('2009-11-09 09:02:09', NULL, '2009-11-09 09:02:09', NULL, NULL)[0m
+  [4;36;1mMembership Create (0.5ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "project_id", "updated_at", "user_id", "privilege") VALUES('2009-11-09 09:24:34', NULL, '2009-11-09 09:24:34', NULL, NULL)[0m
+  [4;35;1mAssignment Create (0.4ms)[0m   [0mINSERT INTO "assignments" ("task_id", "created_at", "updated_at", "user_id") VALUES(NULL, '2009-11-09 09:24:34', '2009-11-09 09:24:34', NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "created_at", "public", "updated_at", "desc", "due") VALUES(NULL, '2009-11-09 09:24:34', NULL, '2009-11-09 09:24:34', NULL, NULL)[0m
+  [4;35;1mTask Create (0.3ms)[0m   [0mINSERT INTO "tasks" ("name", "completed_at", "task_id", "created_at", "project_id", "updated_at", "due_by", "desc") VALUES(NULL, NULL, NULL, '2009-11-09 09:24:34', NULL, '2009-11-09 09:24:34', NULL, NULL)[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;36;1mMembership Create (0.5ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "project_id", "updated_at", "user_id", "privilege") VALUES('2009-11-09 09:29:40', NULL, '2009-11-09 09:29:40', NULL, NULL)[0m
+  [4;35;1mAssignment Create (0.4ms)[0m   [0mINSERT INTO "assignments" ("task_id", "created_at", "updated_at", "user_id") VALUES(NULL, '2009-11-09 09:29:40', '2009-11-09 09:29:40', NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "created_at", "public", "updated_at", "desc", "due") VALUES(NULL, '2009-11-09 09:29:40', NULL, '2009-11-09 09:29:40', NULL, NULL)[0m
+  [4;35;1mTask Create (0.4ms)[0m   [0mINSERT INTO "tasks" ("name", "completed_at", "task_id", "created_at", "project_id", "updated_at", "due_by", "desc") VALUES(NULL, NULL, NULL, '2009-11-09 09:29:40', NULL, '2009-11-09 09:29:40', NULL, NULL)[0m
