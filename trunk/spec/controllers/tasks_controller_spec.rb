@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe TasksController do
+  fixtures :users, :projects, :tasks
 
   #Delete this example and add some real ones
   it "should use TasksController" do

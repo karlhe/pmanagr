@@ -5,3 +5,26 @@
 #
 # two:
 #   column: value
+projectn:
+    id: 1
+    name: Project N
+    desc: The most secretest project ever.
+    public: false
+    
+newprojectn:
+    name: Project N
+    desc: The most secretest project ever.
+    public: false
+
+projectp:
+    id: 2
+    name: Project P
+    desc: The must unsecretest project ever.
+    public: true
+    
+projectq:
+    id: 3
+    name: Project Q
+    desc: A very Questionable project.
+    public: true
+    due: <%= 5.days.from_now %>
