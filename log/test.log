@@ -1115,3 +1115,4 @@ Rendering template within layouts/application
 Rendering users/new
 Completed in 5ms (View: 1, DB: 1) | 200 OK [http://test.host/register?user%5Bemail%5D=&user%5Blogin%5D=quire&user%5Bpassword%5D=quire69&user%5Bpassword_confirmation%5D=quire69]
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mMembership Create (0.5ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "project_id", "updated_at", "user_id", "privilege") VALUES('2009-11-09 09:02:09', NULL, '2009-11-09 09:02:09', NULL, NULL)[0m
