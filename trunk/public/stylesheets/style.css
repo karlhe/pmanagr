@@ -1,0 +1,78 @@
+h1 {
+  font-size: 3em;
+  padding-bottom: 1em;
+}
+h1 a:link, h1 a:visited {
+  color: #090;
+}
+h1 span {
+  color: #000;
+}
+.notice, .error {
+  font-size: 1.2em;
+  margin: 0 -10px;
+  padding: 4px 10px;
+}
+.notice {
+  background: #9f6;
+}
+.error {
+  background: #f99;
+}
+#container {
+  text-align: left;
+  margin: 0px auto;
+  padding: 0px;
+  border: 0px;
+  width: 960px;
+}
+#head {
+  margin: 0 auto;
+  padding: 10px 10px 0;
+  background: #cf9;
+}
+#user-bar {
+  font-size: 1.2em;
+  float: right;
+}
+#middle {
+  padding: 10px;
+
+}
+#footer {
+  text-align: center;
+  clear: both;
+  background: #A126a1;
+}
+#left_div {
+  float: left;
+  padding: 0px 10px 0px 10px;
+  width: 65%;
+  background: #A386a1;
+}
+#right_div {
+  float: right;
+  background: #A386ff;
+  padding: 0px 10px 0px 10px;
+  width: 30%;
+}
+#urgent{
+  background: red;
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+#upcoming{
+  background: blue;
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+#recent_activities{
+  background: green;
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+.content_boxes {
+  background: #A386ff;
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}

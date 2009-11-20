@@ -7023,3 +7023,1395 @@ Migrating to CreatePosts (20091120083153)
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("threads")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:14:06) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (5873.0ms)
+Completed in 6019ms (View: 6016, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:15:27) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (2.0ms)
+Completed in 19ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:15:34) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (2.0ms)
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:17:30) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (2.0ms)
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:23:30) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (2.0ms)
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-20 01:23:34) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_user_bar (4.0ms)
+Completed in 129ms (View: 36, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-20 01:24:02) [POST]
+  Parameters: {"user"=>{"name"=>"anhang zhu", "password_confirmation"=>"121212", "password"=>"121212", "login"=>"anhang", "email"=>"anhang@gmail.com"}, "commit"=>"Sign up", "authenticity_token"=>"lW9WnDVCzTbS+wrmLKCJifQ//hy/DHf6s6BBrZshDZc="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'anhang') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'anhang@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "crypted_password", "remember_token_expires_at", "remember_token", "login", "email", "created_at") VALUES('anhang zhu', '1b629b5f212146358fe1165ba932fa4400e4846f', '2009-11-20 09:24:02', '91b9fa1e31a15e3e7a27d93478a8e4e446fe8450', NULL, NULL, 'anhang', 'anhang@gmail.com', '2009-11-20 09:24:02')[0m
+Redirected to http://localhost:3000/
+Completed in 243ms (DB: 3) | 302 Found [http://localhost/users]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-20 01:24:03) [GET]
+Rendering template within layouts/application
+Rendering projects/home
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (36.0ms)
+Completed in 44ms (View: 39, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:24:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+
+ActionView::TemplateError (Could not find the source association(s) :task or :tasks in model Assignment.  Try 'has_many :tasks, :through => :assignments, :source => <name>'.  Is it one of :project or :user?) on line #16 of app/views/users/show.html.erb:
+13: 
+14: <h3>Task Assignments:</h3>
+15: <ul>
+16: <% @user.tasks.each do |task| -%>
+17:   <li><%= link_to "#{task.name}", project_task_path(task.project,task) %></li>
+18: <% end -%>
+19: </ul>
+
+    app/views/users/show.html.erb:16
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:25:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 164ms (View: 135, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:26:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 72ms (View: 43, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:26:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 73ms (View: 45, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:26:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 202ms (View: 169, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:27:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 42, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:27:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 70ms (View: 40, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:28:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 165ms (View: 48, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:28:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 85ms (View: 53, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:28:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 68ms (View: 39, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:28:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 68ms (View: 37, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:28:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 94ms (View: 57, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:29:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 170ms (View: 137, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:30:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 81ms (View: 52, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:30:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 67ms (View: 38, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:31:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 170ms (View: 51, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:33:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 67ms (View: 37, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:34:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 63ms (View: 36, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:34:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 84ms (View: 47, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:34:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 65ms (View: 37, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:35:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 276ms (View: 244, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:35:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 125ms (View: 79, DB: 4) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:36:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 43, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:36:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 176ms (View: 139, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 64ms (View: 37, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 96ms (View: 55, DB: 4) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 167ms (View: 45, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 98ms (View: 59, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 66ms (View: 37, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:37:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 98ms (View: 54, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:38:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 73ms (View: 43, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:38:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 69ms (View: 40, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:39:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 94ms (View: 50, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:39:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 81ms (View: 50, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:40:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 145ms (View: 118, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:40:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 48, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:40:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 74ms (View: 44, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:41:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 183ms (View: 149, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:41:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 73ms (View: 41, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:41:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 68ms (View: 39, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:41:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 164ms (View: 135, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:42:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 73ms (View: 43, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:42:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 74ms (View: 42, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:42:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 153ms (View: 44, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:43:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 67ms (View: 37, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:43:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 110ms (View: 72, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:43:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 64ms (View: 36, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:43:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 74ms (View: 40, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:44:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 71ms (View: 41, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:44:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 87ms (View: 53, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:44:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 97ms (View: 47, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:44:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 166ms (View: 133, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:44:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 136ms (View: 49, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:47:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 89ms (View: 59, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:47:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 202ms (View: 174, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:47:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 88ms (View: 58, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 77ms (View: 47, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 78ms (View: 44, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 150ms (View: 52, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 82ms (View: 49, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 102ms (View: 59, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:48:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 97ms (View: 59, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:49:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 217ms (View: 169, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:49:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 80ms (View: 44, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 50, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:56:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 231ms (View: 179, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:56:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 81ms (View: 45, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:57:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 76ms (View: 46, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 01:58:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 157ms (View: 45, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:00:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 49, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:01:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 153ms (View: 124, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:01:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 83ms (View: 49, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:02:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 48, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:02:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 187ms (View: 49, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:03:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 117ms (View: 75, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:03:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 196ms (View: 161, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:08:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (1.0ms)
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 90ms (View: 58, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:08:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (1.0ms)
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 98ms (View: 66, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:09:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (1.0ms)
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 163ms (View: 45, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:11:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (1.0ms)
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 96ms (View: 56, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:12:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 150ms (View: 120, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:12:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+Rendered users/_recent_activities (1.0ms)
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 87ms (View: 55, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:14:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+Rendered users/_recent_activities (0.0ms)
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 81ms (View: 51, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:15:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (1.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+Rendered users/_recent_activities (0.0ms)
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 178ms (View: 49, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-11-20 02:16:12) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering projects/new
+Rendered users/_user_bar (5.0ms)
+Completed in 96ms (View: 48, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-11-20 02:16:31) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering projects/new
+Rendered users/_user_bar (6.0ms)
+Completed in 114ms (View: 39, DB: 1) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-11-20 02:16:52) [POST]
+  Parameters: {"commit"=>"Create", "project"=>{"due(1i)"=>"2011", "name"=>"my new project", "due(2i)"=>"11", "due(3i)"=>"20", "public"=>"1", "due(4i)"=>"10", "due(5i)"=>"16", "desc"=>"desc"}, "authenticity_token"=>"lW9WnDVCzTbS+wrmLKCJifQ//hy/DHf6s6BBrZshDZc="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Create (3.0ms)[0m   [0;1mINSERT INTO "projects" ("name", "updated_at", "public", "desc", "due", "created_at") VALUES('my new project', '2009-11-20 10:16:52', 't', 'desc', '2011-11-20 10:16:00', '2009-11-20 10:16:52')[0m
+Redirected to http://localhost:3000/projects/1/join_project
+Completed in 303ms (DB: 4) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#join (for 127.0.0.1 at 2009-11-20 02:16:52) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mMembership Create (1.0ms)[0m   [0mINSERT INTO "memberships" ("project_id", "updated_at", "user_id", "privilege", "created_at") VALUES(1, '2009-11-20 10:16:52', 1, NULL, '2009-11-20 10:16:52')[0m
+Redirected to http://localhost:3000/projects/1
+Completed in 188ms (DB: 2) | 302 Found [http://localhost/projects/1/join_project]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-20 02:16:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 1)) LIMIT 1[0m
+Rendered users/_user_bar (1.0ms)
+Completed in 79ms (View: 51, DB: 1) | 200 OK [http://localhost/projects/1]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-20 02:17:03) [GET]
+  [4;35;1mProject Load (2.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (45.0ms)
+Completed in 99ms (View: 77, DB: 3) | 200 OK [http://localhost/projects]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:17:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+Rendered users/_recent_activities (0.0ms)
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 87ms (View: 53, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-20 02:17:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 1)) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 93ms (View: 54, DB: 2) | 200 OK [http://localhost/projects/1]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-20 02:17:16) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (41.0ms)
+Completed in 97ms (View: 66, DB: 2) | 200 OK [http://localhost/projects/1/tasks]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-20 02:17:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 1)) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 93ms (View: 62, DB: 1) | 200 OK [http://localhost/projects/1]
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-11-20 02:17:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/edit
+Rendered users/_user_bar (4.0ms)
+Completed in 88ms (View: 46, DB: 1) | 200 OK [http://localhost/projects/1/edit]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-20 02:17:43) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (38.0ms)
+Completed in 70ms (View: 46, DB: 1) | 200 OK [http://localhost/projects/1/tasks]
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-11-20 02:17:46) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/new
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (43.0ms)
+Completed in 203ms (View: 79, DB: 2) | 200 OK [http://localhost/projects/1/tasks/new]
+
+
+Processing TasksController#create (for 127.0.0.1 at 2009-11-20 02:17:56) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "authenticity_token"=>"lW9WnDVCzTbS+wrmLKCJifQ//hy/DHf6s6BBrZshDZc=", "task"=>{"name"=>"task 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"21", "desc"=>"asdsdagf", "due_by(4i)"=>"10", "due_by(5i)"=>"17"}}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mTask Create (1.0ms)[0m   [0mINSERT INTO "tasks" ("name", "completed_at", "project_id", "updated_at", "due_by", "task_id", "desc", "created_at") VALUES('task 1', NULL, 1, '2009-11-20 10:17:57', '2009-11-21 10:17:00', NULL, 'asdsdagf', '2009-11-20 10:17:57')[0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 133ms (DB: 2) | 302 Found [http://localhost/projects/1/tasks]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-20 02:17:58) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `task' for #<Task:0x9217358>) on line #8 of app/views/tasks/show.html.erb:
+5: 
+6: <p>
+7:   <b>Task:</b>
+8:   <%=h @task.task %>
+9: </p>
+10: 
+11: <p>
+
+    app/views/tasks/show.html.erb:8
+    app/controllers/tasks_controller.rb:36:in `show'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (77.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-20 02:18:17) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `users' for #<Task:0x936bdbc>) on line #30 of app/views/tasks/show.html.erb:
+27: 
+28: <%= link_to 'Edit', edit_project_task_path(@task.project,@task) %> |
+29: <%= link_to 'Back', project_tasks_path(@task.project) %>
+30: <% if current_user.present? and not @task.users.include?(current_user) -%>
+31: | <%= link_to 'Assign Task', assign_task_path(@task.project,@task) %>
+32: <% end -%>
+
+    app/views/tasks/show.html.erb:30
+    app/controllers/tasks_controller.rb:36:in `show'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-20 02:19:47) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (132.0ms)
+Completed in 184ms (View: 168, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-20 02:20:06) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (2.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (33.0ms)
+Completed in 83ms (View: 66, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-20 02:20:09) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (44.0ms)
+Completed in 108ms (View: 72, DB: 2) | 200 OK [http://localhost/projects/1/tasks]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-20 02:20:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (0.0ms)
+Rendered users/_upcoming_assignments (0.0ms)
+Rendered users/_recent_activities (0.0ms)
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 168ms (View: 139, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-20 02:20:19) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (42.0ms)
+Completed in 84ms (View: 69, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2009-11-20 02:20:23) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/edit
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/tasks/edit.html.erb:
+1: <h2>Editing task</h2>
+2: 
+3: <% form_for(@project,@task) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/tasks/edit.html.erb:3
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (71.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2009-11-20 02:20:49) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/edit
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/tasks/edit.html.erb:
+1: <h2>Editing task</h2>
+2: 
+3: <% form_for(@project,@task) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/tasks/edit.html.erb:3
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (76.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#edit (for 127.0.0.1 at 2009-11-20 02:22:38) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/edit
+
+ActionView::TemplateError (undefined method `task_path' for #<ActionView::Base:0x9185dcc>) on line #3 of app/views/tasks/edit.html.erb:
+1: <h2>Editing task</h2>
+2: 
+3: <% form_for(@task) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/tasks/edit.html.erb:3
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (222.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-20 02:22:45) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (47.0ms)
+Completed in 115ms (View: 79, DB: 2) | 200 OK [http://localhost/projects/1/tasks]

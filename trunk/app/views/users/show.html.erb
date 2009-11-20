@@ -1,17 +1,23 @@
-<h2>User page for <%= @user.name %></h2>
+<div id="left_div">
 
-<p>Member since <%= @user.created_at %>.</p>
+  <%=  render :partial => "late_assignments" %>
+  <%=  render :partial => "upcoming_assignments" %>
+  <%=  render :partial => "recent_activities" %>
 
-<h3>Project Memberships:</h3>
-<ul>
-<% @user.projects.each do |project| -%>
-  <li><%= link_to "#{project.name}", project_path(project) %></li>
-<% end -%>
-</ul>
+  <p>Member since <%= @user.created_at %>.</p>
+    <h3>Assignments:</h3>
+    <ul>
+    <% @user.assignments.each do |assig| -%>
+      <li><%= link_to "#{assig.name}", project_task_path(assig.project,task) %></li>
+    <% end -%>
+    </ul>
+</div>
 
-<h3>Task Assignments:</h3>
-<ul>
-<% @user.tasks.each do |task| -%>
-  <li><%= link_to "#{task.name}", project_task_path(task.project,task) %></li>
-<% end -%>
-</ul>
+<div id="right_div">
+    <h3>Your Projects</h3>
+    <ul>
+    <% @user.projects.each do |project| -%>
+      <li><%= link_to "#{project.name}", project_path(project) %></li>
+    <% end -%>
+    </ul>
+</div>

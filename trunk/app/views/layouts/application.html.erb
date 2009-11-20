@@ -3,25 +3,36 @@
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
   <head>
-    <title>PManagr</title>
+    <title>pManagr</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <%= stylesheet_link_tag "tripoli.simple" %>
     <!--[if IE]><%= stylesheet_link_tag "tripoli.simple.ie" %><![endif]-->
-    <%= stylesheet_link_tag "general", :media => "screen, print" %>
+    <%= stylesheet_link_tag "style", :media => "screen, print" %>
   </head>
+
   <body>
-    <div id="head">
-      <%= render :partial => "users/user_bar" %>
-      <h1><%= link_to "<span>P</span>Managr", root_path %></h1>
-      <% flash.keys.each do |msg| -%>
-        <% if flash[msg.to_sym].present? -%>
-          <div id="flash_<%=msg%>" class="<%=msg%>"><%= flash[msg.to_sym] %></div>
-        <% end -%>
-      <% end -%>
-    </div>
-    <div id="body" class="content">
+    <div id="container" class="content">
+      <div id="head">
+        <div id="user-bar">
+          <%= render :partial => "users/user_bar" %>
+        </div>
+        <div id="title">
+          <h1><%= link_to "<span>P</span>Managr", root_path %></h1>
+          <% flash.keys.each do |msg| -%>
+            <% if flash[msg.to_sym].present? -%>
+              <div id="flash_<%=msg%>" class="<%=msg%>"><%= flash[msg.to_sym] %></div>
+            <% end -%>
+          <% end -%>
+        </div>
+      </div>
+      <div id="middle">
         <%= yield %>
+      </div>
+      <div id="footer">
+        Fall 2009 CS194-4:SaaS Final Project &copy; Alan Choi, Anhang Zhu, Karl He, Tian Wang
+      </div>
     </div>
   </body>
 </html>
