@@ -4,8 +4,9 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.text :desc
       t.boolean :public
-      t.datetime :due
-
+      t.datetime :due_by
+      t.datetime :completed_at
+      
       t.timestamps
     end
   end
