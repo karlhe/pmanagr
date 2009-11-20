@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :memberships
   has_many :assignments
   has_many :tasks, :through => :assignments
-  
+  has_many :posts #, :dependent => :destroy
+
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
