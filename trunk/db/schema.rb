@@ -14,6 +14,11 @@ ActiveRecord::Schema.define(:version => 20091120083153) do
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "task_id"
+    t.string   "name"
+    t.text     "desc"
+    t.datetime "due_by"
+    t.datetime "completed_at"
+    t.integer  "hours_spent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,14 +41,14 @@ ActiveRecord::Schema.define(:version => 20091120083153) do
     t.string   "name"
     t.text     "desc"
     t.boolean  "public"
-    t.datetime "due"
+    t.datetime "due_by"
+    t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tasks", :force => true do |t|
     t.integer  "project_id"
-    t.integer  "task_id"
     t.string   "name"
     t.text     "desc"
     t.datetime "due_by"
