@@ -18,11 +18,15 @@ class ProjectsController < ApplicationController
   
   # GET /
   def home
-    @projects = Project.find(:all, :limit => 10, :conditions => { :public => true })
+    if logged_in?
+      redirect_to dashboard_path
+    else
+        @projects = Project.find(:all, :limit => 10, :conditions => { :public => true })
 
-    respond_to do |format|
-      format.html # home.html.erb
-      format.xml  { render :xml => @projects }
+        respond_to do |format|
+          format.html # home.html.erb
+          format.xml  { render :xml => @projects }
+        end
     end
   end
 
@@ -41,6 +45,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    @tasks = @project.tasks
     @members = @project.users
 
     respond_to do |format|
