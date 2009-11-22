@@ -14,7 +14,7 @@
     <td><%=h project.name %></td>
     <td><%=h project.desc %></td>
     <td><%=h project.public %></td>
-    <td><%=h project.due %></td>
+    <td><%=h project.due_by.localtime %></td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>

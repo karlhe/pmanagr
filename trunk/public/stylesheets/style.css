@@ -52,7 +52,8 @@ h1 span {
 }
 #right_div {
   float: right;
-  background: #A386ff;
+  color: #fff;
+  background: #000;
   padding: 0px 10px 0px 10px;
   width: 30%;
 }
