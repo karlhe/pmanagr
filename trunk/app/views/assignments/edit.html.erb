@@ -1,6 +1,6 @@
 <h2>Editing task</h2>
 
-<% form_for(@assignment,@assignment.task) do |f| %>
+<% form_for [@project,@task,@assignment] do |f| %>
   <%= f.error_messages %>
 
 
@@ -25,5 +25,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', project_task_assigments_path(@assignment.task, @assignment) %> |
-<%= link_to 'Back', project_task_assignments_path(@assignment) %>
+<%= link_to 'Show', project_task_assignment_path(@project, @task, @assignment) %> |
+<%= link_to 'Back', project_task_path(@project, @task) %>

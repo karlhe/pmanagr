@@ -12932,3 +12932,1805 @@ ActionView::TemplateError (undefined method `project_tasks_assigments_path' for 
 Rendered rescues/_trace (161.0ms)
 Rendered rescues/_request_and_response (0.0ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 00:08:32) [GET]
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't')  LIMIT 10):
+  app/controllers/projects_controller.rb:21:in `home'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 00:08:40) [GET]
+  [4;35;1mProject Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't')  LIMIT 10):
+  app/controllers/projects_controller.rb:21:in `home'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (153.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 00:09:29) [GET]
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: projects: SELECT * FROM "projects" WHERE ("projects"."public" = 't')  LIMIT 10):
+  app/controllers/projects_controller.rb:21:in `home'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (37.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProjects (20091108033400)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "desc" text, "public" boolean, "due_by" datetime, "completed_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091108033400')[0m
+Migrating to CreateTasks (20091108033807)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "name" varchar(255), "desc" text, "due_by" datetime, "completed_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091108033807')[0m
+Migrating to CreateMemberships (20091108033854)
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "project_id" integer, "privilege" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091108033854')[0m
+Migrating to CreateAssignments (20091108034005)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "name" varchar(255), "desc" text, "due_by" datetime, "completed_at" datetime, "hours_spent" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091108034005')[0m
+Migrating to CreateUsers (20091108055719)
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(40), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091108055719')[0m
+Migrating to CreateThreads (20091120083139)
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "threads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091120083139')[0m
+Migrating to CreatePosts (20091120083153)
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091120083153')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("assignments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tasks")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("threads")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 00:10:22) [GET]
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (35.0ms)
+Completed in 83ms (View: 69, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-22 00:10:31) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') [0m
+Rendering template within layouts/application
+Rendering projects/index
+Rendered users/_user_bar (1.0ms)
+Completed in 26ms (View: 13, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-22 00:10:33) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 25ms (View: 21, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-22 00:10:41) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_user_bar (1.0ms)
+Completed in 78ms (View: 52, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-22 00:10:51) [POST]
+  Parameters: {"user"=>{"name"=>"Alan Choi", "password_confirmation"=>"haha", "password"=>"haha", "login"=>"apc", "email"=>"alan.choi@berkeley.edu"}, "commit"=>"Sign up", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'alan.choi@berkeley.edu') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_user_bar (1.0ms)
+Completed in 54ms (View: 19, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-22 00:10:59) [POST]
+  Parameters: {"user"=>{"name"=>"Alan Choi", "password_confirmation"=>"hahaha", "password"=>"hahaha", "login"=>"apc", "email"=>"alan.choi@berkeley.edu"}, "commit"=>"Sign up", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'alan.choi@berkeley.edu') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "crypted_password", "remember_token_expires_at", "remember_token", "login", "email", "created_at") VALUES('Alan Choi', '62decb08fade0e8b06f006a622f6a154c706f5d3', '2009-11-22 08:10:59', '0bc9288c82c2dacdc417752a7f856c6b0513f0c2', NULL, NULL, 'apc', 'alan.choi@berkeley.edu', '2009-11-22 08:10:59')[0m
+Redirected to http://localhost:3000/
+Completed in 75ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 00:11:01) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (114.0ms)
+Completed in 131ms (View: 119, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-22 00:11:05) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 49ms (View: 35, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-11-22 00:11:07) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering projects/new
+Rendered users/_user_bar (4.0ms)
+Completed in 257ms (View: 218, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-11-22 00:11:19) [POST]
+  Parameters: {"commit"=>"Create", "project"=>{"name"=>"Project 1", "public"=>"0", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Project 1 Description", "due_by(4i)"=>"08", "due_by(5i)"=>"11"}, "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mProject Create (1.0ms)[0m   [0mINSERT INTO "projects" ("name", "completed_at", "updated_at", "public", "due_by", "desc", "created_at") VALUES('Project 1', NULL, '2009-11-22 08:11:19', 'f', '2009-11-22 08:11:00', 'Project 1 Description', '2009-11-22 08:11:19')[0m
+Redirected to http://localhost:3000/projects/1/join_project
+Completed in 107ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#join (for 127.0.0.1 at 2009-11-22 00:11:20) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mMembership Create (1.0ms)[0m   [0;1mINSERT INTO "memberships" ("project_id", "updated_at", "user_id", "privilege", "created_at") VALUES(1, '2009-11-22 08:11:20', 1, NULL, '2009-11-22 08:11:20')[0m
+Redirected to http://localhost:3000/projects/1
+Completed in 71ms (DB: 2) | 302 Found [http://localhost/projects/1/join_project]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-22 00:11:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 1)) LIMIT 1[0m
+Rendered users/_user_bar (1.0ms)
+Completed in 72ms (View: 49, DB: 1) | 200 OK [http://localhost/projects/1]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-22 00:12:22) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 79ms (View: 55, DB: 1) | 200 OK [http://localhost/projects/1/tasks]
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-11-22 00:12:25) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/new
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 168ms (View: 61, DB: 2) | 200 OK [http://localhost/projects/1/tasks/new]
+
+
+Processing TasksController#create (for 127.0.0.1 at 2009-11-22 00:12:40) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "task"=>{"name"=>"Task 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Project 1 Task 1 Description", "due_by(4i)"=>"08", "due_by(5i)"=>"12"}}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mTask Create (1.0ms)[0m   [0;1mINSERT INTO "tasks" ("name", "completed_at", "project_id", "updated_at", "due_by", "desc", "created_at") VALUES('Task 1', NULL, 1, '2009-11-22 08:12:40', '2009-11-22 08:12:00', 'Project 1 Task 1 Description', '2009-11-22 08:12:40')[0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 37ms (DB: 2) | 302 Found [http://localhost/projects/1/tasks]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 00:12:41) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 85ms (View: 62, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:12:47) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (undefined method `project_task_assigment_path' for #<ActionView::Base:0x669674c>) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assigment_path(@assignment) %>
+
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:32:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:13:03) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (undefined method `project_task_assigment_path' for #<ActionView::Base:0x66b5bd8>) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assigment_path(@assignment) %>
+
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:32:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (175.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:13:04) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (undefined method `project_task_assigment_path' for #<ActionView::Base:0x6807f90>) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assigment_path(@assignment) %>
+
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:32:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:13:06) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (undefined method `project_task_assigment_path' for #<ActionView::Base:0x65ecf6c>) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assigment_path(@assignment) %>
+
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:32:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (79.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:13:13) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (project_task_assignment_url failed to generate from {:controller=>"assignments", :action=>"show", :project_id=>#<Assignment id: nil, user_id: nil, task_id: nil, name: nil, desc: nil, due_by: nil, completed_at: nil, hours_spent: nil, created_at: nil, updated_at: nil>}, expected: {:controller=>"assignments", :action=>"show"}, diff: {:project_id=>#<Assignment id: nil, user_id: nil, task_id: nil, name: nil, desc: nil, due_by: nil, completed_at: nil, hours_spent: nil, created_at: nil, updated_at: nil>}) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assignment_path(@assignment) %>
+
+    (eval):16:in `project_task_assignment_path'
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:32:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (192.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:16:05) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+
+NoMethodError (undefined method `assignment' for #<Task:0x67a0d68>):
+  app/controllers/assignments_controller.rb:31:in `new'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:16:13) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (project_task_assignment_url failed to generate from {:controller=>"assignments", :action=>"show", :project_id=>#<Assignment id: nil, user_id: nil, task_id: 1, name: nil, desc: nil, due_by: nil, completed_at: nil, hours_spent: nil, created_at: nil, updated_at: nil>}, expected: {:controller=>"assignments", :action=>"show"}, diff: {:project_id=>#<Assignment id: nil, user_id: nil, task_id: 1, name: nil, desc: nil, due_by: nil, completed_at: nil, hours_spent: nil, created_at: nil, updated_at: nil>}) on line #23 of app/views/assignments/new.html.erb:
+20:   </p>
+21: <% end %>
+22: 
+23: <%= link_to 'Back', project_task_assignment_path(@assignment) %>
+
+    (eval):16:in `project_task_assignment_path'
+    app/views/assignments/new.html.erb:23
+    app/controllers/assignments_controller.rb:33:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (97.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:18:54) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (5.0ms)
+Completed in 97ms (View: 41, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:19:20) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (4.0ms)
+Completed in 91ms (View: 41, DB: 0) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:19:33) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description\r\n", "due_by(4i)"=>"08", "due_by(5i)"=>"19"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (1.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 08:19:33', '2009-11-22 08:19:00', NULL, 'Assignment 1 Description
+', NULL, NULL, '2009-11-22 08:19:33')[0m
+
+NoMethodError (undefined method `join_assignment_path' for #<AssignmentsController:0x68a0024>):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:20:32) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description\r\n", "due_by(4i)"=>"08", "due_by(5i)"=>"19"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (2.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 08:20:32', '2009-11-22 08:19:00', NULL, 'Assignment 1 Description
+', NULL, NULL, '2009-11-22 08:20:32')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.call):
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:21:00) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (3.0ms)
+Completed in 73ms (View: 27, DB: 0) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 00:21:03) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (33.0ms)
+Completed in 79ms (View: 56, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:21:05) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (4.0ms)
+Completed in 79ms (View: 31, DB: 0) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 00:21:09) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 156ms (View: 133, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:21:11) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (4.0ms)
+Completed in 77ms (View: 28, DB: 0) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:21:32) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (2.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 08:21:32', '2009-11-22 08:21:00', NULL, 'Assignment 1', NULL, NULL, '2009-11-22 08:21:32')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.call):
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:23:08) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (2.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 08:23:08', '2009-11-22 08:21:00', NULL, 'Assignment 1', NULL, NULL, '2009-11-22 08:23:08')[0m
+
+NoMethodError (undefined method `project' for #<Assignment:0x68bfb40>):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:23:17) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (2.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 08:23:17', '2009-11-22 08:21:00', NULL, 'Assignment 1', NULL, NULL, '2009-11-22 08:23:17')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.project):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (64.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mAssignment Create (2.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:50:23', NULL, NULL, NULL, NULL, NULL, '2009-11-22 08:50:23')[0m
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:51:42) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (2.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:51:43', NULL, NULL, NULL, NULL, NULL, '2009-11-22 08:51:43')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.project):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:51:47) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (3.0ms)
+Completed in 77ms (View: 28, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:51:50) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (1.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:51:51', NULL, NULL, NULL, NULL, NULL, '2009-11-22 08:51:51')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.project):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (147.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:53:12) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Create (1.0ms)[0m   [0mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:53:12', NULL, NULL, NULL, NULL, NULL, '2009-11-22 08:53:12')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.project):
+  app/controllers/assignments_controller.rb:52:in `create'
+  app/controllers/assignments_controller.rb:49:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:53:56) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActiveRecord::AssociationTypeMismatch (Task(#53869730) expected, got String(#35091480)):
+  app/controllers/assignments_controller.rb:48:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (95.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:54:09) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:54:09', NULL, 1, NULL, NULL, NULL, '2009-11-22 08:54:09')[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:53:in `create'
+  app/controllers/assignments_controller.rb:50:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:54:47) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (4.0ms)
+Completed in 81ms (View: 28, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:55:12) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:55:12', NULL, 1, NULL, NULL, NULL, '2009-11-22 08:55:12')[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:53:in `create'
+  app/controllers/assignments_controller.rb:50:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:55:24) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (5.0ms)
+Completed in 181ms (View: 36, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:55:27) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:55:27', NULL, 1, NULL, NULL, NULL, '2009-11-22 08:55:27')[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Project id: 1, name: "Project 1", desc: "Project 1 Description", public: false, due_by: "2009-11-22 08:11:00", completed_at: nil, created_at: "2009-11-22 08:11:19", updated_at: "2009-11-22 08:11:19">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:53:in `create'
+  app/controllers/assignments_controller.rb:50:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 00:56:16) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1", "due_by(4i)"=>"08", "due_by(5i)"=>"21"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 08:56:16', NULL, 1, NULL, NULL, NULL, '2009-11-22 08:56:16')[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:53:in `create'
+  app/controllers/assignments_controller.rb:50:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:59:18) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.task) on line #3 of app/views/assignments/new.html.erb:
+1: <h2>New assignment</h2>
+2: 
+3: <% form_for [@assignment.task.project, @assigment.task, @assignment] do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/assignments/new.html.erb:3
+    app/controllers/assignments_controller.rb:33:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 00:59:21) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.task) on line #3 of app/views/assignments/new.html.erb:
+1: <h2>New assignment</h2>
+2: 
+3: <% form_for [@assignment.task.project, @assigment.task, @assignment] do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/assignments/new.html.erb:3
+    app/controllers/assignments_controller.rb:33:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 01:01:43) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (5.0ms)
+Completed in 128ms (View: 46, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/new]
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 01:01:55) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "due_by(4i)"=>"09", "due_by(5i)"=>"01"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Create (2.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES(NULL, NULL, '2009-11-22 09:01:55', NULL, 1, NULL, NULL, NULL, '2009-11-22 09:01:55')[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:54:in `create'
+  app/controllers/assignments_controller.rb:51:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 01:03:41) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "due_by(4i)"=>"09", "due_by(5i)"=>"01"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 09:03:41', '2009-11-22 09:01:00', 1, 'Assignment 1 Description', NULL, NULL, '2009-11-22 09:03:41')[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+
+ActionController::RoutingError (project_task_url failed to generate from {:controller=>"tasks", :action=>"show", :project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}, expected: {:controller=>"tasks", :action=>"show"}, diff: {:project_id=>#<Task id: 1, project_id: 1, name: "Task 1", desc: "Project 1 Task 1 Description", due_by: "2009-11-22 08:12:00", completed_at: nil, created_at: "2009-11-22 08:12:40", updated_at: "2009-11-22 08:12:40">}):
+  (eval):16:in `project_task_path'
+  app/controllers/assignments_controller.rb:54:in `create'
+  app/controllers/assignments_controller.rb:51:in `create'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 01:04:38) [POST]
+  Parameters: {"project_id"=>"1", "commit"=>"Create", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "due_by(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "due_by(4i)"=>"09", "due_by(5i)"=>"01"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at") VALUES('Assignment 1', NULL, '2009-11-22 09:04:38', '2009-11-22 09:01:00', 1, 'Assignment 1 Description', NULL, NULL, '2009-11-22 09:04:38')[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 197ms (DB: 2) | 302 Found [http://localhost/projects/1/tasks/1/assignments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:04:39) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #42 of app/views/tasks/show.html.erb:
+39:   <tr>
+40:     <td><%=h assig.name %></td>
+41:     <td><%=h assig.desc %></td>
+42:     <td><%=h assig.user.name %></td>
+43:     <td><%=h assig.due_by.localtime %></td>
+44:     <td><%=h assig.completed_at %></td>
+45:     <td><%= link_to 'Show', project_task_assignment_path(@task.project_id,@task,assig) %></td>
+
+    app/views/tasks/show.html.erb:42
+    app/views/tasks/show.html.erb:38
+    app/controllers/tasks_controller.rb:37:in `show'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (88.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:07:17) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.localtime) on line #43 of app/views/tasks/show.html.erb:
+40:     <td><%=h assig.name %></td>
+41:     <td><%=h assig.desc %></td>
+42:     <td><% if assig.user.present?%><%=h assig.user.name %><% end %></td>
+43:     <td><%=h assig.due_by.localtime %></td>
+44:     <td><%=h assig.completed_at %></td>
+45:     <td><%= link_to 'Show', project_task_assignment_path(@task.project_id,@task,assig) %></td>
+46:     <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
+
+    app/views/tasks/show.html.erb:43
+    app/views/tasks/show.html.erb:38
+    app/controllers/tasks_controller.rb:37:in `show'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (83.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:07:42) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (2.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 143ms (View: 119, DB: 4) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:07:52) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"10"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 171ms (View: 47, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/10]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:07:59) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"10"}
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 10) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Task with ID=10):
+  app/controllers/tasks_controller.rb:34:in `show'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (60.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-22 01:08:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 1)) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 64ms (View: 38, DB: 1) | 200 OK [http://localhost/projects/1/]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-11-22 01:08:10) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks".project_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 159ms (View: 132, DB: 3) | 200 OK [http://localhost/projects/1/tasks]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:08:12) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (2.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 137ms (View: 113, DB: 4) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:08:19) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"10"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 93ms (View: 46, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1/assignments/10]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:09:03) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"10"}
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 10) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Task with ID=10):
+  app/controllers/tasks_controller.rb:34:in `show'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:09:17) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"10"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 87ms (View: 48, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1/assignments/10]
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:09:44) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"10"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment without an ID):
+  app/controllers/assignments_controller.rb:42:in `edit'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:09:53) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"10"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+  [4;35;1mAssignment Destroy (2.0ms)[0m   [0mDELETE FROM "assignments" WHERE "id" = 10[0m
+
+NameError (undefined local variable or method `assignments_url' for #<AssignmentsController:0x68b06b8>):
+  app/controllers/assignments_controller.rb:87:in `destroy'
+  app/controllers/assignments_controller.rb:86:in `destroy'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (79.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:10:50) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"10"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment with ID=10):
+  app/controllers/assignments_controller.rb:83:in `destroy'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:11:09) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"10"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 10) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment with ID=10):
+  app/controllers/assignments_controller.rb:83:in `destroy'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:24) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 125ms (View: 101, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:11:28) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"11"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 11) [0m
+  [4;36;1mAssignment Destroy (1.0ms)[0m   [0;1mDELETE FROM "assignments" WHERE "id" = 11[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 67ms (DB: 5) | 302 Found [http://localhost/projects/1/tasks/1/assignments/11]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:29) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 121ms (View: 98, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:11:33) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"12"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 12) [0m
+  [4;35;1mAssignment Destroy (2.0ms)[0m   [0mDELETE FROM "assignments" WHERE "id" = 12[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 125ms (DB: 4) | 302 Found [http://localhost/projects/1/tasks/1/assignments/12]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:34) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (112.0ms)
+Completed in 191ms (View: 169, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:11:38) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"13"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 13) [0m
+  [4;36;1mAssignment Destroy (1.0ms)[0m   [0;1mDELETE FROM "assignments" WHERE "id" = 13[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 69ms (DB: 4) | 302 Found [http://localhost/projects/1/tasks/1/assignments/13]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:38) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 102ms (View: 80, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#destroy (for 127.0.0.1 at 2009-11-22 01:11:42) [DELETE]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"14"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 14) [0m
+  [4;35;1mAssignment Destroy (2.0ms)[0m   [0mDELETE FROM "assignments" WHERE "id" = 14[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 67ms (DB: 3) | 302 Found [http://localhost/projects/1/tasks/1/assignments/14]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:42) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 98ms (View: 72, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:11:46) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 79ms (View: 40, DB: 1) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:11:50) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"15"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 15) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Task with ID=15):
+  app/controllers/tasks_controller.rb:34:in `show'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (144.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:12:26) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (3.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (5.0ms)
+Completed in 103ms (View: 54, DB: 4) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:12:29) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (33.0ms)
+Completed in 102ms (View: 75, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:12:32) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment without an ID):
+  app/controllers/assignments_controller.rb:42:in `edit'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (137.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:13:24) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment without an ID):
+  app/controllers/assignments_controller.rb:44:in `edit'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:14:49) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Assignment without an ID):
+  app/controllers/assignments_controller.rb:44:in `edit'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:15:03) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering assignments/edit
+Rendered users/_user_bar (4.0ms)
+Completed in 112ms (View: 54, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15/edit]
+
+
+Processing AssignmentsController#update (for 127.0.0.1 at 2009-11-22 01:16:26) [PUT]
+  Parameters: {"project_id"=>"1", "commit"=>"Update", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "completed_at(1i)"=>"2009", "due_by(2i)"=>"10", "completed_at(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "completed_at(3i)"=>"22", "due_by(4i)"=>"09", "completed_at(4i)"=>"09", "due_by(5i)"=>"01", "completed_at(5i)"=>"15"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"15"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+
+NoMethodError (undefined method `project' for #<Assignment:0x66a542c>):
+  app/controllers/assignments_controller.rb:70:in `update'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AssignmentsController#update (for 127.0.0.1 at 2009-11-22 01:16:42) [PUT]
+  Parameters: {"project_id"=>"1", "commit"=>"Update", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "completed_at(1i)"=>"2009", "due_by(2i)"=>"10", "completed_at(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "completed_at(3i)"=>"22", "due_by(4i)"=>"09", "completed_at(4i)"=>"09", "due_by(5i)"=>"01", "completed_at(5i)"=>"15"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Update (2.0ms)[0m   [0mUPDATE "assignments" SET "due_by" = '2009-10-22 09:01:00', "completed_at" = '2009-11-22 09:15:00', "updated_at" = '2009-11-22 09:16:43' WHERE "id" = 15[0m
+Redirected to http://localhost:3000/projects/1/tasks.%23%3Ctask:0x688b9d0%3E
+Completed in 99ms (DB: 4) | 302 Found [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing TasksController#index to #<task:0x688b9d0> (for 127.0.0.1 at 2009-11-22 01:16:44) [GET]
+  Parameters: {"project_id"=>"1"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Completed in 25ms (View: 1, DB: 1) | 406 Not Acceptable [http://localhost/projects/1/tasks.%23%3Ctask:0x688b9d0%3E]
+
+
+Processing AssignmentsController#edit (for 127.0.0.1 at 2009-11-22 01:16:56) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering assignments/edit
+Rendered users/_user_bar (4.0ms)
+Completed in 170ms (View: 73, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15/edit]
+
+
+Processing AssignmentsController#update (for 127.0.0.1 at 2009-11-22 01:16:59) [PUT]
+  Parameters: {"project_id"=>"1", "commit"=>"Update", "assignment"=>{"name"=>"Assignment 1", "due_by(1i)"=>"2009", "completed_at(1i)"=>"2009", "due_by(2i)"=>"10", "completed_at(2i)"=>"11", "due_by(3i)"=>"22", "desc"=>"Assignment 1 Description", "completed_at(3i)"=>"22", "due_by(4i)"=>"09", "completed_at(4i)"=>"09", "due_by(5i)"=>"01", "completed_at(5i)"=>"15"}, "task_id"=>"1", "authenticity_token"=>"mGeZC1ingACCaE6uxRF1XNr7f3s8C0wO1uzMAqMBzoI=", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 75ms (DB: 2) | 302 Found [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:16:59) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 96ms (View: 72, DB: 4) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:17:21) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 77ms (View: 37, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:17:33) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (111.0ms)
+Completed in 190ms (View: 161, DB: 5) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:23:45) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (32.0ms)
+Completed in 109ms (View: 87, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:24:23) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (42.0ms)
+Completed in 201ms (View: 178, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:25:13) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (55.0ms)
+Completed in 165ms (View: 136, DB: 3) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#take (for 127.0.0.1 at 2009-11-22 01:25:21) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mAssignment Update (1.0ms)[0m   [0mUPDATE "assignments" SET "updated_at" = '2009-11-22 09:25:22', "user_id" = 1 WHERE "id" = 15[0m
+Redirected to http://localhost:3000/projects/1/tasks/1
+Completed in 83ms (DB: 2) | 302 Found [http://localhost/projects/1/tasks/1/assignments/15/take]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 01:25:22) [GET]
+  Parameters: {"project_id"=>"1", "id"=>"1"}
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (3.0ms)
+Completed in 93ms (View: 71, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:25:30) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 15) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_user_bar (4.0ms)
+Completed in 77ms (View: 37, DB: 2) | 200 OK [http://localhost/projects/1/tasks/1/assignments/15]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 01:25:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_late_assignments (2.0ms)
+Rendered users/_upcoming_assignments (1.0ms)
+Rendered users/_recent_activities (1.0ms)
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 124ms (View: 87, DB: 3) | 200 OK [http://localhost/users/1]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 01:25:41) [GET]
+  Parameters: {"project_id"=>"1", "task_id"=>"1", "id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.project) on line #3 of app/views/assignments/show.html.erb:
+1: <p>
+2:   <b>Project:</b>
+3:   <%=h @assignment.task.project.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/assignments/show.html.erb:3
+    app/controllers/assignments_controller.rb:35:in `show'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)

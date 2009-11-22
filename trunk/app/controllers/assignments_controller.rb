@@ -1,6 +1,20 @@
 class AssignmentsController < ApplicationController
   before_filter :login_required
 
+  def take
+    @assignment = Assignment.find(params[:id])
+    @task = @assignment.task
+    @project = @task.project
+    @assignment.user = current_user
+    if @assignment.save
+      flash[:notice] = "You have taken the assignment."
+      redirect_to project_task_path(@project,@task)
+    else
+      flash[:error] = "Failed to take assignment."
+      redirect_to project_task_path(@project,@task)
+    end
+  end
+
   # GET /assignments
   # GET /assignments.xml
   def index
@@ -27,7 +41,9 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new
   # GET /assignments/new.xml
   def new
-    @assignment = Assignment.new
+    @task = Task.find(params[:task_id])
+    @project = @task.project
+    @assignment = @task.assignments.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,18 +53,21 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/1/edit
   def edit
+    @task = Task.find(params[:task_id])
+    @project = @task.project
     @assignment = Assignment.find(params[:id])
   end
 
   # POST /assignments
   # POST /assignments.xml
   def create
-    @assignment = Assignment.new(params[:assignment])
+    @task = Task.find(params[:task_id])
+    @assignment = @task.assignments.build(params[:assignment])
 
     respond_to do |format|
       if @assignment.save
         flash[:notice] = 'assignment was successfully created.'
-        format.html { redirect_to join_assignment_path(@assignment) }
+        format.html { redirect_to project_task_path(@task.project, @task)}
         format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }
       else
         format.html { render :action => "new" }
@@ -61,11 +80,13 @@ class AssignmentsController < ApplicationController
   # PUT /assignments/1.xml
   def update
     @assignment = Assignment.find(params[:id])
+    @task = @assignment.task
+    @project = @task.project
 
     respond_to do |format|
       if @assignment.update_attributes(params[:assignment])
         flash[:notice] = 'assignment was successfully updated.'
-        format.html { redirect_to(@assignment) }
+        format.html { redirect_to project_task_path(@project,@task) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,7 +102,7 @@ class AssignmentsController < ApplicationController
     @assignment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(assignments_url) }
+      format.html { redirect_to(project_task_path(@assignment.task.project, @assignment.task)) }
       format.xml  { head :ok }
     end
   end
