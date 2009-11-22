@@ -23,4 +23,4 @@ production:
   pool: 5
   username: root
   password: stephenchang
-  host: domU-12-31-38-00-44-21.compute-1.internal
+  host: localhost
