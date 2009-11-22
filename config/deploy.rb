@@ -5,7 +5,7 @@ set :repository, "http://pmanagr.googlecode.com/svn/trunk/"
 set :deploy_to, "/mnt/app"
 
 # Replace the below with the hostname of your EC2 instance.
-set :machine_name, "ec2-174-129-97-1.compute-1.amazonaws.com"
+set :machine_name, "ec2-174-129-166-224.compute-1.amazonaws.com"
 
 # We're using one instance for all three roles.
 role :app, "#{machine_name}"
@@ -15,9 +15,7 @@ role :db,  "#{machine_name}", :primary => true
 set :use_sudo, false
 set :user, "root"
 
-#Change this to be the id_rsa-cs194 file on your local computer
 ssh_options[:keys] = File.join(ENV["EC2_HOME"], "\id_rsa-cs194")
-
 
 namespace :deploy do
   %w(start stop restart).each do |action|
