@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @assignments = @user.assignments
-    @late_assignments = @assignments.select{|assignment| assignment.due_by > Time.now}
-    @upcoming_assignments = @assignments.select{|assignment| assignment.due_by <= Time.now and assignment.due_by < 14.days.since}
+    @late_assignments = @assignments.select{|assignment| assignment.due_by < Time.now}
+    @upcoming_assignments = @assignments.select{|assignment| assignment.due_by >= Time.now and assignment.due_by < 14.days.since}
     @recent_activity = @assignments.select{|assignment| assignment.updated_at > 14.days.ago}
   end
   
