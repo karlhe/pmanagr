@@ -1,4 +1,5 @@
 <div id="left_div">
+  <h2>Dashboard</h2>
 
   <%=  render :partial => "late_assignments" %>
   <%=  render :partial => "upcoming_assignments" %>
@@ -6,16 +7,23 @@
 
   <p>Member since <%= @user.created_at %>.</p>
     <h3>Assignments:</h3>
-    <ul>
-    <% @user.assignments.each do |assig| -%>
-      <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task) %></li>
+    <% if @user.assignments.blank? -%>
+      <p>You have no assignments.</p>
+    <% else -%>
+      <ul>
+      <% @user.assignments.each do |assig| -%>
+        <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task) %></li>
+      <% end -%>
+      </ul>
     <% end -%>
-    </ul>
 </div>
 
 <div id="right_div">
-    <h3>Your Projects</h3>
+    <h2>Your Projects</h2>
     <ul>
+    <% if @user.projects.blank? -%>
+      <li>You are currently part of no projects.</li>
+    <% end -%>
     <% @user.projects.each do |project| -%>
       <li><%= link_to "#{project.name}", project_path(project) %></li>
     <% end -%>

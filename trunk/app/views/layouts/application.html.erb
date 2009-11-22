@@ -13,13 +13,11 @@
   </head>
 
   <body>
-    <div id="container" class="content">
+    <div id="container">
       <div id="head">
-        <div id="user-bar">
-          <%= render :partial => "users/user_bar" %>
-        </div>
+        <%= render :partial => "users/user_bar" %>
         <div id="title">
-          <h1><%= link_to "<span>P</span>Managr", root_path %></h1>
+          <h1><%= link_to "P<span>Managr</span>", root_path %></h1>
           <% flash.keys.each do |msg| -%>
             <% if flash[msg.to_sym].present? -%>
               <div id="flash_<%=msg%>" class="<%=msg%>"><%= flash[msg.to_sym] %></div>
@@ -27,7 +25,7 @@
           <% end -%>
         </div>
       </div>
-      <div id="middle">
+      <div id="middle" class="content">
         <%= yield %>
       </div>
       <div id="footer">
