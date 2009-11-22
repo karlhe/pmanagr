@@ -1,0 +1,29 @@
+<h2>Editing task</h2>
+
+<% form_for(@assignment,@assignment.task) do |f| %>
+  <%= f.error_messages %>
+
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :desc %><br />
+    <%= f.text_area :desc %>
+  </p>
+  <p>
+    <%= f.label :due_by %><br />
+    <%= f.datetime_select :due_by %>
+  </p>
+  <p>
+    <%= f.label :completed_at %><br />
+    <%= f.datetime_select :completed_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', project_task_assigments_path(@assignment.task, @assignment) %> |
+<%= link_to 'Back', project_task_assignments_path(@assignment) %>

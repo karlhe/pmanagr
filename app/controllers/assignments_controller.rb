@@ -4,7 +4,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments = assignment.find(:all, :conditions => { :public => true })
+    @assignments = Assignment.find(:all, :conditions => { :public => true })
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +15,8 @@ class AssignmentsController < ApplicationController
   # GET /assignments/1
   # GET /assignments/1.xml
   def show
-    @assignment = assignment.find(params[:id])
-    @members = @assignment.users
+    @assignment = Assignment.find(params[:id])
+    @members = @assignment.user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +27,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new
   # GET /assignments/new.xml
   def new
-    @assignment = assignment.new
+    @assignment = Assignment.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +37,13 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/1/edit
   def edit
-    @assignment = assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
   end
 
   # POST /assignments
   # POST /assignments.xml
   def create
-    @assignment = assignment.new(params[:assignment])
+    @assignment = Assignment.new(params[:assignment])
 
     respond_to do |format|
       if @assignment.save
@@ -60,7 +60,7 @@ class AssignmentsController < ApplicationController
   # PUT /assignments/1
   # PUT /assignments/1.xml
   def update
-    @assignment = assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
 
     respond_to do |format|
       if @assignment.update_attributes(params[:assignment])
@@ -77,7 +77,7 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1
   # DELETE /assignments/1.xml
   def destroy
-    @assignment = assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
     @assignment.destroy
 
     respond_to do |format|

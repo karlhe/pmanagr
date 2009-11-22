@@ -1,0 +1,28 @@
+<h2><%= @project.name %> Tasks</h2>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Name</th>
+    <th>Desc</th>
+    <th>Due By</th>
+    <th>Completed At</th>
+    <th colspan="3">Admin</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%=h task.project.name %></td>
+    <td><%=h task.name %></td>
+    <td><%=h task.desc %></td>
+    <td><%=h task.due_by %></td>
+    <td><%=h task.completed_at %></td>
+    <td><%= link_to 'Show', project_task_path(@project,task) %></td>
+    <td><%= link_to 'Edit', edit_project_task_path(@project,task) %></td>
+    <td><%= link_to 'Destroy', project_task_path(@project,task), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'Back', project_path(@project) %> |
+<%= link_to 'New task', new_project_task_path(@project) %>
