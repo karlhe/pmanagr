@@ -32,6 +32,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.xml
   def show
     @task = Task.find(params[:id])
+    @assignments = @task.assignments
 
     respond_to do |format|
       format.html # show.html.erb

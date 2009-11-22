@@ -1,3 +1,20 @@
 <p>PManagr is a project management system.</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Desc</th>
+    <th>Public</th>
+    <th>Due</th>
+  </tr>
 
-<p><%= link_to 'List Public Projects', projects_path %></p>
+<% @projects.each do |project| %>
+  <tr>
+    <td><%=h project.name %></td>
+    <td><%=h project.desc %></td>
+    <td><%=h project.public %></td>
+    <td><%=h project.due_by.localtime %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to 'List All Public Projects', projects_path %></p>

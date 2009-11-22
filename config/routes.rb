@@ -6,8 +6,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resource :session
+  
+  map.resources :projects do |project|
+    project.resources :tasks do |task|
+      task.resources :assignments
+    end
+  end
 
-  map.resources :projects, :has_many => :tasks
+  
   map.assign_task '/projects/:project_id/tasks/:task_id/assign', :controller => :tasks, :action => :assign
   map.join_project '/projects/:project_id/join_project', :controller => :projects, :action => :join
   

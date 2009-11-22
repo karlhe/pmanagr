@@ -18,7 +18,12 @@ class ProjectsController < ApplicationController
   
   # GET /
   def home
-    
+    @projects = Project.find(:all, :limit => 10, :conditions => { :public => true })
+
+    respond_to do |format|
+      format.html # home.html.erb
+      format.xml  { render :xml => @projects }
+    end
   end
 
   # GET /projects
