@@ -3,7 +3,6 @@
   <%=h @task.project.name %>
 </p>
 
-
 <p>
   <b>Name:</b>
   <%=h @task.name %>
@@ -30,8 +29,9 @@
   <tr>
     <th>Name</th>
     <th>Desc</th>
-    <th>Public</th>
+    <th>Owner</th>
     <th>Due</th>
+    <th>Completed At</th>
     <th colspan="3">Admin</th>
   </tr>
 
@@ -39,14 +39,16 @@
   <tr>
     <td><%=h assig.name %></td>
     <td><%=h assig.desc %></td>
-    <td><%=h assig.user_id %></td>
-    <td><%=h assig.task_id %></td>
+    <td><%=h assig.user.name %></td>
+    <td><%=h assig.due_by.localtime %></td>
+    <td><%=h assig.completed_at %></td>
     <td><%= link_to 'Show', project_task_assignment_path(@task.project_id,@task,assig) %></td>
-    <td><%= link_to 'Edit', edit_project_path(assig) %></td>
+    <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Destroy', project_task_assignment_path(@task.project_id,@task,assig), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <%= link_to 'Edit', edit_project_task_path(@task.project,@task) %> |
-<%= link_to 'Back', project_tasks_path(@task.project) %>
+<%= link_to 'Back', project_tasks_path(@task.project) %> |
+<%= link_to 'New Assignment', new_project_task_assignment_path(@task.project, @task) %>

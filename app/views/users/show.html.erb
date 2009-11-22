@@ -8,7 +8,7 @@
     <h3>Assignments:</h3>
     <ul>
     <% @user.assignments.each do |assig| -%>
-      <li><%= link_to "#{assig.name}", project_task_path(assig.project,task) %></li>
+      <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task) %></li>
     <% end -%>
     </ul>
 </div>
