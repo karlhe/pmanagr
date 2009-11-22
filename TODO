@@ -1,16 +1,22 @@
 =CONTROLLER=
+discussions/posts
 
 =MODEL=
-
+discussions/posts
 
 =VIEW=
-assignment views
+mark assignment complete
+reopen assignment
+mark project complete
+reopen project
+(look at tasks for example)
+rework back links, redirects, etc.
+discussions/posts
 
 =DESIGN=
-pretty url
+improve assignment views
 
 =MISC=
-
+cucumber and rspec: should probably make some of them actually work
 
 =FIX=
-task edit
