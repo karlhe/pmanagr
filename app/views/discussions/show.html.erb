@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @discussion.title %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @discussion.project %>
+</p>
+
+
+<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+<%= link_to 'Back', discussions_path %>

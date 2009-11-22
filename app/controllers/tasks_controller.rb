@@ -16,6 +16,30 @@ class TasksController < ApplicationController
     end
   end
   
+  def complete
+    @task = Task.find(params[:task_id])
+    @project = @task.project
+    if @task.update_attribute(:completed_at,Time.now)
+      flash[:notice] = "Task has been completed!"
+      redirect_to project_path(@project)
+    else
+      flash[:error] = "Failed to mark task complete!"
+      redirect_to project_path(@project)
+    end
+  end
+
+  def reopen
+    @task = Task.find(params[:task_id])
+    @project = @task.project
+    if @task.update_attribute(:completed_at,nil)
+      flash[:notice] = "Task has been reopened!"
+      redirect_to project_path(@project)
+    else
+      flash[:error] = "Failed to reopen task!"
+      redirect_to project_path(@project)
+    end
+  end
+  
   # GET /tasks
   # GET /tasks.xml
   def index

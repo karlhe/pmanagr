@@ -1,0 +1,15 @@
+  <h2><%=h @project.name %></h2>
+  <ul class="white">
+    <% if @project.public %><li>Public Project</li><% end %>
+    <li>Due Date: <%= @project.due_by.strftime("%D at %l:%M%P") %></li>
+  </ul>
+  <% if logged_in? and @project.users.include?(current_user) -%>
+  <h3>Your Tasks</h3>
+  <ul class="white">
+  <% current_user.assignments.select{|assignment| assignment.task.project == @project}.each do |assignment| %>
+    <li>
+      <%= link_to "#{assignment.name}", project_task_assignment_path(@project,assignment.task,assignment) %> (Due <%= assignment.due_by %>)
+    </li>
+  <% end -%>
+  </ul>
+  <% end -%>

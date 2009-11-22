@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :discussions, :has_many => :posts
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
+  map.dashboard '/dashboard', :controller => 'users', :action => 'show'
   map.resources :users
 
   map.resource :session
@@ -12,6 +15,8 @@ ActionController::Routing::Routes.draw do |map|
       task.resources :assignments
     end
   end
+  map.complete_project_task '/projects/:project_id/tasks/:task_id/complete', :controller => 'tasks', :action => 'complete'
+  map.reopen_project_task '/projects/:project_id/tasks/:task_id/reopen', :controller => 'tasks', :action => 'reopen'
   map.take_project_task_assignment '/projects/:project_id/tasks/:task_id/assignments/:id/take', :controller => 'assignments', :action => 'take'
 
   
