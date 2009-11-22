@@ -1,12 +1,26 @@
-h1 {
-  font-size: 3em;
-  padding-bottom: 1em;
+a:link {
+  text-decoration: underline;
+  color: #070;
 }
-h1 a:link, h1 a:visited {
+a:visited {
+  text-decoration: underline;
+  color: #050;
+}
+a:hover {
   color: #090;
 }
+
+h1 {
+  font-size: 3em;
+  height: 70px;
+}
+h1 a:link, h1 a:visited {
+  text-decoration: none;
+}
 h1 span {
-  color: #000;
+  border-bottom: 2px solid #fff;
+  font-size: 80%;
+  vertical-align: top;
 }
 .notice, .error {
   font-size: 1.2em;
@@ -29,51 +43,78 @@ h1 span {
 #head {
   margin: 0 auto;
   padding: 10px 10px 0;
-  background: #cf9;
+  background: #4c2;
+}
+#head a:link, #head a:visited {
+  font-weight: bold;
+  color: #fff;
+}
+#head a:hover {
+  color: #cfc;
 }
 #user-bar {
-  font-size: 1.2em;
+  font-size: 1.3em;
   float: right;
 }
 #middle {
-  padding: 10px;
-
+  padding: 0 10px;
+}
+.content {
+  font-size: 1.3em;
 }
 #footer {
   text-align: center;
   clear: both;
-  background: #A126a1;
+  border-top: 1px solid #999;
+  background: transparent;
+  color: #000;
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
 #left_div {
   float: left;
-  padding: 0px 10px 0px 10px;
-  width: 65%;
-  background: #A386a1;
+  width: 630px;
+  padding: 0;
+  background: #fff;
 }
 #right_div {
   float: right;
+  margin-top: 10px;
+  width: 290px;
+  padding: 0px 5px;
+  background: #090;
   color: #fff;
-  background: #000;
-  padding: 0px 10px 0px 10px;
-  width: 30%;
 }
-#urgent{
-  background: red;
-  padding: 5px;
-  margin: 10px 0px 10px 0px;
+#right_div h2 {
+  margin: .5em 0;
+  padding: 4px;
+  font-size: 1.4em;
 }
-#upcoming{
-  background: blue;
+#right_div ul {
+  list-style: none;
+  margin: .5em 0;
   padding: 5px;
-  margin: 10px 0px 10px 0px;
+  background: #fff;
+  color: #333;
 }
-#recent_activities{
-  background: green;
+.box {
+  margin: .5em 0;
   padding: 5px;
-  margin: 10px 0px 10px 0px;
+  border: 1px solid;
 }
-.content_boxes {
-  background: #A386ff;
-  padding: 5px;
-  margin: 10px 0px 10px 0px;
+.box h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+}
+#urgent {
+  border-color: #c00;
+  background: #fcc;
+}
+#upcoming {
+  border-color: #00c;
+  background: #ccf;
+}
+#recent-activities {
+  border-color: #090;
+  background: #cfc;
 }
