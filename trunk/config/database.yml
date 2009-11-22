@@ -18,11 +18,11 @@ test: &TEST
 production:
   adapter: mysql
   encoding: utf8
+  reconnect: false
   database: pmanagr_production
   pool: 5
   username: root
   password: stephenchang
-  host: localhost
   timeout: 5000
 
 cucumber:
