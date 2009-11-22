@@ -24,5 +24,3 @@ production:
   username: root
   password: stephenchang
   host: ec2-174-129-166-224.compute-1.amazonaws.com
-
-cucumber:

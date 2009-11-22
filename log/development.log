@@ -14734,3 +14734,12 @@ The error occurred while evaluating nil.project) on line #3 of app/views/assignm
 Rendered rescues/_trace (78.0ms)
 Rendered rescues/_request_and_response (0.0ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 02:05:44) [GET]
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (35.0ms)
+Completed in 252ms (View: 112, DB: 1) | 200 OK [http://localhost/]
