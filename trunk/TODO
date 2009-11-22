@@ -15,6 +15,8 @@ discussions/posts
 
 =DESIGN=
 improve assignment views
+look for problems in consistency and niceness
+date formatting all around
 
 =MISC=
 cucumber and rspec: should probably make some of them actually work

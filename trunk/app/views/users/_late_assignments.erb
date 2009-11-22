@@ -2,7 +2,7 @@
   <h3>Late Assignments</h2>
   <ul>
   <% @late_assignments.each do |assignment| -%>
-    <li><%= link_to assignment.name, project_task_assignment_path(assignment.task.project,assignment.task,assignment) %> -- Due on <%= assignment.due_by %>.</li>
+    <li><%= link_to assignment.name, project_task_assignment_path(assignment.task.project,assignment.task,assignment) %> -- Was due at <%= showtime(assignment.due_by) %>.</li>
   <% end -%>
   </ul>
 </div>

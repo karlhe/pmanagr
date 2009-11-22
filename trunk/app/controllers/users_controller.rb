@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @user = current_user
     @assignments = @user.assignments
     @late_assignments = @assignments.select{|assignment| assignment.due_by < Time.now}
-    @upcoming_assignments = @assignments.select{|assignment| assignment.due_by >= Time.now and assignment.due_by < 14.days.since}
-    @recent_activity = @assignments.select{|assignment| assignment.updated_at > 14.days.ago}
+    @upcoming_assignments = @assignments.select{|assignment| assignment.due_by >= Time.now and assignment.due_by < 7.days.since}
+    @recent_activity = @assignments.select{|assignment| assignment.updated_at > 3.days.ago}
   end
   
   # render new.rhtml
@@ -26,9 +26,9 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+      flash[:notice] = "Thanks for signing up!"
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin."
       render :action => 'new'
     end
   end
