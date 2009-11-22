@@ -2,7 +2,7 @@
   <h3>Recent Activities</h2>
   <ul>
   <% @recent_activity.each do |assignment| -%>
-    <li><%= link_to assignment.name, project_task_assignment_path(assignment.task.project,assignment.task,assignment) %> -- Updated at <%= assignment.updated_at %>.</li>
+    <li><%= link_to assignment.name, project_task_assignment_path(assignment.task.project,assignment.task,assignment) %> -- Last updated at <%= showtime(assignment.updated_at) %>.</li>
   <% end -%>
   </ul>
 

@@ -1,7 +1,6 @@
 <div id="left_div">
   <h2>Dashboard</h2>
-  <p>Member since <%= @user.created_at %>.</p>
-  <p><%= link_to "List Public Projects", projects_path %></p>
+  <p>Member since <%= showdate(@user.created_at) %>.</p>
   
   <% if @late_assignments.present? %><%= render :partial => "late_assignments" %><% end %>
   <% if @upcoming_assignments.present? %><%= render :partial => "upcoming_assignments" %><% end %>

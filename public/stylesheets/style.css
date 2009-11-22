@@ -54,6 +54,11 @@ h1 span {
 #head a:hover {
   color: #cfc;
 }
+#head p {
+  margin: 0 5px;
+  padding-bottom: 10px;
+  font-size: 1.3em;
+}
 #user-bar {
   font-size: 1.3em;
   float: right;
