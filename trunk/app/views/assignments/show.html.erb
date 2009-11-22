@@ -1,0 +1,34 @@
+<p>
+  <b>Project:</b>
+  <%=h @assignment.task.project.name %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%=h @assignment.task.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @assignment.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%=h @assignment.desc %>
+</p>
+
+<p>
+  <b>Due By:</b>
+  <%=h @assignment.due_by %>
+</p>
+
+<p>
+  <b>Completed At:</b>
+  <%=h @assignment.completed_at %>
+</p>
+
+</table>
+
+<%= link_to 'Edit', edit_project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %> |
+<%= link_to 'Back', project_task_path(@assignment.task) %>
