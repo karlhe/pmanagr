@@ -16,9 +16,13 @@ test: &TEST
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  database: pmanagr_production
   pool: 5
+  username: root
+  password: stephenchang
+  host: localhost
   timeout: 5000
 
 cucumber:
