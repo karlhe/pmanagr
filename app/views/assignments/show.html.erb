@@ -31,4 +31,4 @@
 </table>
 
 <%= link_to 'Edit', edit_project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %> |
-<%= link_to 'Back', project_task_path(@assignment.task) %>
+<%= link_to 'Back', project_task_path(@assignment.task.project, @assignment.task) %>

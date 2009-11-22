@@ -1,6 +1,6 @@
-<h2>New task</h2>
+<h2>New assignment</h2>
 
-<% form_for [:project, :task, @assignment] do |f| %>
+<% form_for [@project, @task, @assignment] do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -19,5 +19,3 @@
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', project_task_assigment_path(@assignment) %>

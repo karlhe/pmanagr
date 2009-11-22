@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
       task.resources :assignments
     end
   end
+  map.take_project_task_assignment '/projects/:project_id/tasks/:task_id/assignments/:id/take', :controller => 'assignments', :action => 'take'
 
   
   map.assign_task '/projects/:project_id/tasks/:task_id/assign', :controller => :tasks, :action => :assign
