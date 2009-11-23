@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_filter :login_required, :only => :assign
-  
+
+
   def assign
     @task = Task.find(params[:task_id])
     @user = current_user

@@ -22,3 +22,5 @@ date formatting all around
 cucumber and rspec: should probably make some of them actually work
 
 =FIX=
+Time Zone
+Joining a task without being in project

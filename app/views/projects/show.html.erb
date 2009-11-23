@@ -8,8 +8,12 @@
   <%= link_to 'Edit', edit_project_path(@project) %> |
   <%= link_to 'Back', projects_path %> |
   <%= link_to 'View Tasks', project_tasks_path(@project) %>
-  <% if current_user.present? and not @members.include?(current_user) -%>
-  | <%= link_to 'Join Project', join_project_path(@project) %>
+  <% if current_user.present? %>
+    <% if @members.include?(current_user) -%>
+    | <%= link_to 'Leave Project', leave_project_path(@project) %>
+    <% else @members.include?(current_user) -%>
+    | <%= link_to 'Join Project', join_project_path(@project) %>
+    <% end -%>
   <% end -%>
 </div>
 <div id="right_div">
