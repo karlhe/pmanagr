@@ -11,4 +11,5 @@ module ApplicationHelper
   def showzone
     return Time.now.localtime.zone
   end
+
 end

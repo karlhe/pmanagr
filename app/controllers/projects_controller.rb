@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  before_filter :login_required, :only => [:join, :new, :create, :edit, :update, :destroy]
+  before_filter :login_required, :except => [:home, :index, :show]
+  before_filter :check_public_access, :only => :show
+
   
   def join
     @project = Project.find(params[:project_id])
@@ -7,6 +9,7 @@ class ProjectsController < ApplicationController
     @membership = Membership.new
     @membership.user = @user
     @membership.project = @project
+    @membership.set_permission("user")
     if @membership.save
       flash[:notice] = "#{@user.name} is now a member of #{@project.name}."
       redirect_to project_path(@project)
@@ -127,4 +130,13 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+  def check_public_access
+    if logged_in? and (!Project.find(params[:id]).is_public? || (!!current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first))
+      redirect_to dashboard_path
+      flash[:error] = 'You do not have permission to view this private project.'
+    end
+  end
+  
 end
