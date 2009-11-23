@@ -3,6 +3,25 @@
   <%=h @discussion.title %>
 </p>
 
+<table>
+  <tr>
+    <th>Posted</th>
+    <th>Author</th>
+    <th>Content</th>
+  </tr>
+
+<% @discussion.posts.each do |post| %>
+  <tr>
+    <td><%=h post.created_at.localtime.strftime("%m/%d/%y %H:%M") %></td>
+    <td><%=h User.find(post.author).name %></td>
+    <td><%=h post.content %></td>
+  </tr>
+<% end %>
+</table>
+
+
 
 <%= link_to 'Edit', edit_project_discussion_path %> |
-<%= link_to 'Back', project_discussions_path %>
+<%= link_to 'Back', project_discussions_path %> |
+<%= link_to 'View Posts', project_discussion_posts_path(@project, @discussion) %> |
+<%= link_to 'Create New Post', new_project_discussion_post_path(@project, @discussion) %>
