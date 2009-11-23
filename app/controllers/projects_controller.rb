@@ -89,14 +89,14 @@ class ProjectsController < ApplicationController
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
-    @user = current_user
+    print @project
 
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
         #format.html { redirect_to join_project_path(@project) }
         @membership = Membership.new
-        @membership.user = @user
+        @membership.user = current_user
         @membership.project = @project
         @membership.set_permission("owner")
         if @membership.save
