@@ -3,20 +3,20 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Project</th>
+    <th>Read</th>
+    <th>Admin</th>
   </tr>
 
 <% @discussions.each do |discussion| %>
   <tr>
     <td><%=h discussion.title %></td>
-    <td><%=h discussion.project %></td>
-    <td><%= link_to 'Show', discussion %></td>
-    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-    <td><%= link_to 'Destroy', discussion, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Read', project_discussion_path(@project,discussion) %></td>
+    <td><%= link_to 'Edit', edit_project_discussion_path(@project, discussion) %>
+    <%= link_to 'Destroy', project_discussion_path(@project,discussion), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New discussion', new_discussion_path %>
+<%= link_to 'New discussion', new_project_discussion_path %>

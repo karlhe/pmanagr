@@ -6,8 +6,8 @@ class AddStartTimes < ActiveRecord::Migration
   end
 
   def self.down
-     drop_column :assignments, :start_time, :datetime
-     drop_column :tasks, :start_time, :datetime
-     drop_column :projects, :start_time, :datetime
+     drop_column :assignments, :start_time
+     drop_column :tasks, :start_time
+     drop_column :projects, :start_time
   end
 end
