@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_filter :login_required, :only => :assign
+  before_filter :login_required, :only => [:assign, :new]
 
   def complete
     @task = Task.find(params[:task_id])
