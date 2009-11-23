@@ -90,4 +90,12 @@ module UsersHelper
     end
   end
 
+  def dashboard_title
+    if @user == current_user
+      return "Dashboard"
+    else
+      return @user.name
+    end
+  end
+
 end
