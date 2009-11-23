@@ -45,6 +45,7 @@ class AssignmentsController < ApplicationController
     @task = @assignment.task
     @project = @task.project
     if @assignment.user == current_user && (not @assignment.is_complete?)
+    @task = @assignment.task
       @assignment.complete
       if @assignment.save
         flash[:notice] = "You have taken the assignment."

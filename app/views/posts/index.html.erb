@@ -1,0 +1,24 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Posted</th>
+    <th>Author</th>
+    <th>Content</th>
+    <th>Admin</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%=h post.created_at.strftime("%m/%d/%y %H:%M") %></td>
+    <td><%=h post.content %></td>
+    <td><%= link_to 'Show', project_discussion_post_path(@project, @discussion, post) %>
+    <%= link_to 'Edit', edit_project_discussion_post_path(@project, @discussion, post) %>
+    <%= link_to 'Destroy', project_discussion_post_path(@project, @discussion, post), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post', new_project_discussion_post_path %>

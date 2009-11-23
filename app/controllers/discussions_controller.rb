@@ -2,7 +2,8 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.xml
   def index
-    @discussions = Discussion.all
+    @project = Project.find(params[:project_id])
+    @discussions = @project.discussions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,8 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new
   # GET /discussions/new.xml
   def new
-    @discussion = Discussion.new
+    @project = Project.find(params[:project_id])
+    @discussion = @project.discussions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,17 +37,19 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1/edit
   def edit
     @discussion = Discussion.find(params[:id])
+    @project = @discussion.project
   end
 
   # POST /discussions
   # POST /discussions.xml
   def create
-    @discussion = Discussion.new(params[:discussion])
+    @project = Project.find(params[:project_id])
+    @discussion = @project.discussions.build(params[:discussion])
 
     respond_to do |format|
       if @discussion.save
         flash[:notice] = 'Discussion was successfully created.'
-        format.html { redirect_to(@discussion) }
+        format.html { redirect_to project_discussion_path(@project,@discussion) }
         format.xml  { render :xml => @discussion, :status => :created, :location => @discussion }
       else
         format.html { render :action => "new" }
@@ -78,7 +82,7 @@ class DiscussionsController < ApplicationController
     @discussion.destroy
 
     respond_to do |format|
-      format.html { redirect_to(discussions_url) }
+      format.html { redirect_to(project_discussions_url) }
       format.xml  { head :ok }
     end
   end

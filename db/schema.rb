@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091123050630) do
+ActiveRecord::Schema.define(:version => 20091123073858) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -39,11 +39,8 @@ ActiveRecord::Schema.define(:version => 20091123050630) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "posts" because of following StandardError
+#   Unknown type 'discussion' for column 'discussion_id'
 
   create_table "projects", :force => true do |t|
     t.string   "name"

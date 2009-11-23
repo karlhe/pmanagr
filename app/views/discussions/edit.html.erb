@@ -1,6 +1,6 @@
 <h1>Editing discussion</h1>
 
-<% form_for(@discussion) do |f| %>
+<% form_for [@project,@discussion] do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,13 +8,9 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :project %><br />
-    <%= f.text_field :project %>
-  </p>
-  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @discussion %> |
-<%= link_to 'Back', discussions_path %>
+<%= link_to 'Show', project_discussion_path %> |
+<%= link_to 'Back', project_discussions_path %>
