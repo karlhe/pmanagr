@@ -22,7 +22,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.assign_task '/projects/:project_id/tasks/:task_id/assign', :controller => :tasks, :action => :assign
   map.join_project '/projects/:project_id/join_project', :controller => :projects, :action => :join
-  
+  map.leave_project '/projects/:project_id/leave_project', :controller => :projects, :action => :leave
+
   map.root :controller => :projects, :action => :home
   # The priority is based upon order of creation: first created -> highest priority.
 

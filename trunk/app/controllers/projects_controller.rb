@@ -15,7 +15,19 @@ class ProjectsController < ApplicationController
       render :action => :new
     end
   end
-  
+
+  def leave
+    @project = Project.find(params[:project_id])
+    @user = current_user
+    @membership = Membership.find(:first, :conditions=>{:user_id=>@user.id, :project_id=>@project.id})
+    if @membership.destroy
+      flash[:notice] = "#{@user.name} has left #{@project.name}."
+    else
+      flash[:error] = "Failed to leave project."
+    end
+    redirect_to dashboard_path
+  end
+
   # GET /
   def home
     if logged_in?
