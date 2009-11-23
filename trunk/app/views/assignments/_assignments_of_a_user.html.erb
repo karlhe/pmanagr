@@ -1,0 +1,17 @@
+  <h3>Assignments:</h3>
+  <% if @user.assignments.blank? -%>
+    <p>You have no assignments.</p>
+  <% else -%>
+    <ul>
+    <% @user.assignments.each do |assig| -%>
+      <li>
+        <%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task,assig) %>
+        <% if @user == current_user %>
+          ( <%= link_to "Complete", complete_project_task_assignment_path(assig.task.project,assig.task,assig) %>
+          | <%= link_to "Drop", drop_project_task_assignment_path(assig.task.project,assig.task,assig) %>
+          )
+        <%end%>
+      </li>
+    <% end -%>
+    </ul>
+  <% end -%>

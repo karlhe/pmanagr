@@ -1,7 +1,7 @@
 <%= render :partial=> "task_info" %>
 
 
-<%= render :partial=> "assignments/assignments" %>
+<%= render :partial=> "assignments/assignments_of_a_task" %>
 
 <%= link_to 'Edit', edit_project_task_path(@task.project,@task) %> |
 <%= link_to 'Back', project_tasks_path(@task.project) %> |

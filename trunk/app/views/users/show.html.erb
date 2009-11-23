@@ -1,24 +1,12 @@
 <div id="left_div">
-  <h2>Dashboard</h2>
+  <h2><%= dashboard_title %></h2>
   <p>Member since <%= showdate(@user.created_at) %>.</p>
   
   <% if @late_assignments.present? %><%= render :partial => "late_assignments" %><% end %>
   <% if @upcoming_assignments.present? %><%= render :partial => "upcoming_assignments" %><% end %>
   <% if @recent_activity.present? %><%= render :partial => "recent_activities" %><% end %>
   
-  <h3>All Assignments:</h3>
-  <% if @user.assignments.blank? -%>
-    <p>You have no assignments.</p>
-  <% else -%>
-    <ul>
-    <% @user.assignments.each do |assig| -%>
-      <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task,assig) %> |
-          <%= link_to "Complete", complete_project_task_assignment_path(assig.task.project,assig.task,assig) %> |
-          <%= link_to "Drop", drop_project_task_assignment_path(assig.task.project,assig.task,assig) %>
-      </li>
-    <% end -%>
-    </ul>
-  <% end -%>
+<%= render :partial=> "assignments/assignments_of_a_user" %>
 </div>
 
 <div id="right_div">
