@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091122104104) do
+ActiveRecord::Schema.define(:version => 20091123050630) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20091122104104) do
     t.integer  "hours_spent"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
   end
 
   create_table "discussions", :force => true do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20091122104104) do
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
   end
 
   create_table "tasks", :force => true do |t|
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20091122104104) do
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
   end
 
   create_table "users", :force => true do |t|
