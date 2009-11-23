@@ -5,14 +5,39 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:id])
     @task = @assignment.task
     @project = @task.project
-    @assignment.user = current_user
-    if @assignment.save
-      flash[:notice] = "You have taken the assignment."
-      redirect_to project_task_path(@project,@task)
+    if @assignment.user == nil
+      @assignment.user = current_user
+      if @assignment.save
+        flash[:notice] = "You have taken the assignment."
+        #redirect_to project_task_path(@project,@task)
+      else
+        flash[:error] = "Failed to take assignment."
+        #redirect_to project_task_path(@project,@task)
+      end
     else
-      flash[:error] = "Failed to take assignment."
-      redirect_to project_task_path(@project,@task)
+      flash[:error] = "This assignment already belongs to someone else."
+      #redirect_to project_task_path(@project,@task)
     end
+    redirect_to project_task_path(@project,@task)
+  end
+
+  def complete
+    @assignment = Assignment.find(params[:id])
+    @task = @assignment.task
+    @project = @task.project
+    if @assignment.user == current_user
+      @assignment.complete
+      if @assignment.save
+        flash[:notice] = "You have taken the assignment."
+        #redirect_to project_task_path(@project,@task)
+      else
+        flash[:error] = "Failed to take assignment."
+        #redirect_to project_task_path(@project,@task)
+      end
+    else
+      flash[:error] = "You don't own this assignment."
+    end
+    redirect_to project_task_path(@project,@task)
   end
 
   # GET /assignments
