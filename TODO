@@ -1,5 +1,6 @@
 =CONTROLLER=
 discussions/posts
+permission control!
 
 =MODEL=
 discussions/posts
