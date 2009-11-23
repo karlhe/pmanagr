@@ -20,7 +20,7 @@
           <h1><%= link_to "P<span>Managr</span>", root_path %></h1>
           <p>
             QuickLinks: <%= link_to 'Public Projects', projects_path %>
-            <% if logged_in? %>| <%= link_to 'Your Dashboard' %><% end %>
+            <% if logged_in? %>| <%= link_to 'Your Dashboard', dashboard_path %><% end %>
           </p>
           <% flash.keys.each do |msg| -%>
             <% if flash[msg.to_sym].present? -%>

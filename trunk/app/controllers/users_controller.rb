@@ -3,7 +3,12 @@ class UsersController < ApplicationController
   # include AuthenticatedSystem
   
   def show
-    @user = current_user
+    
+    begin @user = User.find(params[:id])
+    rescue Exception
+      @user = current_user
+    end
+
     @assignments = @user.assignments
     @late_assignments = @assignments.select{|assignment| assignment.due_by < Time.now}
     @upcoming_assignments = @assignments.select{|assignment| assignment.due_by >= Time.now and assignment.due_by < 7.days.since}
