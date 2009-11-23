@@ -5,4 +5,8 @@ class Project < ActiveRecord::Base
   has_many :discussions, :dependent => :destroy
   
   validates_presence_of :name, :desc
+
+  def is_public?
+    return public
+  end
 end
