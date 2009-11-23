@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name, :desc
 
-  attr_accissible :start_time
+  attr_accessible :start_time
   
   def is_public?
     return public
