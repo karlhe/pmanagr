@@ -5,4 +5,11 @@ class Assignment < ActiveRecord::Base
   def complete
     self.completed_at = Time.now
   end
+  def drop
+    self.completed_at = nil
+    self.user = nil
+  end
+  def is_complete?
+    self.completed_at
+  end
 end
