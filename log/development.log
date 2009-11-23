@@ -17323,3 +17323,406 @@ Rendering projects/index
   [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
 Rendered users/_user_bar (94.0ms)
 Completed in 118ms (View: 108, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:22:13) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard
+Completed in 94ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 21:22:15) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_late_assignments (23.0ms)
+Rendered users/_recent_activities (2.0ms)
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (2.0ms)
+Completed in 368ms (View: 157, DB: 2) | 200 OK [http://localhost/dashboard]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-11-22 21:22:18) [GET]
+Redirected to http://localhost:3000/
+Completed in 22ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:22:19) [GET]
+  [4;36;1mProject Load (2.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (1.0ms)
+Completed in 36ms (View: 20, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:22:38) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (1.0ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-22 21:22:50) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (2.0ms)
+Completed in 22ms (View: 19, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:22:55) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"111111"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Failed login for 'apc' from 127.0.0.1 at Mon Nov 23 05:22:55 UTC 2009
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 35ms (View: 7, DB: 0) | 200 OK [http://localhost/session]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:24:15) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') LIMIT 10[0m
+Rendering template within layouts/application
+Rendering projects/home
+Rendered users/_user_bar (1.0ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-22 21:24:23) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:24:27) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"l1gh7sab3r"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Failed login for 'apc' from 127.0.0.1 at Mon Nov 23 05:24:27 UTC 2009
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 35ms (View: 8, DB: 1) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:24:51) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"hahahaha"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Failed login for 'apc' from 127.0.0.1 at Mon Nov 23 05:24:51 UTC 2009
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 36ms (View: 8, DB: 0) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:24:54) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"l1gh7sab3r"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Failed login for 'apc' from 127.0.0.1 at Mon Nov 23 05:24:54 UTC 2009
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 39ms (View: 6, DB: 0) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:25:10) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"111111"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Failed login for 'apc' from 127.0.0.1 at Mon Nov 23 05:25:10 UTC 2009
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered users/_user_bar (1.0ms)
+Completed in 37ms (View: 8, DB: 1) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-22 21:25:14) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE=", "login"=>"apc", "password"=>"hahaha"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'apc') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 112ms (DB: 1) | 302 Found [http://localhost/session]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:25:16) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 21:25:17) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_late_assignments (22.0ms)
+Rendered users/_recent_activities (1.0ms)
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 84ms (View: 41, DB: 4) | 200 OK [http://localhost/dashboard]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-22 21:25:24) [GET]
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."public" = 't') [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (27.0ms)
+Completed in 70ms (View: 55, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#home (for 127.0.0.1 at 2009-11-22 21:25:26) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/dashboard
+Completed in 108ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 21:25:26) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_late_assignments (23.0ms)
+Rendered users/_recent_activities (1.0ms)
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (0.0ms)
+Completed in 83ms (View: 45, DB: 2) | 200 OK [http://localhost/dashboard]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-22 21:25:27) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered users/_late_assignments (22.0ms)
+Rendered users/_recent_activities (1.0ms)
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects".id = "memberships".project_id WHERE (("memberships".user_id = 1)) [0m
+Rendered users/_user_bar (1.0ms)
+Completed in 82ms (View: 42, DB: 2) | 200 OK [http://localhost/dashboard]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-22 21:25:30) [GET]
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."public" = 't') [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (31.0ms)
+Completed in 66ms (View: 51, DB: 2) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-22 21:25:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks".project_id = 2) [0m
+Rendered tasks/_tasks (14.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 2)) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 2)) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 2)) LIMIT 1[0m
+Rendered projects/_bar (4.0ms)
+Rendered users/_user_bar (1.0ms)
+Completed in 105ms (View: 76, DB: 3) | 200 OK [http://localhost/projects/2]
+
+
+Processing ProjectsController#join (for 127.0.0.1 at 2009-11-22 21:25:39) [GET]
+  Parameters: {"project_id"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+  [4;36;1mMembership Create (1.0ms)[0m   [0;1mINSERT INTO "memberships" ("project_id", "updated_at", "user_id", "privilege", "created_at") VALUES(2, '2009-11-23 05:25:39', 1, NULL, '2009-11-23 05:25:39')[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 65ms (DB: 3) | 302 Found [http://localhost/projects/2/join_project]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-22 21:25:41) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks".project_id = 2) [0m
+Rendered tasks/_tasks (12.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 2)) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE ("users"."id" = 1) AND (("memberships".project_id = 2)) LIMIT 1[0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = 1) [0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 1) [0m
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendered projects/_bar (17.0ms)
+Rendered users/_user_bar (0.0ms)
+Completed in 93ms (View: 64, DB: 3) | 200 OK [http://localhost/projects/2]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 21:25:44) [GET]
+  Parameters: {"project_id"=>"2", "id"=>"2"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+  [4;35;1mAssignment Load (1.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 105ms (View: 84, DB: 3) | 200 OK [http://localhost/projects/2/tasks/2]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2009-11-22 21:25:48) [GET]
+  Parameters: {"project_id"=>"2", "task_id"=>"2", "id"=>"17"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mAssignment Load (0.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 17) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendered users/_user_bar (3.0ms)
+Completed in 83ms (View: 47, DB: 3) | 200 OK [http://localhost/projects/2/tasks/2/assignments/17]
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 21:25:54) [GET]
+  Parameters: {"project_id"=>"2", "task_id"=>"2"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (0.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+
+ActionView::TemplateError (undefined method `start_time' for #<Assignment:0x5fab158>) on line #16 of app/views/assignments/new.html.erb:
+13:   </p>
+14:   <p>
+15:     <%= f.label :start_time %><br />
+16:     <%= f.datetime_select :start_time %>
+17:   </p>
+18:   <p>
+19:     <%= f.label :due_by %><br />
+
+    app/views/assignments/new.html.erb:16
+    app/views/assignments/new.html.erb:3
+    app/controllers/assignments_controller.rb:92:in `new'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/xampp/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProjects (20091108033400)
+Migrating to CreateTasks (20091108033807)
+Migrating to CreateMemberships (20091108033854)
+Migrating to CreateAssignments (20091108034005)
+Migrating to CreateUsers (20091108055719)
+Migrating to CreatePosts (20091120083153)
+Migrating to CreateDiscussions (20091122104104)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "discussions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "project_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091122104104')[0m
+Migrating to AddStartTimes (20091123050630)
+  [4;35;1mSQL (2.0ms)[0m   [0mALTER TABLE "assignments" ADD "start_time" datetime[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mALTER TABLE "tasks" ADD "start_time" datetime[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "projects" ADD "start_time" datetime[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091123050630')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("assignments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("discussions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("memberships")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("projects")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("tasks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("threads")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSQLite3::SQLException: database schema has changed: SELECT * FROM "tasks" [0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" [0m
+
+
+Processing AssignmentsController#new (for 127.0.0.1 at 2009-11-22 21:27:07) [GET]
+  Parameters: {"project_id"=>"2", "task_id"=>"2"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering assignments/new
+Rendered users/_user_bar (3.0ms)
+Completed in 98ms (View: 38, DB: 3) | 200 OK [http://localhost/projects/2/tasks/2/assignments/new]
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+  [4;35;1mAssignment Load (2.0ms)[0m   [0mSELECT * FROM "assignments" [0m
+
+
+Processing AssignmentsController#create (for 127.0.0.1 at 2009-11-22 21:27:47) [POST]
+  Parameters: {"project_id"=>"2", "commit"=>"Create", "assignment"=>{"name"=>"Grow", "start_time(1i)"=>"2009", "start_time(2i)"=>"11", "start_time(3i)"=>"23", "due_by(1i)"=>"2014", "start_time(4i)"=>"05", "due_by(2i)"=>"11", "start_time(5i)"=>"27", "due_by(3i)"=>"23", "desc"=>"Grow the weed", "due_by(4i)"=>"05", "due_by(5i)"=>"27"}, "task_id"=>"2", "authenticity_token"=>"MYI01B89xCotfI5D6IebLgxqeVDyYzHZxc5wbK5rKWE="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+  [4;36;1mAssignment Create (1.0ms)[0m   [0;1mINSERT INTO "assignments" ("name", "completed_at", "updated_at", "due_by", "task_id", "desc", "user_id", "hours_spent", "created_at", "start_time") VALUES('Grow', NULL, '2009-11-23 05:27:47', '2014-11-23 05:27:00', 2, 'Grow the weed', NULL, NULL, '2009-11-23 05:27:47', '2009-11-23 05:27:00')[0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Redirected to http://localhost:3000/projects/2/tasks/2
+Completed in 189ms (DB: 3) | 302 Found [http://localhost/projects/2/tasks/2/assignments]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 21:27:49) [GET]
+  Parameters: {"project_id"=>"2", "id"=>"2"}
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+  [4;36;1mAssignment Load (1.0ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".task_id = 2) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 102ms (View: 79, DB: 5) | 200 OK [http://localhost/projects/2/tasks/2]
+
+
+Processing AssignmentsController#take (for 127.0.0.1 at 2009-11-22 21:27:56) [GET]
+  Parameters: {"project_id"=>"2", "task_id"=>"2", "id"=>"20"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mAssignment Load (0.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments"."id" = 20) [0m
+  [4;36;1mTask Load (1.0ms)[0m   [0;1mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+  [4;35;1mProject Load (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+  [4;36;1mAssignment Update (1.0ms)[0m   [0;1mUPDATE "assignments" SET "updated_at" = '2009-11-23 05:27:56', "user_id" = 1 WHERE "id" = 20[0m
+Redirected to http://localhost:3000/projects/2/tasks/2
+Completed in 66ms (DB: 2) | 302 Found [http://localhost/projects/2/tasks/2/assignments/20/take]
+
+
+Processing TasksController#show (for 127.0.0.1 at 2009-11-22 21:27:56) [GET]
+  Parameters: {"project_id"=>"2", "id"=>"2"}
+  [4;35;1mTask Load (1.0ms)[0m   [0mSELECT * FROM "tasks" WHERE ("tasks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering tasks/show
+  [4;36;1mProject Load (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+  [4;35;1mAssignment Load (2.0ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".task_id = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered users/_user_bar (2.0ms)
+Completed in 181ms (View: 159, DB: 5) | 200 OK [http://localhost/projects/2/tasks/2]

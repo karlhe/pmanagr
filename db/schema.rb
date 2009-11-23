@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(:version => 20091123050630) do
     t.datetime "start_time"
   end
 
+  create_table "threads", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
     t.string   "name",                      :limit => 100, :default => ""
