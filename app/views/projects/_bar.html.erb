@@ -12,4 +12,16 @@
       </li>
     <% end -%>
   </ul>
+  <h3>Project Discussion</h3>
+  <ul class="white">
+    <% @project.discussions.each do |discussion| %>
+      <li>
+        <%= link_to "#{discussion.title}", project_discussion_path(@project,discussion) %>
+      </li>
+    <% end -%>
+      <li>&nbsp;</li>
+      <li>
+        <strong><%= link_to "Create a Discussion", new_project_discussion_path(@project) %></strong>
+      </li>
+  </ul>
 <% end -%>
