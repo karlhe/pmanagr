@@ -133,8 +133,9 @@ class ProjectsController < ApplicationController
 
   private
   def check_public_access
-    if logged_in? and (!Project.find(params[:id]).is_public? || (!!current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first))
-      redirect_to dashboard_path
+    private = !Project.find(params[:id]).is_public?
+    if (!logged_in? and private)  || (logged_in? and private and (!current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first))
+      redirect_to root_path
       flash[:error] = 'You do not have permission to view this private project.'
     end
   end
