@@ -9,4 +9,19 @@ class Project < ActiveRecord::Base
   def is_public?
     return public
   end
+
+  def is_owner? user
+    @membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
+    if @membership == []
+      return false
+    else
+      return @member.is_owner?
+    end
+  end
+
+  def is_member? user
+    #Not finished
+    @membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
+    return @member.is_owner?
+  end
 end

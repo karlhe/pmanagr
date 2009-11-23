@@ -82,12 +82,12 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments = Assignment.find(:all, :conditions => { :public => true })
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @assignments }
-    end
+    #@assignments = Assignment.find(:all, :conditions => { :public => true })
+    redirect_to project_task_path(params[:project_id],params[:task_id])
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @assignments }
+    #end
   end
 
   # GET /assignments/1

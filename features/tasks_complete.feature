@@ -12,7 +12,7 @@ Feature: Completing Tasks
     Given I am logged in as "Anthony Leung"
     And all prerequisites of the task are complete
     And all assignments of the task are complete
-    When I ccompletes the task called Logistics
+    When I complete the task called Logistics
     Then it should show the task on the project page as complete
     And users can no longer add assignments to the task
     And I should see the project page
