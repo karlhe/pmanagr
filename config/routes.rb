@@ -22,7 +22,6 @@ ActionController::Routing::Routes.draw do |map|
   map.drop_project_task_assignment '/projects/:project_id/tasks/:task_id/assignments/:id/drop', :controller => 'assignments', :action => 'drop'
   map.complete_project_task_assignment '/projects/:project_id/tasks/:task_id/assignments/:id/complete', :controller => 'assignments', :action => 'complete'
   map.uncomplete_project_task_assignment '/projects/:project_id/tasks/:task_id/assignments/:id/uncomplete', :controller => 'assignments', :action => 'uncomplete'
-  #map.assign_task '/projects/:project_id/tasks/:task_id/assign', :controller => :tasks, :action => :assign
   
   map.join_project '/projects/:project_id/join_project', :controller => :projects, :action => :join
   map.leave_project '/projects/:project_id/leave_project', :controller => :projects, :action => :leave
