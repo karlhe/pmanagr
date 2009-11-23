@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20091123073858) do
   end
 
 # Could not dump table "posts" because of following StandardError
-#   Unknown type 'user' for column 'author'
+#   Unknown type 'discussion' for column 'discussion_id'
 
   create_table "projects", :force => true do |t|
     t.string   "name"
