@@ -10,7 +10,8 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%=h post.created_at.strftime("%m/%d/%y %H:%M") %></td>
+    <td><%=h post.created_at.localtime.strftime("%m/%d/%y %H:%M") %></td>
+    <td><%=h User.find(post.author).name %></td>
     <td><%=h post.content %></td>
     <td><%= link_to 'Show', project_discussion_post_path(@project, @discussion, post) %>
     <%= link_to 'Edit', edit_project_discussion_post_path(@project, @discussion, post) %>
