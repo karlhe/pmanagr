@@ -14,6 +14,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1
   # GET /discussions/1.xml
   def show
+    @project = Project.find(params[:project_id])
     @discussion = Discussion.find(params[:id])
 
     respond_to do |format|
