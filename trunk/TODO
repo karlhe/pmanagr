@@ -23,4 +23,5 @@ cucumber and rspec: should probably make some of them actually work
 
 =FIX=
 Default Time Zone
+Time formatting helpers
 Joining a task without being in project

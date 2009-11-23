@@ -12,7 +12,10 @@
   <% else -%>
     <ul>
     <% @user.assignments.each do |assig| -%>
-      <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task,assig) %> <%= link_to "Complete", complete_project_task_assignment_path(assig.task.project,assig.task,assig) %> <%= link_to "Drop", drop_project_task_assignment_path(assig.task.project,assig.task,assig) %></li>
+      <li><%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task,assig) %> |
+          <%= link_to "Complete", complete_project_task_assignment_path(assig.task.project,assig.task,assig) %> |
+          <%= link_to "Drop", drop_project_task_assignment_path(assig.task.project,assig.task,assig) %>
+      </li>
     <% end -%>
     </ul>
   <% end -%>

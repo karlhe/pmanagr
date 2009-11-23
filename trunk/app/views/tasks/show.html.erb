@@ -31,7 +31,7 @@
     <th>Desc</th>
     <th>Owner</th>
     <th>Due</th>
-    <th>Completed At</th>
+    <th>Status</th>
     <th colspan="3">Admin</th>
   </tr>
 
@@ -47,7 +47,16 @@
       <% end %>
     </td>
     <td><%=h assig.due_by %></td>
-    <td><%=h assig.completed_at %></td>
+
+    <td>
+      <% if assig.is_complete? -%>
+        Completed at <%=h showtime(assig.completed_at) %>
+        <%= link_to '(undo)', uncomplete_project_task_assignment_path(assig.task.project,assig.task,assig), :confirm => 'Reopen this assignment?' %>
+      <% else -%>
+        Not completed yet <%= link_to '(complete)', complete_project_task_assignment_path(assig.task.project,assig.task,assig), :confirm => 'Mark this assignment as complete?' %>
+      <% end -%>
+    </td>
+
     <td><%= link_to 'Show', project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Destroy', project_task_assignment_path(@task.project_id,@task,assig), :confirm => 'Are you sure?', :method => :delete %></td>
