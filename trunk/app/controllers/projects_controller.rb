@@ -89,12 +89,23 @@ class ProjectsController < ApplicationController
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    @user = current_user
 
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
-        format.html { redirect_to join_project_path(@project) }
-        format.xml  { render :xml => @project, :status => :created, :location => @project }
+        #format.html { redirect_to join_project_path(@project) }
+        @membership = Membership.new
+        @membership.user = @user
+        @membership.project = @project
+        @membership.set_permission("owner")
+        if @membership.save
+          format.html { redirect_to(@project) }
+          format.xml  { render :xml => @project, :status => :created, :location => @project }
+        else
+          flash[:error] = "Failed to add user."
+          render :action => :new
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }

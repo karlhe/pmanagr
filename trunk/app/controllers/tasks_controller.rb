@@ -4,11 +4,28 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:task_id])
     @project = @task.project
-    if @task.update_attribute(:completed_at,Time.now)
-      flash[:notice] = "Task has been completed!"
-      redirect_to project_path(@project)
+    @membership = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
+    #Commented out to allow anyone to complete a task
+    #if !@membership.is_owner?
+    #  flash[:notice] = "You do not have the privilege to complete this task!"
+    #  redirect_to project_path(@project)
+    @assignments = Assignment.find(:all, :conditions => { :task_id =>  @task })
+    completion = true
+    @assignments.each do |assig|
+      if !assig.is_complete?
+        completion = false
+      end
+    end
+    if  completion#all tasks are complete
+      if @task.update_attribute(:completed_at,Time.now)
+        flash[:notice] = "Task has been completed!"
+        redirect_to project_path(@project)
+      else
+        flash[:error] = "Failed to mark task complete!"
+        redirect_to project_path(@project)
+      end
     else
-      flash[:error] = "Failed to mark task complete!"
+      flash[:notice] = "Not all assignments are complete for this task!"
       redirect_to project_path(@project)
     end
   end
@@ -16,6 +33,10 @@ class TasksController < ApplicationController
   def reopen
     @task = Task.find(params[:task_id])
     @project = @task.project
+    #Commented out to allow anyone to reopen a task
+    #if !@membership.is_owner?
+    #  flash[:notice] = "You do not have the privilege to reopen this task!"
+    #  redirect_to project_path(@project)
     if @task.update_attribute(:completed_at,nil)
       flash[:notice] = "Task has been reopened!"
       redirect_to project_path(@project)
@@ -30,11 +51,11 @@ class TasksController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
     @tasks = @project.tasks
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @tasks }
-    end
+    redirect_to project_path(@project)
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @tasks }
+    #end
   end
 
   # GET /tasks/1

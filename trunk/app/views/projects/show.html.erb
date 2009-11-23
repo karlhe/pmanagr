@@ -6,8 +6,8 @@
   <%= render :partial => 'tasks/tasks' %>
   
   <%= link_to 'Edit', edit_project_path(@project) %> |
-  <%= link_to 'Back', projects_path %> |
-  <%= link_to 'View Tasks', project_tasks_path(@project) %>
+  <%= link_to 'Back', root_path %> |
+  <%= link_to 'New Task', new_project_task_path(@project) %>
   <% if current_user.present? %>
     <% if @members.include?(current_user) -%>
     | <%= link_to 'Leave Project', leave_project_path(@project) %>
