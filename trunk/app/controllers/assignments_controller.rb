@@ -170,4 +170,7 @@ class AssignmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+  
 end
