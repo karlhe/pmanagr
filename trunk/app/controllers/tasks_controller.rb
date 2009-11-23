@@ -1,22 +1,6 @@
 class TasksController < ApplicationController
   before_filter :login_required, :only => :assign
 
-
-  def assign
-    @task = Task.find(params[:task_id])
-    @user = current_user
-    @assignment = Assignment.new
-    @assignment.task = @task
-    @assignment.user = @user
-    if @assignment.save
-      flash[:notice] = "#{@task.name} has been assigned to #{@user.name}."
-      redirect_to project_task_path(@task.project,@task)
-    else
-      flash[:error] = "Failed to assign task."
-      render :action => :new
-    end
-  end
-  
   def complete
     @task = Task.find(params[:task_id])
     @project = @task.project
