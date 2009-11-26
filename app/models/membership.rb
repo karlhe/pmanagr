@@ -15,7 +15,7 @@ class Membership < ActiveRecord::Base
 
 
 
-  def is_owner?
+  def is_admin?
     self.privilege == 1
   end
 
