@@ -26,4 +26,9 @@ class Project < ActiveRecord::Base
     @membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
     return @member.is_owner?
   end
+
+  def admin
+    ms = self.memberships.detect {|m| m.is_admin?}
+    return (ms ? ms.user : nil)
+  end
 end
