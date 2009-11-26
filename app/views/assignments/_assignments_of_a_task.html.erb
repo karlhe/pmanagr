@@ -13,17 +13,8 @@
   <tr>
     <td><%= link_to assig.name, project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%=h assig.desc %></td>
-
-    <td>
-      <% if assig.user.present? %>
-        <%=  link_to assig.user.name, user_path(assig.user) %>
-      <% else %>
-        <%= link_to 'Take', take_project_task_assignment_path(@task.project,@task,assig) %>
-      <% end %>
-    </td>
-
+    <td><%= assig.user.present? ? "#{link_to assig.user.name, user_path(assig.user)}" : "#{link_to 'Take', take_project_task_assignment_path(@task.project,@task,assig)}" %></td>
     <td><%=h assig.due_by %></td>
-
     <td>
       <% if assig.is_complete? -%>
         Completed at <%=h showtime(assig.completed_at) %>
@@ -32,7 +23,6 @@
         Not completed yet <%= link_to '(complete)', complete_project_task_assignment_path(assig.task.project,assig.task,assig), :confirm => 'Mark this assignment as complete?' %>
       <% end -%>
     </td>
-
     <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Destroy', project_task_assignment_path(@task.project_id,@task,assig), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
