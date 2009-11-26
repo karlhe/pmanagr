@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   
 
-  attr_accessible :login, :email, :name, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :public
 
 
 
@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
 
   def capitalize_name
      self.name = self.name.split(' ').map {|w| w.capitalize }.join(' ')
+  end
+
+  def is_public?
+    return public
   end
 
 
