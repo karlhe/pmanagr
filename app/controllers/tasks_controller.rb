@@ -146,7 +146,7 @@ class TasksController < ApplicationController
   private
   def check_project_member
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	if status.is_owner? or status.is_user?
+	unless status.is_owner? or status.is_user?
       redirect_to root_path
       flash[:error] = 'You are not a member of this project.'
     end
@@ -154,7 +154,7 @@ class TasksController < ApplicationController
   
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	if status.is_owner?
+	unless status.is_owner?
       redirect_to root_path
       flash[:error] = 'You are not an admin for this project.'
     end

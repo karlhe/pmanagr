@@ -27,6 +27,10 @@ class Membership < ActiveRecord::Base
     self.privilege == 2
   end
 
+  def is_approved?
+    self.privilege == 2 or self.privilege == 1
+  end
+
   def is_pending?
     self.privilege == 3
   end

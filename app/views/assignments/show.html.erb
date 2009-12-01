@@ -28,7 +28,14 @@
   <%=h @assignment.completed_at %>
 </p>
 
-</table>
+<h3>Assign</h3>
+<p>
+  <% if @assignee.present? %>
+    <b>Current Assignee:</b>
+    <%= @assignee.name %>
+  <% end %>
+</p>
+<%= render :partial => "assign" %>
 
 <%= link_to 'Edit', edit_project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %> |
 <%= link_to 'Back', project_task_path(@assignment.task.project, @assignment.task) %>

@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   end
 
   def admin
-    ms = self.memberships.detect {|m| m.is_admin?}
+    ms = self.memberships.detect {|m| m.is_owner?}
     return (ms ? ms.user : nil)
   end
 end
