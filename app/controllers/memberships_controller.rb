@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   before_filter :login_required
   before_filter :check_public_access
-  before_filter :check_admin, :except => [:update, :destroy]
+  before_filter :check_admin, :except => [:create, :update, :destroy]
   
   def index
     @project = Project.find(params[:project_id])
@@ -24,17 +24,32 @@ class MembershipsController < ApplicationController
     
     @membership = Membership.new
     @membership.project = @project
-    @membership.user_id = params[:user_id]
-    @membership.set_permission("pending")
-    
-    if @membership.save
-      flash[:notice] = "Member added to project."
-      redirect_to new_project_membership_path(@project)
+
+    if params[:user_id].blank?
+      @membership.user_id = current_user.id
+      @membership.set_permission("request")
+      if @membership.save
+        flash[:notice] = "You have requested to join the project."
+        redirect_to project_path(@project)
+      else
+        flash[:error] = "Request to join project has failed."
+        redirect_to project_path(@project)        
+      end
+    elsif current_user.is_owner?(@project)
+      @membership.user_id = params[:user_id]
+      @membership.set_permission("pending")
+        
+      if @membership.save
+        flash[:notice] = "Member invited to project."
+        redirect_to new_project_membership_path(@project)
+      else
+        flash[:error] = "Could not invite member."
+        redirect_to new_project_membership_path(@project)
+      end
     else
-      flash[:error] = "Could not add member."
-      @users = User.all.select { |user| not @project.users.include?(user) }
-      render :action => "new"
-    end
+      flash[:error] = "You do not have permission to add this user."
+      redirect_to :back
+    end        
   end
   
   def update
