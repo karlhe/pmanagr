@@ -1,4 +1,4 @@
 class Dependency < ActiveRecord::Base
-  has_many :tasks
-  has_many :prerequisites, :class_name => 'Task'
+  belongs_to :task
+  belongs_to :prerequisite, :class_name => 'Task'
 end
