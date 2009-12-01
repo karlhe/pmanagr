@@ -1,5 +1,7 @@
 class AssignmentsController < ApplicationController
   before_filter :login_required
+  before_filter :check_project_member
+  before_filter :check_admin, :except => [:take, :drop, :complete, :uncomplete]
 
   def take
     @assignment = Assignment.find(params[:id])
@@ -172,5 +174,19 @@ class AssignmentsController < ApplicationController
   end
 
   private
+  def check_project_member
+	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
+	if status.is_owner? or status.is_user?
+      redirect_to root_path
+      flash[:error] = 'You are not a member of this project.'
+    end
+  end
   
+  def check_admin
+	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
+	if status.is_owner?
+      redirect_to root_path
+      flash[:error] = 'You are not an admin for this project.'
+    end
+  end
 end
