@@ -89,6 +89,10 @@ class User < ActiveRecord::Base
     !membership.blank? and membership.is_request?
   end
   
+  def full_memberships
+    return self.memberships.select { |m| m.level == "user" or m.level == "owner" }
+  end
+  
   def pending_memberships
     return self.memberships.select { |m| m.level == "pending" }
   end

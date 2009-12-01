@@ -24,12 +24,12 @@
 
   <h2>Your Projects</h2>
   <div class="white">
-    <% if @user.projects.blank? -%>
-      <p>You are currently part of no projects.</p>
+    <% if @user.full_memberships.blank? -%>
+      <p>You are currently a member of no projects.</p>
     <% else -%>
       <ul>
-      <% @user.projects.each do |project| -%>
-        <li><%= link_to "#{project.name}", project_path(project) %></li>
+      <% @user.full_memberships.each do |membership| -%>
+        <li><%= link_to membership.project.name, project_path(membership.project) %> (<%= membership.level %>)</li>
       <% end -%>
       </ul>
     <% end -%>
