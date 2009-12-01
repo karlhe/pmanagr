@@ -17,6 +17,7 @@ class MembershipsController < ApplicationController
     if logged_in?
       @membership = Membership.find(:first, :conditions => { :project_id => @project, :user_id => current_user })
     end
+    @new_ms = Membership.new
   end
 
   def create
@@ -27,10 +28,10 @@ class MembershipsController < ApplicationController
 
     uid = params[:user_id]
 
-    if params[:email].present?
-      user = User.find(:first, :conditions=>{:email=>params[:email]})
+    if params[:invite].present?
+      user = User.find(:first, :conditions=>{:email=>params[:invite][:email]})
       if user.blank?
-        make_dummy_user_and_send_notification(params[:name], params[:email])
+        make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email])
       else
         uid = user.id
       end

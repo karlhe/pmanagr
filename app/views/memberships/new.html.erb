@@ -1,6 +1,16 @@
 <div id="left_div">
 <h2>Invite Members</h2>
 
+<% form_for [@project,@new_ms] do |f| %>
+  <% fields_for :invite do |ff| %>
+    <%= ff.label :name %>
+      <%= ff.text_field :name, :size => 20 %>
+    <%= ff.label :email %>
+      <%= ff.text_field :email, :size => 20 %>
+  <% end %>
+  <%= f.submit "Send Invite" %>
+<% end %>
+
 <% if @users.empty? -%>
 <p>No users to invite!</p>
 <% else -%>
