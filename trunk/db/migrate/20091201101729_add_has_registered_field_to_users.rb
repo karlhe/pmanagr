@@ -4,6 +4,6 @@ class AddHasRegisteredFieldToUsers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_column :users, :has_registered
+    remove_column :users, :has_registered
   end
 end
