@@ -4,7 +4,7 @@
   <li>Due Date: <%= showtime(@project.due_by) %></li>
 </ul>
 <% if logged_in? and @project.users.include?(current_user) -%>
-  <p class="white"><%= link_to "Leave Project", leave_project_path(@project) %></p>
+  <p class="white"><%= link_to "Leave Project", project_membership_path(@project.id,@membership.id), :method => :delete, :confirm => "Leave this project?" %></p>
   <h3>Your Tasks</h3>
   <ul class="white">
     <% current_user.assignments.select{|assignment| assignment.task.project == @project}.each do |assignment| %>
