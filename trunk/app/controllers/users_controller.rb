@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :check_token_for_registration, :only => :register
-  before_filter :check_user_privacy, :except => :register
+  before_filter :check_user_privacy, :only => [:show, :edit]
   
   def show
     begin @user = User.find(params[:id])
@@ -49,6 +49,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    #should forge params[:user][:has_registered] instead
+    @user.has_registered = true
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
