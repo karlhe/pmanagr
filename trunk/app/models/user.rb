@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   
 
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :public
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :public, :has_registered
 
 
 
@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
 
   def is_public?
     return public
+  end
+
+  def has_registered?
+    return !!self.has_registered
   end
 
   

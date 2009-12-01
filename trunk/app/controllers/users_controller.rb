@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  # include AuthenticatedSystem
+  before_filter :check_token_for_registration, :only => :register
   
   def show
     
@@ -43,7 +42,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
- 
   end
 
   # PUT /users/1
@@ -63,5 +61,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def register
+    @user = User.find(params[:id])
+  end
+
+  private
+  def check_token_for_registration
+    @user = User.find(params[:id])
+    token = params[:token]
+    if @user.has_registered? || token != @user.salt
+      flash[:error] = "User is already registered"
+      redirect_to root_path
+    end
+  end
 
 end
