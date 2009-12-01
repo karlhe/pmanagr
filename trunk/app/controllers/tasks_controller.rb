@@ -148,8 +148,7 @@ class TasksController < ApplicationController
   end
   
   def check_admin
-    @task = Task.find(params[:id])
-    @project = @task.project
+    @project = Project.find(params[:project_id])
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
 	unless !status.blank? and status.is_owner?
       redirect_to project_path(@project)

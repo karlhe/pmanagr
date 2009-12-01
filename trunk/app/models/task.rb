@@ -56,5 +56,11 @@ class Task < ActiveRecord::Base
       return false
     end
   end
+  
+  def validate
+    if start_time > due_by
+      errors.add("Start time", "must be before due date")
+    end
+  end
 
 end

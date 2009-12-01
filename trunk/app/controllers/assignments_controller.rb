@@ -188,8 +188,7 @@ class AssignmentsController < ApplicationController
   end
   
   def check_admin
-    @assignment = Assignment.find(params[:id])
-    @task = @assignment.task
+    @task = Task.find(params[:task_id])
     @project = @task.project
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
 	unless !status.blank? and status.is_owner?
