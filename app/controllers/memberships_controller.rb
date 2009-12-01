@@ -25,7 +25,18 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
     @membership.project = @project
 
-    if params[:user_id].blank?
+    uid = params[:user_id]
+
+    if params[:email].present?
+      user = User.find(:first, :conditions=>{:email=>params[:email]})
+      if user.blank?
+        make_dummy_user_and_send_notification(params[:name], params[:email])
+      else
+        uid = user.id
+      end
+    end
+
+    if uid.blank?
       @membership.user_id = current_user.id
       @membership.set_permission("request")
       if @membership.save
@@ -36,9 +47,8 @@ class MembershipsController < ApplicationController
         redirect_to project_path(@project)        
       end
     elsif current_user.is_owner?(@project)
-      @membership.user_id = params[:user_id]
+      @membership.user_id = uid
       @membership.set_permission("pending")
-        
       if @membership.save
         flash[:notice] = "Member invited to project."
         redirect_to new_project_membership_path(@project)
@@ -127,6 +137,19 @@ class MembershipsController < ApplicationController
 	    unless !status.blank? and status.is_owner?
         redirect_to root_path
         flash[:error] = 'You are not an admin for this project.'
+      end
+    end
+
+    def make_dummy_user_and_send_notification(n, e)
+      new_user = User.new
+      new_user.register_from_invitation(n, e)
+      if new_user.save
+        # send out email
+        Emailer.deliver_contact(new_user)
+        flash[:notice] = "User successfully invited."
+      else
+        flash[:error] = "User cannot be invited."
+        redirect_to root_path
       end
     end
     

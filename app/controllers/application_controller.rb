@@ -28,4 +28,5 @@ class ApplicationController < ActionController::Base
       flash[:error] = 'You do not have permission to destroy this project.'
     end
   end
+ 
 end
