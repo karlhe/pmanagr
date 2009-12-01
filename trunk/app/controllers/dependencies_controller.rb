@@ -18,7 +18,7 @@ class DependenciesController < ApplicationController
   def new
     if params[:task_id].present?
       @task = Task.find(params[:task_id])
-      @potentials = @task.project.tasks.select { |potential| potential != @task and not @task.prerequisites.include?(potential) }
+      @potentials = @task.project.tasks.select { |potential| @task.can_depend_on?(potential) }
     else
       flash[:error] = "Must specify task in order to add dependencies."
       redirect_to root_path

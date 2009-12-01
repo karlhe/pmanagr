@@ -18,5 +18,34 @@ class Task < ActiveRecord::Base
   def is_complete?
     self.completed_at.present?
   end
+  
+  def can_depend_on?(task)
+    prereqs = self.prerequisites
+    if self == task
+      return false
+    elsif self.depends_on?(task)
+      return false
+    else
+      task.prerequisites.each do |prereq|
+        if task.depends_on?(self)
+          return false
+        end
+      end
+      return true
+    end
+  end
+  
+  def depends_on?(task)
+    if self.prerequisites.include?(task)
+      return true
+    else
+      self.prerequisites.each do |prereq|
+        if prereq.depends_on?(task)
+          return true
+        end
+      end
+      return false
+    end
+  end
 
 end
