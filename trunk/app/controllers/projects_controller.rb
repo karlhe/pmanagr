@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :login_required, :except => [:home, :index, :show]
   before_filter :check_public_access, :only => :show
+  before_filter :check_admin, :only => [:edit, :update, :destroy]
 
   
   def join
@@ -151,4 +152,11 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def check_admin
+	status = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
+	if status.is_owner?
+      redirect_to root_path
+      flash[:error] = 'You are not an admin for this project.'
+    end
+  end
 end
