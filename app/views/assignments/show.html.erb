@@ -35,7 +35,7 @@
     <%= @assignee.name %>
   <% end %>
 </p>
-<%= render :partial => "assign" %>
+<% if current_user.is_owner?(@assignment.task.project) %><%= render :partial => "assign" %><% end %>
 
 <%= link_to 'Edit', edit_project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %> |
 <%= link_to 'Back', project_task_path(@assignment.task.project, @assignment.task) %>

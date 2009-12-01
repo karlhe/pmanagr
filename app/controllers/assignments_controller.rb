@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
   before_filter :login_required
   before_filter :check_project_member
-  before_filter :check_admin, :except => [:take, :drop, :complete, :uncomplete]
+  before_filter :check_admin, :except => [:take, :drop, :complete, :uncomplete, :show]
 
   def take
     @assignment = Assignment.find(params[:id])

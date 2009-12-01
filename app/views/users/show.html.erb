@@ -10,6 +10,18 @@
 </div>
 
 <div id="right_div">
+  <% if @user.pending_memberships.present? -%>
+    <h2>Invitations</h2>
+    <ul class="white">
+    <% @user.pending_memberships.each do |invite| -%>
+      <li>
+        <%= link_to invite.project.name, project_path(invite.project) %>
+        (<%= link_to "accept invite", project_membership_path(invite.project,invite,:accept => true), :method => :put %>)
+      </li>
+    <% end -%>
+    </ul>
+  <% end -%>
+
   <h2>Your Projects</h2>
   <div class="white">
     <% if @user.projects.blank? -%>

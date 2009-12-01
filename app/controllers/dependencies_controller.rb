@@ -1,4 +1,9 @@
 class DependenciesController < ApplicationController
+  before_filter :task_required, :only => [:new, :create]
+  before_filter :login_required
+  before_filter :check_project_member
+  before_filter :check_admin
+  
   # GET /dependencies
   # GET /dependencies.xml
 
@@ -16,13 +21,7 @@ class DependenciesController < ApplicationController
   # GET /dependencies/new
   # GET /dependencies/new.xml
   def new
-    if params[:task_id].present?
-      @task = Task.find(params[:task_id])
-      @potentials = @task.project.tasks.select { |potential| @task.can_depend_on?(potential) }
-    else
-      flash[:error] = "Must specify task in order to add dependencies."
-      redirect_to root_path
-    end
+    @potentials = @task.project.tasks.select { |potential| @task.can_depend_on?(potential) }
   end
 
   # GET /dependencies/1/edit
@@ -33,7 +32,6 @@ class DependenciesController < ApplicationController
   # POST /dependencies
   # POST /dependencies.xml
   def create
-    @task = Task.find(params[:task_id])
     @dependency = @task.dependencies.build(:prerequisite_id => params[:prerequisite_id])
 
     if @dependency.save
@@ -64,10 +62,7 @@ class DependenciesController < ApplicationController
 
   # DELETE /dependencies/1
   # DELETE /dependencies/1.xml
-  def destroy
-    @dependency = Dependency.find(params[:id])
-    @task = @dependency.task
-    
+  def destroy    
     if @dependency.destroy
       flash[:notice] = "Dependency removed."
     else
@@ -76,4 +71,34 @@ class DependenciesController < ApplicationController
     
     redirect_to project_task_path(@task.project,@task)
   end
+  
+  private
+    def task_required
+      if params[:task_id].present?
+        @task = Task.find(params[:task_id])
+      elsif params[:id].present?
+        @dependency = Dependency.find(params[:id])
+        @task = @dependency.task
+      else
+        flash[:error] = "Cannot view dependencies without specifying a task."
+        redirect_to root_path
+      end
+    end
+  
+    def check_project_member
+	    status = current_user.memberships.select{|m| m.project_id == @task.project.id}.first
+	    unless !status.blank? and (status.is_owner? or status.is_user?)
+        redirect_to project_task_path(@task.project,@task)
+        flash[:error] = 'You are not a member of this project.'
+      end
+    end
+    
+    def check_admin
+	    status = current_user.memberships.select{|m| m.project_id == @task.project.id}.first
+	    unless !status.blank? and status.is_owner?
+        redirect_to project_task_path(@task.project,@task)
+        flash[:error] = 'You are not an admin for this project.'
+      end
+    end
+  
 end

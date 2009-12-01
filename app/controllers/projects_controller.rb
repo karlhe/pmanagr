@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :except => [:home, :index, :show]
   before_filter :check_public_access, :only => :show
   before_filter :check_admin, :only => [:edit, :update, :destroy]
-
   
   def join
     @project = Project.find(params[:project_id])
@@ -62,7 +61,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @tasks = @project.tasks
-    @members = @project.memberships
 
     respond_to do |format|
       format.html # show.html.erb
@@ -144,19 +142,19 @@ class ProjectsController < ApplicationController
   end
 
   private
-  def check_public_access
-    private = !Project.find(params[:id]).is_public?
-    if (!logged_in? and private)  || (logged_in? and private and (!current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first))
-      redirect_to root_path
-      flash[:error] = 'You do not have permission to view this private project.'
+    def check_public_access
+      private = !Project.find(params[:id]).is_public?
+      if (!logged_in? and private)  || (logged_in? and private and (!current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first))
+        redirect_to root_path
+        flash[:error] = 'You do not have permission to view this private project.'
+      end
     end
-  end
   
-  def check_admin
-	status = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
-	unless !status.blank? and status.is_owner?
-      redirect_to root_path
-      flash[:error] = 'You are not an admin for this project.'
+    def check_admin
+	    status = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
+	    unless !status.blank? and status.is_owner?
+        redirect_to root_path
+        flash[:error] = 'You are not an admin for this project.'
+      end
     end
-  end
 end

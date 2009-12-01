@@ -1,0 +1,18 @@
+<div id="left_div">
+<h2>Manage Project Members</h2>
+
+<ul>
+<% @memberships.each do |membership| -%>
+  <li>
+    <%= membership.user.name %> -- <%= membership.user.email %> (<%= membership.level %>)
+    (<%= link_to "remove", project_membership_path(@project,membership), :method => :delete, :confirm => "Remove member?" %>)
+  </li>
+<% end -%>
+</ul>
+
+<%= link_to "Back to Project", project_path(@project) %>
+</div>
+
+<div id="right_div">
+  <%= render :partial => 'projects/bar' %>
+</div>
