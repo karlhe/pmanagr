@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   end
 
   def is_public?
-    return public
+    return !!public
   end
 
   def has_registered?

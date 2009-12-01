@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_filter :check_token_for_registration, :only => :register
+  before_filter :check_user_privacy, :except => :register
   
   def show
-    
     begin @user = User.find(params[:id])
     rescue Exception
       @user = current_user
@@ -72,6 +72,17 @@ class UsersController < ApplicationController
     if @user.has_registered? || token != @user.salt
       flash[:error] = "User is already registered"
       redirect_to root_path
+    end
+  end
+
+  def check_user_privacy
+    begin
+      @user = User.find(params[:id])
+      if not @user.is_public?
+        flash[:error] = "User privacy is set to private"
+        redirect_to root_path
+      end
+    rescue Exception
     end
   end
 
