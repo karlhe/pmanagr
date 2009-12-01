@@ -2,29 +2,6 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :except => [:home, :index, :show]
   before_filter :check_public_access, :only => :show
   before_filter :check_admin, :only => [:edit, :update, :destroy]
-  
-  def join
-    @project = Project.find(params[:project_id])
-    @user = current_user
-    @membership = Membership.new
-    @membership.user = @user
-    @membership.project = @project
-    @membership.set_permission("request")
-    if @membership.save
-      flash[:notice] = "You have requested to join #{@project.name}."
-      redirect_to project_path(@project)
-    else
-      flash[:error] = "Failed to request membership."
-      redirect_to project_path(@project)
-    end
-  end
-
-  def leave
-    @project = Project.find(params[:project_id])
-    @user = current_user
-    @membership = Membership.find(:first, :conditions=>{:user_id=>@user.id, :project_id=>@project.id})
-    redirect_to :method => :delete, :controller => :memberships, :action => :destroy, :project_id => @project.id, :id => @membership.id
-  end
 
   # GET /
   def home

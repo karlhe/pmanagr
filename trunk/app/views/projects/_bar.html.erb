@@ -42,5 +42,5 @@
       </li>
   </ul>
 <% elsif logged_in? -%>
-  <p class="white"><%= link_to "Join Project", join_project_path(@project) %></p>
+  <p class="white"><%= link_to "Join Project", project_memberships_path(@project), :method => :post %></p>
 <% end -%>
