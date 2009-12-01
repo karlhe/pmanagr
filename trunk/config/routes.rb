@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :tasks do |task|
       task.resources :assignments
     end
+    project.resources :memberships
   end
 
   map.complete_project_task '/projects/:project_id/tasks/:task_id/complete', :controller => 'tasks', :action => 'complete'

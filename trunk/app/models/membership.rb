@@ -1,6 +1,7 @@
 class Membership < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
+  validates_presence_of :project, :user, :privilege
 
   attr_accessible :privilege
 
@@ -16,7 +17,32 @@ class Membership < ActiveRecord::Base
       self.privilege = 4
     end
   end
+  
+  def self.permission(perm)
+    if (perm == "owner")
+      return 1
+    elsif (perm == "user")
+      return 2
+    elsif (perm == "pending")
+      return 3
+    elsif (perm == "request")
+      return 4
+    end
+  end
 
+  def level
+    if self.privilege == 1
+      return "owner"
+    elsif self.privilege == 2
+      return "user"
+    elsif self.privilege == 3
+      return "pending"
+    elsif self.privilege == 4
+      return "request"
+    else
+      return "unknown"
+    end
+  end
 
 
   def is_owner?

@@ -15,7 +15,7 @@
   </ul>
   <h3>Current Members</h3>
   <ul class="white">
-    <% @members.each do |member| -%>
+    <% @project.memberships.each do |member| -%>
       <li>
         <%= member.user.name %>
         <% if member.is_owner? %>
@@ -28,6 +28,7 @@
       </li>
     <% end -%>
   </ul>
+  <% if logged_in? and current_user.is_owner?(@project) %><p class="white"><%= link_to "Invite Members", new_project_membership_path(@project) %> | <%= link_to "Manage Members", project_memberships_path(@project) %></p><% end %>
   <h3>Project Discussion</h3>
   <ul class="white">
     <% @project.discussions.each do |discussion| %>

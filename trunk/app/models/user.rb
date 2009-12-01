@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
 
   
   def is_owner?(project)
-    membership = project.memberships.find(self)
+    membership = project.memberships.find(:first, :conditions => { :user_id => self.id })
     !membership.blank? and membership.is_owner?
   end
 
@@ -87,6 +87,10 @@ class User < ActiveRecord::Base
   def is_request?(project)
     membership = project.memberships.find(self)
     !membership.blank? and membership.is_request?
+  end
+  
+  def pending_memberships
+    return self.memberships.select { |m| m.level == "pending" }
   end
 	
   
