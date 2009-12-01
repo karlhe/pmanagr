@@ -65,11 +65,6 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @assignments = @task.assignments
-    @task.prerequisites.each do |prereq|
-      if prereq.completed_at.blank?
-        flash[:error] = "Prerequisites for this task have not been met!"
-      end
-    end
 
     respond_to do |format|
       format.html # show.html.erb

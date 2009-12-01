@@ -4,6 +4,7 @@
   <li>Due Date: <%= showtime(@project.due_by) %></li>
 </ul>
 <% if logged_in? and @project.users.include?(current_user) -%>
+  <p class="white"><%= link_to "Leave Project", leave_project_path(@project) %></p>
   <h3>Your Tasks</h3>
   <ul class="white">
     <% current_user.assignments.select{|assignment| assignment.task.project == @project}.each do |assignment| %>
@@ -39,4 +40,6 @@
         <strong><%= link_to "Create a Discussion", new_project_discussion_path(@project) %></strong>
       </li>
   </ul>
+<% elsif logged_in? -%>
+  <p class="white"><%= link_to "Join Project", join_project_path(@project) %></p>
 <% end -%>

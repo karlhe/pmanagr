@@ -1,6 +1,7 @@
 <%= render :partial => "task_info" %>
 
 <h3>Dependencies</h3>
+<% unless @task.cleared_prerequisites? %><p class="error">Prerequisites for task have not been cleared!</p><% end %>
 <%= render :partial => "dependencies/dependencies" %>
 
 <h3>Assignments</h3>
