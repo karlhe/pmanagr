@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   end
 
   def author=(value)
-    write_attribute :user_id, value
+    write_attribute :user_id, value.id
   end
 
   
