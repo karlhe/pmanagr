@@ -3,6 +3,13 @@ class Assignment < ActiveRecord::Base
   belongs_to :task
 
 
+
+  def validate
+    if start_time > due_by
+      errors.add("Start time", "must be before due date")
+    end
+  end
+  
   def complete
     self.completed_at = Time.now
   end

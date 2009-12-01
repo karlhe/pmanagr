@@ -7,7 +7,13 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :desc
 
   attr_accessible :start_time, :name, :desc, :due_by, :public
-  
+
+  def validate
+    if start_time > due_by
+      errors.add("Start time", "must be before due date")
+    end
+  end
+
   def is_public?
     return public
   end

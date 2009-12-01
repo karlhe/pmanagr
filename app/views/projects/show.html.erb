@@ -1,5 +1,5 @@
 <div id="left_div">
-  <h3>Project Description<% if logged_in? and current_user.is_owner?(@project) %> (<%= link_to 'Edit', edit_project_path(@project) %>)<% end %></h3>
+  <h3>Project Description<% if logged_in? and current_user.is_owner?(@project) %> (<%= link_to 'Edit', edit_project_path(@project) %>) <% end %></h3>
   <%= simple_format(@project.desc) %>
   
   <h3>Tasks<% if logged_in? and current_user.is_owner?(@project) %> (<%= link_to 'New Task', new_project_task_path(@project) %>)<% end %></h3>
