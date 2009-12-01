@@ -7,9 +7,7 @@
     <th>Desc</th>
     <th>Due</th>
     <th>Admin</th>
-    <!--
     <th colspan="2">Admin</th>
-    -->
   </tr>
 <% @projects.each do |project| %>
   <tr>
@@ -18,10 +16,10 @@
     <td><%=h showtime(project.due_by.localtime) %></td>
     <td><%= project.admin.is_public? ? "#{link_to project.admin.name, user_path(project.admin)}" : project.admin.name %></td>
 
-    <!--
+    
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
-    -->
+    
   </tr>
 <% end %>
 </table>
