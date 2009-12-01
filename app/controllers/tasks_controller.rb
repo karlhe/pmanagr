@@ -150,7 +150,7 @@ class TasksController < ApplicationController
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
 	unless !status.blank? and status.is_owner?
-      redirect_to project_path
+      redirect_to project_path(@project)
       flash[:error] = 'You are not an admin for this project.'
     end
   end
