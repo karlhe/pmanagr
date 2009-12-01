@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Prerequisite</th>
+    <th>Status</th>
+    <th>Admin</th>
+  </tr>
+
+<% @task.dependencies.each do |dependency| %>
+  <tr>
+    <td><%= link_to dependency.prerequisite.name, project_task_path(@task.project,dependency.prerequisite) %></td>
+    <% if dependency.prerequisite.is_complete? -%>
+      <td>Completed at <%=h dependency.prerequisite.completed_at %>.</td>
+    <% else -%>
+      <td>Incomplete</td>
+    <% end -%>
+    <td><%= link_to 'Remove', dependency_path(dependency), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Add Prerequisites", new_dependency_path(:task_id => @task) %>
