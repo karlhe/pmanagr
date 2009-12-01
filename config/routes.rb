@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :dependencies
+
   map.resources :projects do |project|
     project.resources :discussions do |discussion|
       discussion.resources :posts

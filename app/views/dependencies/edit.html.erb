@@ -1,0 +1,20 @@
+<h1>Editing dependency</h1>
+
+<% form_for(@dependency) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :task_id %><br />
+    <%= f.text_field :task_id %>
+  </p>
+  <p>
+    <%= f.label :prerequisite_id %><br />
+    <%= f.text_field :prerequisite_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dependency %> |
+<%= link_to 'Back', dependencies_path %>
