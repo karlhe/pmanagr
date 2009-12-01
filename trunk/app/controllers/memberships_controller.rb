@@ -34,12 +34,26 @@ class MembershipsController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @membership = @project.memberships.find(params[:id])
-    if @membership.level == "pending" and params[:accept] and current_user == @membership.user
-      if @membership.update_attribute(:privilege, Membership.permission("user"))
-        flash[:notice] = "Project invitation accepted!"
-        redirect_to dashboard_path
+    if params[:accept]
+      if @membership.level == "pending" and current_user == @membership.user
+        if @membership.update_attribute(:privilege, Membership.permission("user"))
+          flash[:notice] = "Project invitation accepted!"
+          redirect_to dashboard_path
+        else
+          flash[:error] = "Failed to accept invite."
+          redirect_to dashboard_path
+        end
+      elsif @membership.level == "request" and current_user.is_owner?(@project)
+        if @membership.update_attribute(:privilege, Membership.permission("user"))
+          flash[:notice] = "Project request accepted!"
+          redirect_to project_memberships_path(@project)
+        else
+          flash[:error] = "Failed to accept request."
+          redirect_to project_memberships_path(@project)
+        end
       else
-        flash[:error] = "Failed to accept invite."
+        flash[:error] = "You do not have permission to accept this membership."
+        redirect_to root_path
       end
     elsif @project.update_attributes(params[:project])
       flash[:notice] = "Membership updated"

@@ -9,13 +9,13 @@ class ProjectsController < ApplicationController
     @membership = Membership.new
     @membership.user = @user
     @membership.project = @project
-    @membership.set_permission("user")
+    @membership.set_permission("request")
     if @membership.save
-      flash[:notice] = "#{@user.name} is now a member of #{@project.name}."
+      flash[:notice] = "You have requested to join #{@project.name}."
       redirect_to project_path(@project)
     else
-      flash[:error] = "Failed to add user."
-      render :action => :new
+      flash[:error] = "Failed to request membership."
+      redirect_to project_path(@project)
     end
   end
 
