@@ -1,6 +1,6 @@
 <h2>Registering <%= @user.name%>'s Profile</h2>
 <% @user.password = @user.password_confirmation = @user.login = nil %>
-<% @user.created_at = Time.now %>
+
 
 <% form_for @user do |f| -%>
 <%= f.error_messages %>

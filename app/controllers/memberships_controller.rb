@@ -31,7 +31,7 @@ class MembershipsController < ApplicationController
     if params[:invite].present?
       user = User.find(:first, :conditions=>{:email=>params[:invite][:email]})
       if user.blank?
-        make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email])
+        make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email], current_user, @project)
       else
         uid = user.id
       end
@@ -141,16 +141,15 @@ class MembershipsController < ApplicationController
       end
     end
 
-    def make_dummy_user_and_send_notification(n, e)
+    def make_dummy_user_and_send_notification(n, e, sender, project)
       new_user = User.new
       new_user.register_from_invitation(n, e)
       if new_user.save
         # send out email
-        Emailer.deliver_contact(new_user)
+        Emailer.deliver_invite_notification_new_user(sender, new_user, project)
         flash[:notice] = "User successfully invited."
       else
         flash[:error] = "User cannot be invited."
-        redirect_to root_path
       end
     end
     
