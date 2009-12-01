@@ -1,0 +1,7 @@
+Hello <%= @recipient.name %>
+
+You are being invited by <%= @sender.name %> to join the project "<%= @project.name %>".
+
+You account has been created for you. Please follow the following link to set up your account.
+
+<a href="http://localhost:3000/users/register/<%= @recipient.id %>?token=<%= @recipient.salt %>" ></a>
