@@ -60,8 +60,8 @@ class User < ActiveRecord::Base
   end
 
   
-  def is_owner? project
-    membership = Membership.find(:first, :conditions => [:user => self, :project => project])
+  def is_owner?(project)
+    membership = project.memberships.find(self)
     !membership.blank? and membership.is_owner?
   end
 

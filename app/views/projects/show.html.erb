@@ -1,20 +1,12 @@
 <div id="left_div">
-  <h3>Project Description</h3>
+  <h3>Project Description<% if logged_in? and current_user.is_owner?(@project) %> (<%= link_to 'Edit', edit_project_path(@project) %>)<% end %></h3>
   <%= simple_format(@project.desc) %>
   
-  <h3>Tasks</h3>
+  <h3>Tasks<% if logged_in? and current_user.is_owner?(@project) %> (<%= link_to 'New Task', new_project_task_path(@project) %>)<% end %></h3>
   <%= render :partial => 'tasks/tasks' %>
   
-  <%= link_to 'Edit', edit_project_path(@project) %> |
-  <%= link_to 'Back', root_path %> |
-  <%= link_to 'New Task', new_project_task_path(@project) %>
-  <% if current_user.present? %>
-    <% if @members.include?(current_user) -%>
-    | <%= link_to 'Leave Project', leave_project_path(@project) %>
-    <% else @members.include?(current_user) -%>
-    | <%= link_to 'Join Project', join_project_path(@project) %>
-    <% end -%>
-  <% end -%>
+  <%= link_to 'Back', root_path %>
+
 </div>
 
 <div id="right_div">
