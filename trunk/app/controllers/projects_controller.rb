@@ -23,12 +23,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @user = current_user
     @membership = Membership.find(:first, :conditions=>{:user_id=>@user.id, :project_id=>@project.id})
-    if @membership.destroy
-      flash[:notice] = "#{@user.name} has left #{@project.name}."
-    else
-      flash[:error] = "Failed to leave project."
-    end
-    redirect_to dashboard_path
+    redirect_to :method => :delete, :controller => :memberships, :action => :destroy, :project_id => @project.id, :id => @membership.id
   end
 
   # GET /
@@ -60,6 +55,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    if logged_in?
+      @membership = Membership.find(:first, :conditions => { :project_id => @project, :user_id => current_user })
+    end
     @tasks = @project.tasks
 
     respond_to do |format|

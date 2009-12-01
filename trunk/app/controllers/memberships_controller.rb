@@ -1,16 +1,22 @@
 class MembershipsController < ApplicationController
   before_filter :login_required
   before_filter :check_public_access
-  before_filter :check_admin, :except => :update
+  before_filter :check_admin, :except => [:update, :destroy]
   
   def index
     @project = Project.find(params[:project_id])
     @memberships = @project.memberships
+    if logged_in?
+      @membership = Membership.find(:first, :conditions => { :project_id => @project, :user_id => current_user })
+    end
   end
 
   def new
     @project = Project.find(params[:project_id])
     @users = User.all.select { |user| not @project.users.include?(user) }
+    if logged_in?
+      @membership = Membership.find(:first, :conditions => { :project_id => @project, :user_id => current_user })
+    end
   end
 
   def create
@@ -70,13 +76,25 @@ class MembershipsController < ApplicationController
     
     if @membership.is_owner?
       flash[:error] = "Cannot remove membership for owner."
-      redirect_to project_memberships_path(@project)
-    elsif @membership.destroy
-      flash[:notice] = "User removed from project."
-      redirect_to project_memberships_path(@project)
+      redirect_to :back
+    elsif @membership.user == current_user
+      if @membership.destroy
+        flash[:notice] = "User removed from project."
+        redirect_to project_path(@project)
+      else
+        flash[:error] = "Could not remove user."
+        redirect_to project_path(@project)
+      end
+    elsif current_user.is_owner?(@project)
+      if @membership.destroy
+        flash[:notice] = "User removed from project."
+        redirect_to project_memberships_path(@project)
+      else
+        flash[:error] = "Could not remove user."
+        redirect_to project_memberships_path(@project)
+      end
     else
-      flash[:error] = "Could not remove user."
-      redirect_to project_memberships_path(@project)
+      flash[:error] = "You do not have permission to remove this user."
     end
   end
   
