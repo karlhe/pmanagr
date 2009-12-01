@@ -62,27 +62,27 @@ class User < ActiveRecord::Base
   
   def is_owner? project
     membership = Membership.find(:first, :conditions => [:user => self, :project => project])
-    !membership.blank? and membership.privilege == 1
+    !membership.blank? and membership.is_owner?
   end
 
-  def is_user? project
+  def is_user?(project)
     membership = Membership.find(:first, :conditions => [:user => self, :project => project])
-    !membership.blank? and self.privilege == 2
+    !membership.blank? and self.is_owner?
   end
 
-  def is_approved? project
+  def is_approved?(project)
     membership = Membership.find(:first, :conditions => [:user => self, :project => project])
-    !membership.blank? and self.privilege == 2 or self.privilege == 1
+    !membership.blank? and self.is_approved?
   end
 
-  def is_pending? project
+  def is_pending?(project)
     membership = Membership.find(:first, :conditions => [:user => self, :project => project])
-    !membership.blank? and self.privilege == 3
+    !membership.blank? and self.is_pending?
   end
   
-  def is_request? project
+  def is_request?(project)
     membership = Membership.find(:first, :conditions => [:user => self, :project => project])
-    !membership.blank? and self.privilege == 4
+    !membership.blank? and self.is_request?
   end
 	
   
