@@ -6,7 +6,7 @@ class Emailer < ActionMailer::Base
      subject "pManagr welcomes you!"
      sent_on Time.now
 	   body :sender => sender, :recipient => recipient, :project => project
-     content_type text/html
+     content_type "text/html"
    end
 
    def invite_notification(sender, recipient, project)
@@ -15,7 +15,7 @@ class Emailer < ActionMailer::Base
      subject sender.name + "wants you!"
      sent_on Time.now
 	   body :sender => sender, :recipient => recipient, :project => project
-     content_type text/html
+     content_type "text/html"
    end
 
 end
