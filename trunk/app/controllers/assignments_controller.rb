@@ -96,7 +96,12 @@ class AssignmentsController < ApplicationController
   # GET /assignments/1.xml
   def show
     @assignment = Assignment.find(params[:id])
-    @members = @assignment.user
+    @task = @assignment.task
+    @project = @task.project
+    
+    @assignee = @assignment.user
+    @members = @project.memberships.select { |member| member.is_approved? }
+    @candidates = @members.collect { |member| member.user }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -176,7 +181,7 @@ class AssignmentsController < ApplicationController
   private
   def check_project_member
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	if status.is_owner? or status.is_user?
+	unless status.is_owner? or status.is_user?
       redirect_to root_path
       flash[:error] = 'You are not a member of this project.'
     end
@@ -184,7 +189,7 @@ class AssignmentsController < ApplicationController
   
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	if status.is_owner?
+	unless status.is_owner?
       redirect_to root_path
       flash[:error] = 'You are not an admin for this project.'
     end

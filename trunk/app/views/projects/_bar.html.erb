@@ -12,6 +12,21 @@
       </li>
     <% end -%>
   </ul>
+  <h3>Current Members</h3>
+  <ul class="white">
+    <% @members.each do |member| -%>
+      <li>
+        <%= member.user.name %>
+        <% if member.is_owner? %>
+          (Admin)
+        <% elsif member.is_pending? %>
+          (Pending)
+        <% elsif member.is_request? %>
+          (Requested)
+        <% end %>
+      </li>
+    <% end -%>
+  </ul>
   <h3>Project Discussion</h3>
   <ul class="white">
     <% @project.discussions.each do |discussion| %>

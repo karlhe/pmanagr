@@ -1,0 +1,5 @@
+<% form_for [@project,@task,@assignment] do |f| %>
+  <%= f.error_messages %>
+  <%= f.select :user_id, @candidates.collect { |c| [c.name, c.id] }, :prompt => "Select User" %>
+  <%= f.submit 'Assign' %>
+<% end %>

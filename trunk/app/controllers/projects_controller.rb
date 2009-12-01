@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @tasks = @project.tasks
-    @members = @project.users
+    @members = @project.memberships
 
     respond_to do |format|
       format.html # show.html.erb
@@ -154,7 +154,7 @@ class ProjectsController < ApplicationController
   
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
-	if status.is_owner?
+	unless status.is_owner?
       redirect_to root_path
       flash[:error] = 'You are not an admin for this project.'
     end
