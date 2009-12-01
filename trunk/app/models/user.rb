@@ -51,6 +51,18 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  def register_from_invitation (n, e)
+    arr =  [('0'..'9'),('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
+    self.login = (0...40).map{arr[rand(arr.length)]}.join
+    self.name = n
+    self.email = e
+    self.crypted_password = (0...40).map{arr[rand(arr.length)]}.join
+    self.salt = (0...40).map{arr[rand(arr.length)]}.join
+    self.has_registered = false
+    capitalize_name
+  end
+
+
   def capitalize_name
      self.name = self.name.split(' ').map {|w| w.capitalize }.join(' ')
   end
