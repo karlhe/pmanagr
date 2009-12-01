@@ -189,8 +189,8 @@ class AssignmentsController < ApplicationController
   
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	unless status.is_owner?
-      redirect_to root_path
+	unless !status.blank? and status.is_owner?
+      redirect_to project_task_path
       flash[:error] = 'You are not an admin for this project.'
     end
   end

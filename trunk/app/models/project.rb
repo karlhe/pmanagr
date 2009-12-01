@@ -13,18 +13,18 @@ class Project < ActiveRecord::Base
   end
 
   def is_owner? user
-    @membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
-    if @membership == []
+    membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
+    if membership == []
       return false
     else
-      return @member.is_owner?
+      return member.is_owner?
     end
   end
 
   def is_member? user
     #Not finished
-    @membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
-    return @member.is_owner?
+    membership = user.memberships.find(:all, :conditions => {:user => user, :project => this})
+    return member.is_owner?
   end
 
   def admin
