@@ -154,7 +154,7 @@ class ProjectsController < ApplicationController
   
   def check_admin
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:id]}.first
-	unless status.is_owner?
+	unless !status.blank? and status.is_owner?
       redirect_to root_path
       flash[:error] = 'You are not an admin for this project.'
     end
