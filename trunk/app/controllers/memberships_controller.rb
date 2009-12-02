@@ -31,23 +31,14 @@ class MembershipsController < ApplicationController
     if params[:invite].present?
       user = User.find(:first, :conditions=>{:email=>params[:invite][:email]})
       if user.blank?
-        make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email], current_user, @project)
+        new_user = make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email], current_user, @project)
+        uid = new_user.id
       else
         uid = user.id
       end
     end
 
-    if uid.blank?
-      @membership.user_id = current_user.id
-      @membership.set_permission("request")
-      if @membership.save
-        flash[:notice] = "You have requested to join the project."
-        redirect_to project_path(@project)
-      else
-        flash[:error] = "Request to join project has failed."
-        redirect_to project_path(@project)        
-      end
-    elsif current_user.is_owner?(@project)
+    if current_user.is_owner?(@project)
       @membership.user_id = uid
       @membership.set_permission("pending")
       if @membership.save
@@ -56,6 +47,16 @@ class MembershipsController < ApplicationController
       else
         flash[:error] = "Could not invite member."
         redirect_to new_project_membership_path(@project)
+      end
+    elsif @project.is_public?
+      @membership.user_id = current_user.id
+      @membership.set_permission("request")
+      if @membership.save
+        flash[:notice] = "You have requested to join the project."
+        redirect_to project_path(@project)
+      else
+        flash[:error] = "Request to join project has failed."
+        redirect_to project_path(@project)
       end
     else
       flash[:error] = "You do not have permission to add this user."
@@ -151,6 +152,7 @@ class MembershipsController < ApplicationController
       else
         flash[:error] = "User cannot be invited."
       end
+      return new_user
     end
     
 end
