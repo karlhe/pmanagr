@@ -32,9 +32,4 @@ describe TasksController do
     it "should set the completed by time to the current time"
   end
   
-  describe "When deleting a task" do
-    it "should delete all subtasks"
-    it "should remove all assignments"
-  end
-  
 end

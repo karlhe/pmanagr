@@ -1,15 +1,16 @@
 require 'spec_helper'
 
 describe Membership do
-  fixtures :users, :projects
+  fixtures :users, :projects, :memberships
 
   before(:each) do
     @project = projects(:projectn)
     @user = users(:quentin)
+    @membership = memberships(:one)
     @valid_attributes = {
-      :user => @user,
-      :project => @project,
-      :privilege => 0
+        :user_id => 1,
+        :task_id => 1,
+        :privilege => 2
     }
   end
 
@@ -19,19 +20,13 @@ describe Membership do
   
   describe "Given valid attributes" do
     it "should have a user" do
-      @membership = Membership.create!(@valid_attributes)
-      @membership.user.should_not == nil
       @membership.user.should == @user
     end
     it "should have a project" do
-      @membership = Membership.create!(@valid_attributes)
-      @membership.project.should_not == nil
       @membership.project.should == @project
     end
     it "should have a privilege level for the user in that project" do
-      @membership = Membership.create!(@valid_attributes)
-      @membership.privilege.should_not == nil
-      @membership.privilege.should == 0
+      (1..4).should be_include @membership.privilege
     end
   end
   

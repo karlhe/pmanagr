@@ -2,6 +2,7 @@ class Assignment < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
 
+  validates_presence_of :task
 
 
   def validate
@@ -30,4 +31,10 @@ class Assignment < ActiveRecord::Base
     self.completed_at.present?
   end
 
+  private
+    def validate
+      errors.add("due_by", "cannot be before now") unless self.due_by > self.created_at
+      errors.add("due_by", "cannot be before start time") unless self.due_by > self.start_time
+    end
+  
 end

@@ -4,14 +4,13 @@ class Project < ActiveRecord::Base
   has_many :tasks, :dependent => :destroy
   has_many :discussions, :dependent => :destroy
   
-  validates_presence_of :name, :desc
-
-  attr_accessible :start_time, :name, :desc, :due_by, :public
+  validates_presence_of :name, :desc, :due_by, :start_time, :public
+  
+  attr_accessible :name, :desc, :public, :due_by, :start_time, :created_at
 
   def validate
-    if start_time > due_by
-      errors.add("Start time", "must be before due date")
-    end
+      errors.add("Start time", "must be before due date") unless self.start_time < self.due_by
+      errors.add("Due by", "must be after now") unless self.created_at < self.due_by
   end
 
   def is_public?
