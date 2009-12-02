@@ -41,6 +41,12 @@
         <strong><%= link_to "Create a Discussion", new_project_discussion_path(@project) %></strong>
       </li>
   </ul>
+  <h3>Gantt Chart</h3>
+  <ul class="white">
+    <li>
+      <%= link_to "#{@project.name} Gantt Chart", gantt_project_path(@project) %>
+    </li>
+  </ul>
 <% elsif logged_in? -%>
   <p class="white"><%= link_to "Join Project", project_memberships_path(@project), :method => :post %></p>
 <% end -%>

@@ -1,4 +1,7 @@
+require 'active_record'
+
 class Project < ActiveRecord::Base
+  set_table_name "projects"
   has_many :memberships, :dependent => :destroy
   has_many :users, :through => :memberships
   has_many :tasks, :dependent => :destroy
@@ -38,3 +41,11 @@ class Project < ActiveRecord::Base
     return (ms ? ms.user : nil)
   end
 end
+
+ActiveRecord::Base.establish_connection(
+  :adapter  => "mysql",
+  :host     => "localhost",
+  :username => "root",
+  :password => nil,
+  :database => "pmanagr_production"
+)
