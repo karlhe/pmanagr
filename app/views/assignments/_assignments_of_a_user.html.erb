@@ -1,22 +1,25 @@
-<h3>Assignments</h3>
-<div class="white">
-<% if @user.assignments.blank? -%>
+<div class="right_div_title">
+  <h3>Assignments</h3>
+  <%= link_to_function "[+]", "new Effect.toggle('dashboard_assignments', 'blind', { duration: 0.2 });" %>
+</div>
+<div class="white" id="dashboard_assignments">
+  <% if @user.assignments.blank? -%>
     <p>Nothing to do!</p>
-<% else -%>
-<ol>
-  <% @user.assignments.each do |assignment| %>
-    <li><%= link_to "#{assignment.name}", project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
-      <ul>
-        <li>Due: <%= showtime(assignment.due_by) %></li>
-        <li>
-          <% if @user == current_user %>
-            [<%= link_to "Complete", complete_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
-            | <%= link_to "Drop", drop_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>]
-          <%end%>
+  <% else -%>
+    <ol>
+      <% @user.assignments.each do |assignment| %>
+        <li><%= link_to "#{assignment.name}", project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
+          <ul>
+            <li>Due: <%= showtime(assignment.due_by) %></li>
+            <li>
+              <% if @user == current_user %>
+                [<%= link_to "Complete", complete_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
+                | <%= link_to "Drop", drop_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>]
+              <%end%>
+            </li>
+          </ul>
         </li>
-      </ul>
-    </li>
+      <% end -%>
+    </ol>
   <% end -%>
-</ol>
-<% end -%>
 </div>

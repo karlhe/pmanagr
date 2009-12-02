@@ -1,16 +1,14 @@
 .clear { clear: both; }
 .indent { padding-left: 1.5em; }
-a:link {
+a:link, a:visited {
   text-decoration: underline;
-  color: #070;
+  color: #257012;
 }
-a:visited {
-  text-decoration: underline;
-  color: #050;
-}
+
 a:hover {
-  color: #090;
+  color: #999;
 }
+
 
 h1 {
   font-size: 3em;
@@ -92,12 +90,21 @@ h1 span {
   background: #090;
   color: #fff;
 }
+.right_div_title a{
+  text-decoration:none;
+  color: #030;
+}
+.right_div_title a:hover{
+  color: #fff;
+}
+
 #right_div h2 {
   margin: .5em 0;
   padding: 4px;
   font-size: 1.4em;
 }
 #right_div h3 {
+  display:inline; /*fix this later*/
   margin: .5em 0 .2em;
   padding: 2px 4px;
   font-size: 1.3em;
