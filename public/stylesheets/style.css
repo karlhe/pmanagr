@@ -115,6 +115,11 @@ h1 span {
   padding: 2px 5px;
   margin: 0;
 }
+#right_div .white ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .box {
   margin: .5em 0;
   padding: 5px;

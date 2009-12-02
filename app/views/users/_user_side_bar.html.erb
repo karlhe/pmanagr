@@ -1,0 +1,14 @@
+<h2>Your Projects</h2>
+<div class="white">
+  <% if @user.full_memberships.blank? -%>
+    <p>You are currently a member of no projects.</p>
+  <% else -%>
+    <ol>
+    <% @user.full_memberships.each do |membership| -%>
+      <li><%= link_to membership.project.name, project_path(membership.project) %> (<%= membership.level %>)</li>
+    <% end -%>
+    </ol>
+  <% end -%>
+</div>
+
+<%= render :partial=> "assignments/assignments_of_a_user" %>

@@ -1,17 +1,22 @@
-  <h3>Assignments:</h3>
-  <% if @user.assignments.blank? -%>
-    <p>You have no assignments.</p>
-  <% else -%>
-    <ul>
-    <% @user.assignments.each do |assig| -%>
-      <li>
-        <%= link_to "#{assig.name}", project_task_assignment_path(assig.task.project,assig.task,assig) %>
-        <% if @user == current_user %>
-          ( <%= link_to "Complete", complete_project_task_assignment_path(assig.task.project,assig.task,assig) %>
-          | <%= link_to "Drop", drop_project_task_assignment_path(assig.task.project,assig.task,assig) %>
-          )
-        <%end%>
-      </li>
-    <% end -%>
-    </ul>
+<h3>Assignments</h3>
+<div class="white">
+<% if @user.assignments.blank? -%>
+    <p>Nothing to do!</p>
+<% else -%>
+<ol>
+  <% @user.assignments.each do |assignment| %>
+    <li><%= link_to "#{assignment.name}", project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
+      <ul>
+        <li>Due: <%= showtime(assignment.due_by) %></li>
+        <li>
+          <% if @user == current_user %>
+            [<%= link_to "Complete", complete_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>
+            | <%= link_to "Drop", drop_project_task_assignment_path(assignment.task.project,assignment.task,assignment) %>]
+          <%end%>
+        </li>
+      </ul>
+    </li>
   <% end -%>
+</ol>
+<% end -%>
+</div>
