@@ -5,12 +5,8 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label "Task name" %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :desc %><br />
-    <%= f.text_area :desc %>
   </p>
   <p>
     <%= f.label :start_time %><br />
@@ -19,6 +15,10 @@
   <p>
     <%= f.label :due_by %><br />
     <%= f.datetime_select :due_by %>
+  </p>
+  <p>
+    <%= f.label "Description" %><br />
+    <%= f.text_area :desc %>
   </p>
   <p>
     <%= f.submit 'Create' %>
