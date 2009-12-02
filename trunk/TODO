@@ -1,28 +1,16 @@
 =CONTROLLER=
-discussions/posts
-permission control!
 
 =MODEL=
-discussions/posts
 
 =VIEW=
-mark assignment complete
-reopen assignment
-mark project complete
-reopen project
-(look at tasks for example)
 rework back links, redirects, etc.
-discussions/posts
 
 =DESIGN=
 improve assignment views
 look for problems in consistency and niceness
-date formatting all around
 
 =MISC=
-cucumber and rspec: should probably make some of them actually work
 
 =FIX=
 Default Time Zone
 Time formatting helpers
-Joining a task without being in project
