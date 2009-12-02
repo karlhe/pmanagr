@@ -42,12 +42,12 @@ describe ProjectsController do
       before :each do
         @current_user = nil 
         controller.stub!(:current_user).and_return(@current_user)
-        controller.stub!(:login_required).and_return(:false)
+        @project = projects(:newprojectn)
       end
-      it "should redirect away from the create project path" do
+      it "should redirect to login" do
         Project.stub!(:new).and_return @project
         post :create
-        response.should redirect_to(root_path)
+        response.should redirect_to(new_session_path)
       end
     end
   end
