@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   before_filter :login_required, :only => [:assign, :new]
-  before_filter :check_project_member
+  before_filter :check_project_member, :except => [:show, :index]
   before_filter :check_admin, :except => [:show, :index]
+  before_filter :check_public_access, :only => :show
 
   def complete
     @task = Task.find(params[:task_id])
@@ -153,6 +154,15 @@ class TasksController < ApplicationController
 	unless !status.blank? and status.is_owner?
       redirect_to project_path(@project)
       flash[:error] = 'You are not an admin for this project.'
+    end
+  end
+
+  def check_public_access
+    project = Task.find(params[:id]).project
+    private = !project.is_public?
+    if (!logged_in? and private)  || (logged_in? and private and (!current_user.memberships.select{|m| m.project_id == project.id}.first))
+      redirect_to root_path
+      flash[:error] = 'You do not have permission to view this private task.'
     end
   end
 end
