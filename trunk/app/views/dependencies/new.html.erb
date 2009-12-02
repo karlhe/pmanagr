@@ -15,7 +15,7 @@
   <tr>
     <td><%= link_to potential.name, project_task_path(potential.project,potential) %></td>
     <td><%=h potential.desc %></td>
-    <td><%= link_to 'Add Prerequisite', dependencies_path(:task_id => @task, :prerequisite_id => potential), :method => :post %></td>
+    <td><%= link_to 'Add Prerequisite', dependencies_path(:task_id => @task, :prerequisite_id => potential), :method => :post, :title => "Add #{potential.name} as prerequisite" %></td>
   </tr>
 <% end %>
 </table>

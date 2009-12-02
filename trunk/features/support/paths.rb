@@ -18,6 +18,10 @@ module NavigationHelpers
       project_path(Project.find(:first, :conditions => { :name => $1 }))
     when /the "([^\"]*)" manage members page/i
       project_memberships_path(Project.find(:first, :conditions => { :name => $1 }))
+    when /the "([^\"]*)" task "([^\"]*)" page/i
+      project = Project.find(:first, :conditions => { :name => $1 })
+      task = project.tasks.find(:first, :conditions => { :name => $2 })
+      project_task_path(project,task)
     
     # Add more mappings here.
     # Here is a more fancy example:

@@ -6,17 +6,16 @@ Feature: Creating and Destroying Tasks
 
   Background:
     Given a user called "Anthony Leung"
-    And "Anthony Leung" is adminstrator for a project called "CSR"
+    And I am logged in as "Anthony Leung"
+    And I own a public project called "CSR"
 
   Scenario: Anthony Leung creates task called "Logistics"
-    Given I am logged in as "Anthony Leung"
-    When I create a new task called Logistics
-    Then it should show the task on the project page
-    And I should see the project page
+    When I create a task for "CSR" called "Logistics"
+    Then I should be on the the "CSR" task "Logistics" page
+    And I should see "Logistics" on the "CSR" project page
 
   Scenario: Anthony Leung creates task called "Event" that depends on "Logistics"
-    Given I am logged in as "Anthony Leung"
-    When I create a new task called Event
-    Then it should show the task on the project page
-    And the task view should show Logistics as a prerequisite
-    And I should see the project page
+    When I create a task for "CSR" called "Logistics"
+    And I create a task for "CSR" called "Event"
+    And I add the "CSR" task "Logistics" as a prerequisite for "Event"
+    Then the "CSR" task "Event" should depend on "Logistics"
