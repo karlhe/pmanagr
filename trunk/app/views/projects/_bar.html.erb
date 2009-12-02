@@ -4,7 +4,13 @@
   <li>Due Date: <%= showtime(@project.due_by) %></li>
 </ul>
 <% if logged_in? and @project.users.include?(current_user) -%>
-  <p class="white"><%= link_to "Leave Project", project_membership_path(@project.id,@membership.id), :method => :delete, :confirm => "Leave this project?" %></p>
+  <p class="white">
+    <% unless current_user.is_owner?(@project) %>
+      <%= link_to "Leave Project", project_membership_path(@project.id,@membership.id), :method => :delete, :confirm => "Leave this project?" %>
+    <% else %>
+      <%= link_to "Delete Project", project_path(@project), :method => :delete, :confirm => "Delete this project? This cannot be undone!" %>
+    <% end %>
+  </p>
   <h3>Your Tasks</h3>
   <ul class="white">
     <% current_user.assignments.select{|assignment| assignment.task.project == @project}.each do |assignment| %>
