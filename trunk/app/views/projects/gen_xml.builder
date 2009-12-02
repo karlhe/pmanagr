@@ -1,4 +1,4 @@
-xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :ganttWidthPercent => '65', :canvasBorderColor => '999999', :canvasBorderThickness => '0', :gridBorderColor => '006600', :gridBorderAlpha => '20', :ganttPaneDuration => @hours, :ganttPaneDurationUnit => 'h', :showTaskNames=>'1'){
+xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :ganttWidthPercent => '68', :canvasBorderColor => '999999', :canvasBorderThickness => '0', :gridBorderColor => '006600', :gridBorderAlpha => '20', :ganttPaneDuration => @hours, :ganttPaneDurationUnit => 'h', :showTaskNames=>'1'){
   xml.categories(:bgColor => '009900'){
     xml.category(:start => @project.start_time.strftime("%d/%m/%Y"), :end => Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1).strftime("%d/%m/%Y"), :label => 'Timeline', :fontColor => 'ffffff', :fontSize => '16')
   }
@@ -32,9 +32,9 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
   } if @hours <= 780
   xml.processes(:headerText=>'Task', :fontColor=>'000000', :fontSize=>'11', :isAnimated=>'1', :bgColor=>'006600', :headerVAlign=>'bottom', :headerAlign=>'left', :headerbgColor=>'006600', :headerFontColor=>'ffffff', :headerFontSize=>'16', :align=>'left', :isBold=>'1', :bgAlpha=>'25') {
     for task in @tasks
-      xml.process(:label => task.name, :id => task.id)
+      xml.process(:label => task.name[0,18], :id => task.id)
       for assignment in task.assignments
-          xml.process(:label => "-" + assignment.name, :id => task.id.to_s + "-" + assignment.id.to_s)
+          xml.process(:label => "-" + assignment.name[0,18], :id => task.id.to_s + "-" + assignment.id.to_s)
       end
     end
   }
