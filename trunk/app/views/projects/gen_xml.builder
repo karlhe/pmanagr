@@ -32,9 +32,9 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
   } if @hours <= 780
   xml.processes(:headerText=>'Task', :fontColor=>'000000', :fontSize=>'11', :isAnimated=>'1', :bgColor=>'006600', :headerVAlign=>'bottom', :headerAlign=>'left', :headerbgColor=>'006600', :headerFontColor=>'ffffff', :headerFontSize=>'16', :align=>'left', :isBold=>'1', :bgAlpha=>'25') {
     for task in @tasks
-      xml.process(:label => task.name[0,18], :id => task.id)
+      xml.process(:label => task.name[0,18], :id => task.id, :link => project_task_url(task.project, task))
       for assignment in task.assignments
-          xml.process(:label => "-" + assignment.name[0,18], :id => task.id.to_s + "-" + assignment.id.to_s)
+          xml.process(:label => "-" + assignment.name[0,18], :id => task.id.to_s + "-" + assignment.id.to_s, :link => project_task_assignment_url(task.project, task, assignment))
       end
     end
   }
@@ -58,18 +58,18 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
   }
   xml.tasks(:width => '10'){
     for task in @tasks
-      xml.task(:label => task.name, :processId=> task.id, :start=> task.start_time.strftime("%d/%m/%Y"), :end=> task.due_by.strftime("%d/%m/%Y"), :id=>task.id, :color=>'6B8E23', :height=>'50%', :showAsGroup =>'1')
+      xml.task(:label => task.name, :processId=> task.id, :start=> task.start_time.strftime("%d/%m/%Y"), :end=> task.due_by.strftime("%d/%m/%Y"), :id=>task.id, :color=>'6B8E23', :height=>'50%', :showAsGroup =>'1', :link => project_task_url(task.project, task))
       for assignment in task.assignments
         adTime = Time.now - 8*60*60
         if adTime  > assignment.start_time - 1
           per = 100 * (Time.now - 60*60*24 - assignment.start_time)/(assignment.due_by - assignment.start_time)
           col = 'FF0000'
-          xml.task(:label => assignment.name, :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> (Time.now).strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%')
-          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> (Time.now).strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=> '4567aa', :height=>'50%')
+          xml.task(:label => assignment.name, :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> (Time.now).strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%', :link => project_task_assignment_url(task.project, task, assignment))
+          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> (Time.now).strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=> '4567aa', :height=>'50%', :link => project_task_assignment_url(task.project, task, assignment))
         else
           col = '4567aa'
           per = 100
-          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%')
+          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%', :link => project_task_assignment_url(task.project, task, assignment))
         end
       end
     end

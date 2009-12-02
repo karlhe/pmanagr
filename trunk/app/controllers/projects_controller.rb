@@ -123,6 +123,13 @@ class ProjectsController < ApplicationController
   def gantt
     @project = Project.find(params[:project_id])
     @projpath = project_url(@project) + "/gen_xml"
+    @num = 0
+    for task in @project.tasks
+      @num += 1
+      for assignment in task.assignments
+        @num += 1
+      end
+    end
     @url = root_url
   end
   
