@@ -5,6 +5,7 @@ describe Project do
   
   before(:each) do
     @valid_attributes = {
+      :id => 1,
       :name   => "Project N",
       :desc   => "The most secretest project ever",
       :public => false,

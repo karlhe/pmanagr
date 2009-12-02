@@ -8,7 +8,7 @@ describe ProjectsController do
     controller.should be_an_instance_of(ProjectsController)
   end
   
-  describe "POST create" do
+  describe "When creating a project" do
     describe "if user logged in" do
       before :each do
         @current_user = users(:quentin)
@@ -41,11 +41,13 @@ describe ProjectsController do
     describe "if user not logged in" do
       before :each do
         @current_user = nil 
+        controller.stub!(:current_user).and_return(@current_user)
+        controller.stub!(:login_required).and_return(:false)
       end
       it "should redirect away from the create project path" do
         Project.stub!(:new).and_return @project
         post :create
-        response.should_not redirect_to(join_project_path(@project))
+        response.should redirect_to(root_path)
       end
     end
   end

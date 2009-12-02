@@ -8,8 +8,8 @@ describe Membership do
     @user = users(:quentin)
     @membership = memberships(:one)
     @valid_attributes = {
-        :user_id => 1,
-        :task_id => 1,
+        :user => @user,
+        :project => @project,
         :privilege => 2
     }
   end
