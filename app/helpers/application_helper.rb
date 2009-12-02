@@ -1,11 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def showtime(dt)
-    return dt.localtime#.strftime("%l:%M %p on %B %e, %Y")
+    dt.strftime("%l:%M %p on %B%e, %Y").blank? ? dt.localtime : dt.strftime("%l:%M %p on %B%e, %Y")
   end
   
   def showdate(dt)
-    return dt.localtime#.strftime("%B %e, %Y")
+    dt.strftime("%B%e, %Y").blank? ? dt.localtime : dt.strftime("%B%e, %Y")
   end
   
   def showzone
