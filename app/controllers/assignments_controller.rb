@@ -10,7 +10,7 @@ class AssignmentsController < ApplicationController
     if @assignment.user == nil
       @assignment.user = current_user
       if @assignment.save
-        flash[:notice] = "You have taken the assignment."
+        flash[:notice] = "You took the assignment."
       else
         flash[:error] = "You cannot take the assignment."
       end
@@ -27,7 +27,7 @@ class AssignmentsController < ApplicationController
     if @assignment.user == current_user
       @assignment.drop
       if @assignment.save
-        flash[:notice] = "You have dropped the assignment."
+        flash[:notice] = "You dropped the assignment."
       else
         flash[:error] = "You cannot drop the assignment."
       end
@@ -45,9 +45,9 @@ class AssignmentsController < ApplicationController
     @task = @assignment.task
       @assignment.complete
       if @assignment.save
-        flash[:notice] = "You have taken the assignment."
+        flash[:notice] = "You marked this assignment as complete."
       else
-        flash[:error] = "Failed to complete the assignment."
+        flash[:error] = "Failed to mark this assignment as complete."
       end
     else
       flash[:error] = "You don't own this assignment."
@@ -62,9 +62,9 @@ class AssignmentsController < ApplicationController
     if @assignment.user == current_user && @assignment.is_complete?
       @assignment.uncomplete
       if @assignment.save
-        flash[:notice] = "You have taken the assignment."
+        flash[:notice] = "You marked this assignment as incomplete."
       else
-        flash[:error] = "Failed to complete the assignment."
+        flash[:error] = "Failed to mark this assignment as incomplete."
       end
     else
       flash[:error] = "You don't own this assignment."
