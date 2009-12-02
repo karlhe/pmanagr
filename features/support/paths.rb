@@ -16,6 +16,8 @@ module NavigationHelpers
       projects_path
     when /the "([^\"]*)" project page/i
       project_path(Project.find(:first, :conditions => { :name => $1 }))
+    when /the "([^\"]*)" manage members page/i
+      project_memberships_path(Project.find(:first, :conditions => { :name => $1 }))
     
     # Add more mappings here.
     # Here is a more fancy example:

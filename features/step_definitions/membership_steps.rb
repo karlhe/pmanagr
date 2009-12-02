@@ -4,6 +4,11 @@ When /^I invite "([^\"]*)" to "([^\"]*)"$/ do |user, project|
   click_link "Invite #{user}"
 end
 
+When /^I request to join "([^\"]*)"$/ do |projectname|
+  visit path_to("the \"#{projectname}\" project page")
+  click_link "join project"
+end
+
 When /^I (accept|reject) the "([^\"]*)" invitation$/ do |action,projectname|
   visit dashboard_path
   if action == "accept"
@@ -13,6 +18,34 @@ When /^I (accept|reject) the "([^\"]*)" invitation$/ do |action,projectname|
   else
     return false
   end
+end
+
+When /^I (accept|reject) "([^\"]*)" (?:into|from) "([^\"]*)"$/ do |action,membername,projectname|
+  visit path_to("the \"#{projectname}\" project page")
+  click_link "manage members"
+  if action == "accept"
+    click_link "accept #{membername}"
+  elsif action == "reject"
+    click_link "remove #{membername}"
+  else
+    return false
+  end
+end
+
+Then /^it should add "([^\"]*)" to "([^\"]*)" as a "([^\"]*)"$/ do |username,projectname,level|
+  memberships = Project.find(:first, :conditions => { :name => projectname }).memberships
+  user = User.find(:first, :conditions => { :name => username })
+  membership = memberships.find(:first, :conditions => { :user_id => user.id })
+  membership.should_not == nil
+  membership.level.should == level
+end
+
+
+Then /^it should add me to "([^\"]*)" as a request member$/ do |projectname|
+  memberships = Project.find(:first, :conditions => { :name => projectname }).memberships
+  membership = memberships.find(:first, :conditions => { :user_id => current_user.id })
+  membership.should_not == nil
+  membership.level.should == "request"
 end
 
 
@@ -34,6 +67,13 @@ Then /^I (should|should not) be a member of "([^\"]*)"$/ do |state,projectname|
   else
     return false
   end  
+end
+
+Then /^"([^\"]*)" should not be a member of "([^\"]*)"$/ do |username,projectname|
+  memberships = Project.find(:first, :conditions => { :name => projectname }).memberships
+  user = User.find(:first, :conditions => { :name => username })
+  membership = memberships.find(:first, :conditions => { :user_id => user.id })
+  membership.should == nil
 end
 
 Then /^I should be a "([^\"]*)" for "([^\"]*)"$/ do |level, projectname|
