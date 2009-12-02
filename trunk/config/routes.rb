@@ -21,6 +21,9 @@ ActionController::Routing::Routes.draw do |map|
     end
     project.resources :memberships
   end
+  
+  map.xml_project '/projects/:project_id/gen_xml', :controller => 'projects', :action => 'gen_xml'
+  map.gantt_project '/projects/:project_id/gantt', :controller => 'projects', :action => 'gantt'
 
   map.complete_project_task '/projects/:project_id/tasks/:task_id/complete', :controller => 'tasks', :action => 'complete'
   map.reopen_project_task '/projects/:project_id/tasks/:task_id/reopen', :controller => 'tasks', :action => 'reopen'

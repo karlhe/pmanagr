@@ -35,6 +35,12 @@
     <% end -%>
   </ul>
   <% if logged_in? and current_user.is_owner?(@project) %><p class="white"><%= link_to "Invite Members", new_project_membership_path(@project) %> | <%= link_to "Manage Members", project_memberships_path(@project) %></p><% end %>
+  <h3>Gantt Chart</h3>
+  <ul class="white">
+    <li>
+      <%= link_to "#{@project.name} Gantt Chart", gantt_project_path(@project) %>
+    </li>
+  </ul>
   <h3>Project Discussion</h3>
   <ul class="white">
     <% @project.discussions.each do |discussion| %>
