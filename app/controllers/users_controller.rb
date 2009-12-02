@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   def check_token_for_registration
     @user = User.find(params[:id])
     token = params[:token]
-    if @user.has_registered? || token != @user.salt
+    if @user.has_registered? || token != @user.login #user login as one-time token
       flash[:error] = "User is already registered"
       redirect_to root_path
     end

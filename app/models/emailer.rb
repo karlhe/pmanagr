@@ -5,7 +5,7 @@ class Emailer < ActionMailer::Base
      from "pmanagr@gmail.com"
      subject "pManagr welcomes you!"
      sent_on Time.now
-	   body :sender => sender, :recipient => recipient, :project => project
+	   body :sender => sender, :recipient => recipient, :project => project, :token => recipient.login
      content_type "text/html"
    end
 
