@@ -8,12 +8,12 @@ class ProjectsController < ApplicationController
     if logged_in?
       redirect_to dashboard_path
     else
-        @projects = Project.find(:all, :limit => 10, :conditions => { :public => true })
+      @projects = Project.find(:all, :limit => 10, :conditions => { :public => true })
 
-        respond_to do |format|
-          format.html # home.html.erb
-          format.xml  { render :xml => @projects }
-        end
+      respond_to do |format|
+        format.html # home.html.erb
+        format.xml  { render :xml => @projects }
+      end
     end
   end
 

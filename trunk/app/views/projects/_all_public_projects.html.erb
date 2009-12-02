@@ -1,26 +1,26 @@
-<% if @projects.empty? %>
+<% if @projects.blank? %>
   <p>There are no public projects available at the moment.</p>
-<%else%>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th>Due</th>
-    <th>Admin</th>
-    <th colspan="2">Admin</th>
-  </tr>
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= link_to "#{project.name}", project %></td>
-    <td><%=h project.desc %></td>
-    <td><%=h showtime(project.due_by.localtime) %></td>
-    <td><%= project.admin.is_public? ? "#{link_to project.admin.name, user_path(project.admin)}" : project.admin.name %></td>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Desc</th>
+      <th>Due</th>
+      <th>Admin</th>
+      <th colspan="2">Admin</th>
+    </tr>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= link_to "#{project.name}", project %></td>
+      <td><%=h project.desc %></td>
+      <td><%=h showtime(project.due_by.localtime) %></td>
+      <td><%= project.admin.is_public? ? "#{link_to project.admin.name, user_path(project.admin)}" : project.admin.name %></td>
 
-    
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
-    
-  </tr>
+      
+      <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      <td><%= link_to 'Destroy', project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
+      
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
-<%end%>
