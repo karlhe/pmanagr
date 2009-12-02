@@ -34,6 +34,10 @@ describe Assignment do
         @assignments = Assignment.create!(@valid_attributes)
         @assignments.due_by.should > @assignments.created_at
     end
+    it "should have a task due by later than its due date" do 
+        @assignments = Assignment.create!(@valid_attributes)
+        @assignments.task.due_by.should > @assignments.due_by
+    end
   end
   
   describe "Given an assignment with a start time later than its due date" do
@@ -61,6 +65,21 @@ describe Assignment do
             :start_time => Time.now
         }
         Assignment.new(@create_late).should_not be_valid
+    end
+  end
+  
+  describe "Given an assignment with a task due date later than it's due date" do
+    it "should not be valid" do
+        @task.due_by = 3.hours.from_now
+        @task_late = {
+            :task => @task,
+            :name => "Clean Room",
+            :desc => "Momma told you to go clean your room.",
+            :due_by => 5.hours.from_now,
+            :created_at => Time.now,
+            :start_time => Time.now
+        }
+        Assignment.new(@task_late).should_not be_valid
     end
   end
   
