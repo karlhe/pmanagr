@@ -22,31 +22,31 @@ describe ProjectsController do
         @project.should_receive(:save)
         post :create
       end
-      it "should set the current user to admin privileges"
+      it "should set the current user to admin privileges" do
+        Project.stub!(:new).and_return @project
+        post :create
+        @current_user.is_owner?(@project).should be_true
+      end
       it "should add the current user to the project" do
         Project.stub!(:new).and_return @project
         post :create
-        response.should redirect_to(join_project_path(@project))
+        @project.users.should include @current_user
       end
-      it "should redirect to the project page"
+      it "should redirect to the project page" do
+        Project.stub!(:new).and_return @project
+        post :create
+        response.should redirect_to(project_path(@project))
+      end
     end
-  end
-  
-  describe "POST join" do
-    describe "if user logged in" do
+    describe "if user not logged in" do
       before :each do
-        @current_user = users(:quentin)
-        controller.stub!(:current_user).and_return(@current_user)
-        controller.stub!(:login_required).and_return(:true)
-        @project = projects(:projectn)
+        @current_user = nil 
       end
-      it "should add current user as a member" do
-        Project.stub!(:find).and_return @project
-        post :join
-        @project.users.include?(@current_user).should == true
+      it "should redirect away from the create project path" do
+        Project.stub!(:new).and_return @project
+        post :create
+        response.should_not redirect_to(join_project_path(@project))
       end
-      it "should give the current user minimum privileges"
-      it "should redirect to the project page"
     end
   end
   
@@ -56,19 +56,6 @@ describe ProjectsController do
       Project.should_receive(:find).and_return @projects
       get :index
     end
-    describe "If the project is public" do
-      it "should be listed"
-      it "should display to anyone"
-    end
-    describe "If the project is private" do
-      it "should not be listed"
-      it "should not display to a non-member"
-    end
-  end
-  
-  describe "When deleting a project" do
-    it "should remove all memberships related to the project"
-    it "should remove all tasks within the project"
   end
 
 end

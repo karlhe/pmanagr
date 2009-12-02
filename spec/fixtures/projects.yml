@@ -10,21 +10,33 @@ projectn:
     name: Project N
     desc: The most secretest project ever.
     public: false
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
+    
     
 newprojectn:
     name: Project N
     desc: The most secretest project ever.
     public: false
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
 
 projectp:
     id: 2
     name: Project P
     desc: The must unsecretest project ever.
     public: true
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
     
 projectq:
     id: 3
     name: Project Q
     desc: A very Questionable project.
     public: true
-    due: <%= 5.days.from_now %>
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>

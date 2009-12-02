@@ -5,3 +5,11 @@
 #
 # two:
 #   column: value
+
+one:
+    project_id: 1
+    name: "House Cleaning"
+    desc: "It's time for spring cleaning"
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
