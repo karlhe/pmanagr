@@ -4,9 +4,9 @@
     <th>Desc</th>
     <th>Due By</th>
     <th>Status</th>
-    <!--
+    <%if current_user.is_owner?(@project)%>
     <th colspan="2">Admin</th>
-    -->
+    <%end%>
   </tr>
 
 <% @tasks.each do |task| %>
@@ -17,16 +17,16 @@
     
     <td>
       <% if task.completed_at.present? -%>
-        <%= link_to 'Completed', reopen_project_task_path(@project,task), :confirm => 'Reopen task?', :title => "Reopen #{task.name}" %> at <%=h task.completed_at %>
+        <%= link_to 'Completed', reopen_project_task_path(@project,task), :confirm => 'Reopen task?', :title => "Reopen #{task.name}" %> at <%=h showtime(task.completed_at) %>
       <% else -%>
         <%= link_to 'Incomplete', complete_project_task_path(@project,task), :confirm => 'Mark task complete?', :title => "Complete #{task.name}" %>
       <% end -%>
     </td>
     
-    <!--
+    <%if current_user.is_owner?(@project)%>
     <td><%= link_to 'Edit', edit_project_task_path(@project,task) %></td>
     <td><%= link_to 'Destroy', project_task_path(@project,task), :confirm => 'Are you sure?', :method => :delete %></td>
-    -->
+    <%end%>
   </tr>
 <% end %>
 </table>

@@ -5,7 +5,9 @@
     <th>Owner</th>
     <th>Due</th>
     <th>Status</th>
+    <% if current_user.is_owner?(@task.project) %>
     <th colspan="2">Admin</th>
+    <%end%>
   </tr>
 
 <% @assignments.each do |assig| %>
@@ -22,8 +24,10 @@
         Not completed yet <%= link_to '(complete)', complete_project_task_assignment_path(assig.task.project,assig.task,assig), :confirm => 'Mark this assignment as complete?' %>
       <% end -%>
     </td>
+    <% if current_user.is_owner?(@task.project) %>
     <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Destroy', project_task_assignment_path(@task.project_id,@task,assig), :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
