@@ -3,8 +3,6 @@ class Membership < ActiveRecord::Base
   belongs_to :project
   validates_presence_of :project, :user, :privilege
 
-  attr_accessible :privilege
-
 
   def set_permission(perm)
     if (perm == "owner")
