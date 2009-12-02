@@ -1,0 +1,12 @@
+<table align='center' cellpadding='0' cellspacing='0' style="border:none">
+  <tr>
+  <td align="center" style="border:none">
+   <div id="chartdiv" align="center">Gantt Chart</div>
+   <script type="text/javascript">
+	var myChart = new FusionCharts("/charts/Gantt.swf", "asd", "925", "450", "0", "0");
+	myChart.setDataURL("<%= @projpath %>");
+	myChart.render("chartdiv");
+   </script>
+   </td>
+   </tr>
+   </table> 

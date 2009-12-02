@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  layout "application", :except => :gen_xml
   before_filter :login_required, :except => [:home, :index, :show]
   before_filter :check_public_access, :only => :show
   before_filter :check_admin, :only => [:edit, :update, :destroy]
@@ -113,6 +114,19 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def gen_xml
+    @xml = Builder::XmlMarkup.new
+    @project = Project.find(params[:project_id])
+    @tasks= @project.tasks.sort_by{|t| t.start_time}
+    @hours = 780
+  end
+
+  def gantt
+    @project = Project.find(params[:project_id])
+    @projpath = project_url(@project) + "/gen_xml"
+    @url = root_url
+  end
+  
   private
     def check_public_access
       private = !Project.find(params[:id]).is_public?
