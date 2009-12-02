@@ -82,8 +82,8 @@ class UsersController < ApplicationController
   def check_user_privacy
     begin
       @user = User.find(params[:id])
-      if not @user.is_public?
-        flash[:error] = "User privacy is set to private"
+      unless @user.is_public? || @user == current_user
+        flash[:error] = "User privacy is set to private."
         redirect_to root_path
       end
     rescue Exception
