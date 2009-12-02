@@ -5,6 +5,11 @@ class Task < ActiveRecord::Base
   has_many :prerequisites, :through => :dependencies
 
   validates_presence_of :name, :desc
+  
+  def validate
+    errors.add("Start time", "must be before due date") unless (due_by != nil and start_time != nil and self.start_time < self.due_by)
+    errors.add("Due by", "must be after now") unless (due_by != nil and ((created_at == nil and Time.now < self.due_by) or (created_at != nil and created_at < self.due_by)))
+  end
 
   def complete
     self.completed_at = Time.now
@@ -56,11 +61,6 @@ class Task < ActiveRecord::Base
       return false
     end
   end
-  
-  def validate
-    if start_time > due_by
-      errors.add("Start time", "must be before due date")
-    end
-  end
+
 
 end

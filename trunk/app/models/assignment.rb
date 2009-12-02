@@ -33,8 +33,8 @@ class Assignment < ActiveRecord::Base
 
   private
     def validate
-      errors.add("due_by", "cannot be before now") unless self.due_by > self.created_at
-      errors.add("due_by", "cannot be before start time") unless self.due_by > self.start_time
+      errors.add("Start time", "must be before due date") unless (due_by != nil and start_time != nil and self.start_time < self.due_by)
+      errors.add("Due by", "must be after now") unless (due_by != nil and ((created_at == nil and Time.now < self.due_by) or (created_at != nil and created_at < self.due_by)))
     end
   
 end
