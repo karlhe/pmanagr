@@ -1,6 +1,6 @@
 xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :ganttWidthPercent => '65', :canvasBorderColor => '999999', :canvasBorderThickness => '0', :gridBorderColor => '006600', :gridBorderAlpha => '20', :ganttPaneDuration => @hours, :ganttPaneDurationUnit => 'h'){
   xml.categories(:bgColor => '009900'){
-    xml.category(:start => @project.start_time.strftime("%d/%m/%Y"), :end => Date.new(@project.due_by.year, (@project.due_by.to_date>>1).month, 1).strftime("%d/%m/%Y"), :label => 'Timeline', :fontColor => 'ffffff', :fontSize => '16')
+    xml.category(:start => @project.start_time.strftime("%d/%m/%Y"), :end => Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1).strftime("%d/%m/%Y"), :label => 'Timeline', :fontColor => 'ffffff', :fontSize => '16')
   }
   xml.categories(:bgColor=>'ffffff', :fontColor=>'1288dd', :fontSize=>'10', :isBold=>'1', :align=>'center'){
     monthBeg = Date.new(@project.start_time.year, @project.start_time.month, 1)
@@ -11,7 +11,7 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
       xml.category(:start=>yearBeg.strftime("%d/%m/%Y"), :end=>nextYearBeg.strftime("%d/%m/%Y"), :label=>yearBeg.year)
       yearBeg = yearBeg>>12
     end
-    monthBeg = Date.new(@project.due_by.month == 12 ? @project.due_by.year: 1, (@project.due_by.to_date>>1).month, 1)
+    monthBeg = Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1)
     xml.category(:start=>yearBeg.strftime("%d/%m/%Y"), :end=>monthBeg.strftime("%d/%m/%Y"), :label=>monthBeg.year)
   }
   xml.categories(:bgColor=>'ffffff', :fontColor=>'1288dd', :fontSize=>'10', :isBold=>'1', :align=>'center'){
@@ -24,7 +24,7 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
   }
   xml.categories(:bgColor=>'ffffff', :fontColor=>'1288dd', :fontSize=>'10', :isBold=>'1', :align=>'center'){
     d = @project.start_time.to_date
-    while d < Date.new(@project.due_by.month == 12 ? @project.due_by.year: 1, (@project.due_by.to_date>>1).month, 1)
+     while d < Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1)
       xml.category(:start=>d.strftime("%d/%m/%Y"), :end=>(d+1).strftime("%d/%m/%Y"), :label=>d.mday.to_s)
       d = d + 1
     end
