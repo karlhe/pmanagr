@@ -1,0 +1,29 @@
+<div class="information box">
+<h3><%= link_to @assignment.name, project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %></h3>
+<p>
+  <b>Belongs to project: </b>
+  <%= link_to @assignment.task.project.name, project_path(@assignment.task.project) %>
+</p>
+
+
+<p>
+  <b>Belongs to task:</b>
+  <%= link_to @assignment.task.name, project_task_path(@assignment.task.project, @assignment.task)%>
+</p>
+
+
+<p>
+  <b>Description:</b>
+  <%=h @assignment.desc %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <strong> <%=h showtime(@task.start_time) %> </strong> till <strong> <%=h showtime(@task.due_by) %> </strong>
+</p>
+
+<p>
+  <b>Completed At:</b>
+  <%= @task.completed_at ? showtime(@task.completed_at) : "Not completed" %>
+</p>
+</div>

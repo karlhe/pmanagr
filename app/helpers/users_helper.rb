@@ -92,10 +92,9 @@ module UsersHelper
 
   def dashboard_title
     if @user == current_user
-      return "Dashboard"
+      return "Dashboard #{link_to '(Your Account)', edit_user_path(@user)}"
     else
       return @user.name
     end
   end
-
 end

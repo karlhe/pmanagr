@@ -1,41 +1,13 @@
-<p>
-  <b>Project:</b>
-  <%=h @assignment.task.project.name %>
-</p>
+<%= render :partial => "assignments/assignment_info" %>
 
+<h3>Assignment</h3>
 <p>
-  <b>Task:</b>
-  <%=h @assignment.task.name %>
+  <%= @assignee.present? ? "Currently assigned to: #{link_to @assignee.name, user_path(@assignee)}"  : "Not assigned" %>
 </p>
+<% if current_user.is_owner?(@assignment.task.project) %>
+  <%= render :partial => "assign" %>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%=h @assignment.name %>
-</p>
-
-<p>
-  <b>Desc:</b>
-  <%=h @assignment.desc %>
-</p>
-
-<p>
-  <b>Due By:</b>
-  <%=h @assignment.due_by %>
-</p>
-
-<p>
-  <b>Completed At:</b>
-  <%=h @assignment.completed_at %>
-</p>
-
-<h3>Assign</h3>
-<p>
-  <% if @assignee.present? %>
-    <b>Current Assignee:</b>
-    <%= @assignee.name %>
-  <% end %>
-</p>
-<% if current_user.is_owner?(@assignment.task.project) %><%= render :partial => "assign" %><% end %>
 
 <%= link_to 'Edit', edit_project_task_assignment_path(@assignment.task.project, @assignment.task, @assignment) %> |
 <%= link_to 'Back', project_task_path(@assignment.task.project, @assignment.task) %>

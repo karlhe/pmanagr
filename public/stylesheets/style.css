@@ -156,3 +156,20 @@ h1 span {
   border-color: #090;
   background: #cfc;
 }
+.information {
+  border-color: #090;
+  background: #cfc;
+}
+.errorExplanation {
+  margin: .5em 0;
+  padding: 5px;
+  border: 1px solid;
+  background: #f99;
+}
+.errorExplanation ul{
+  font-weight: bold;
+}
+.dependency {
+  border-color: #090;
+  background: #FFFAB7;
+}

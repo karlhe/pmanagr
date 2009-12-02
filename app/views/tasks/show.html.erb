@@ -1,12 +1,6 @@
 <%= render :partial => "task_info" %>
-
-<h3>Dependencies</h3>
-<% unless @task.cleared_prerequisites? %><p class="error">Prerequisites for task have not been cleared!</p><% end %>
 <%= render :partial => "dependencies/dependencies" %>
-
-<h3>Assignments</h3>
 <%= render :partial => "assignments/assignments_of_a_task" %>
 
 <%= link_to 'Edit', edit_project_task_path(@task.project,@task) %> |
-<%= link_to 'Back', project_path(@task.project) %> |
-<%= link_to 'New Assignment', new_project_task_assignment_path(@task.project, @task) %>
+<%= link_to 'Back', project_path(@task.project) %>
