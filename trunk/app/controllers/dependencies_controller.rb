@@ -38,7 +38,7 @@ class DependenciesController < ApplicationController
       flash[:notice] = 'Dependency was successfully created.'
       redirect_to project_task_path(@task.project,@task)
     else
-      flash[:error] = 'Failed to created dependency.'
+      flash[:error] = 'Failed to create dependency.'
       redirect_to new_dependency_path(:task_id => @task)
     end
   end

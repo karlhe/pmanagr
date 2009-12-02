@@ -68,8 +68,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        flash[:notice] = 'Project was successfully created.'
-        #format.html { redirect_to join_project_path(@project) }
+        flash[:notice] = 'You have successfully created the project.'
         @membership = Membership.new
         @membership.user = current_user
         @membership.project = @project
@@ -95,7 +94,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        flash[:notice] = 'Project was successfully updated.'
+        flash[:notice] = 'You have successfully updated the project.'
         format.html { redirect_to(@project) }
         format.xml  { head :ok }
       else
