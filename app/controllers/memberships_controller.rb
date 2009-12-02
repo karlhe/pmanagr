@@ -34,7 +34,7 @@ class MembershipsController < ApplicationController
         new_user = make_dummy_user_and_send_notification(params[:invite][:name], params[:invite][:email], current_user, @project)
         uid = new_user.id
       else
-        uid = user.id
+        uid = user.id unless uid.present?
       end
     end
 

@@ -8,7 +8,7 @@
     <p>
     You are being invited by <%= @sender.name %> to join the project "<%= @project.name %>". <br />
     You account has been created for you. Please follow the following link to set up your account. <br />
-    <a href="http://localhost:3000/users/register/<%= @recipient.id %>?token=<%= @token %>">http://localhost:3000/users/register/<%= @recipient.id %>?token=<%= @token %></a>
+    <a href="http://<%= HOSTNAME %>/users/register/<%= @recipient.id %>?token=<%= @token %>">http://<%= HOSTNAME %>/users/register/<%= @recipient.id %>?token=<%= @token %></a>
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>

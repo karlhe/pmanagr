@@ -35,3 +35,5 @@ config.action_mailer.smtp_settings = {
   :user_name      => "pmanagr@gmail.com",
   :password       => "pblpblpbl" 
 }
+
+HOSTNAME = "ec2-174-129-166-224.compute-1.amazonaws.com"
