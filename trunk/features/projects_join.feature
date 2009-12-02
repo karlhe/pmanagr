@@ -8,29 +8,32 @@ Feature: Joining Projects
 
   Background:
     Given a user called "Anthony Leung"
-    And a user called "Muller Zhang"
-    And a user called "Michael Chen"
-    And "Anthony Leung" is administrator for a public project called "Berkeley Project"
+    And I am logged in as "Anthony Leung"
+    And I own a public project called "Berkeley Project"
 
   Scenario: Muller Zhang requests to join the Berkeley Project project
-    Given I am logged in as "Muller Zhang"
-    When I request to join Berkeley Project
-    Then it should create a membership with a "requesting" status
-    And the request should show on the project page
-    And the project should appear under the user dash board as "requesting"
-    And I should see the project page
+    Given a user called "Muller Zhang"
+    And I am logged in as "Muller Zhang"
+    When I request to join "Berkeley Project"
+    Then it should add me to "Berkeley Project" as a request member
+    And I should be on the "Berkeley Project" project page
 
   Scenario: Anthony Leung accepts Muller Zhang's request
+    Given a user called "Muller Zhang"
+    And I am logged in as "Muller Zhang"
+    And I request to join "Berkeley Project"
+    
     Given I am logged in as "Anthony Leung"
-    When I accept Muller Zhang into Berkeley Project
-    Then it should change the membership status to "accepted"
-    And Muller Zhang should display on the project page as a normal member
-    And I should see the project page
+    When I accept "Muller Zhang" into "Berkeley Project"
+    Then it should add "Muller Zhang" to "Berkeley Project" as a "user"
+    And I should be on the "Berkeley Project" manage members page
 
   Scenario: Anthony Leung rejects Michael Chen's application to join
+    Given a user called "Michael Chen"
+    And I am logged in as "Michael Chen"
+    And I request to join "Berkeley Project"
+    
     Given I am logged in as "Anthony Leung"
-    And Michael Chen requests to join Berkeley Project
-    When I deny Michael Chen's request
-    Then it should destroy the requesting membership
-    And Michael Chen should not display on the project page member list
-    And I should see the project page
+    When I reject "Michael Chen" from "Berkeley Project"
+    Then "Michael Chen" should not be a member of "Berkeley Project"
+    And I should be on the "Berkeley Project" manage members page

@@ -5,8 +5,8 @@
 <% @memberships.each do |membership| -%>
   <li>
     <%= membership.user.name %> -- <%= membership.user.email %> (<%= membership.level %>)
-    <% if membership.level == "request" %>(<%= link_to "accept member", project_membership_path(@project,membership,:accept => true), :method => :put %>)<% end %>
-    (<%= link_to "remove", project_membership_path(@project,membership), :method => :delete, :confirm => "Remove member?" %>)
+    <% if membership.level == "request" %>(<%= link_to "accept member", project_membership_path(@project,membership,:accept => true), :method => :put, :title => "Accept #{membership.user.name}" %>)<% end %>
+    (<%= link_to "remove", project_membership_path(@project,membership), :method => :delete, :confirm => "Remove member?", :title => "Remove #{membership.user.name}" %>)
   </li>
 <% end -%>
 </ul>
