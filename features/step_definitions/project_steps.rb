@@ -30,7 +30,7 @@ end
 
 When /^I destroy a project called "([^\"]*)"$/ do |name|
   visit path_to("the \"#{name}\" project page")
-  click_link "delete project", :javascript => false
+  click_link "delete project"
 end
 
 Then /^the project "([^\"]*)" should not exist$/ do |name|

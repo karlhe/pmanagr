@@ -33,5 +33,5 @@ Feature: Administrating Projects
       And I own a public project called "Berkeley Project"
       When I destroy a project called "Berkeley Project"
       Then the project "Berkeley Project" should not exist
-      And "Berkeley Project" should not appear in public projects
       And I should be on my dashboard
+      And "Berkeley Project" should not appear in public projects
