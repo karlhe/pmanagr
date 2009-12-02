@@ -9,11 +9,13 @@ module NavigationHelpers
     case page_name
     
     when /the home\s?page/i
-      '/'
-    when /(the )?dashboard/i
-      '/dashboard'
+      root_path
+    when /the dashboard/i
+      dashboard_path
     when /pubic projects/i
-      '/projects'
+      projects_path
+    when /the "([^\"]*)" project page/i
+      project_path(Project.find(:first, :conditions => { :name => $1 }))
     
     # Add more mappings here.
     # Here is a more fancy example:
