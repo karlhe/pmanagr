@@ -17,9 +17,9 @@
     
     <td>
       <% if task.completed_at.present? -%>
-        <%= link_to 'Completed', reopen_project_task_path(@project,task), :confirm => 'Reopen task?' %> at <%=h task.completed_at %>
+        <%= link_to 'Completed', reopen_project_task_path(@project,task), :confirm => 'Reopen task?', :title => "Reopen #{task.name}" %> at <%=h task.completed_at %>
       <% else -%>
-        <%= link_to 'Incomplete', complete_project_task_path(@project,task), :confirm => 'Mark task complete?' %>
+        <%= link_to 'Incomplete', complete_project_task_path(@project,task), :confirm => 'Mark task complete?', :title => "Complete #{task.name}" %>
       <% end -%>
     </td>
     

@@ -6,13 +6,11 @@ Feature: Completing Tasks
 
   Background:
     Given a user called "Anthony Leung"
-    And "Anthony Leung" is adminstrator for a project called "CSR"
+    And I am logged in as "Anthony Leung"
+    And I own a public project called "CSR"
 
   Scenario: Anthony Leung completes a task called "Logistics"
-    Given I am logged in as "Anthony Leung"
-    And all prerequisites of the task are complete
-    And all assignments of the task are complete
-    When I complete the task called Logistics
-    Then it should show the task on the project page as complete
-    And users can no longer add assignments to the task
-    And I should see the project page
+    Given I have created a task for "CSR" called "Logistics"
+    When I complete the "CSR" task "Logistics"
+    Then the "CSR" task "Logistics" should be complete
+    And I should be on the "CSR" project page

@@ -1,4 +1,4 @@
-When /^I create a task for "([^\"]*)" called "([^\"]*)"$/ do |projectname,taskname|
+When /^I (?:have created|create) a task for "([^\"]*)" called "([^\"]*)"$/ do |projectname,taskname|
   visit path_to("the \"#{projectname}\" project page")
   click_link "new task"
   fill_in "name", :with => taskname
@@ -26,3 +26,15 @@ Then /^the "([^\"]*)" task "([^\"]*)" should depend on "([^\"]*)"$/ do |projectn
   dependency = task.dependencies.find(:first, :conditions => { :prerequisite_id => prereq.id })
   dependency.should_not == nil
 end
+
+When /^I complete the "([^\"]*)" task "([^\"]*)"$/ do |projectname,taskname|
+  visit path_to("the \"#{projectname}\" project page")
+  click_link "Complete #{taskname}"
+end
+
+Then /^the "([^\"]*)" task "([^\"]*)" should be complete$/ do |projectname,taskname|
+  project = Project.find(:first, :conditions => { :name => projectname })
+  task = project.tasks.find(:first, :conditions => { :name => taskname })
+  task.completed_at.should_not == nil  
+end
+
