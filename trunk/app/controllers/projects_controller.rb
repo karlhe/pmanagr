@@ -117,7 +117,7 @@ class ProjectsController < ApplicationController
     @xml = Builder::XmlMarkup.new
     @project = Project.find(params[:project_id])
     @tasks= @project.tasks.sort_by{|t| t.start_time}
-    @hours = 780
+    @hours = 7800
   end
 
   def gantt
