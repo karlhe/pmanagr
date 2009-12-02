@@ -173,3 +173,9 @@ h1 span {
   border-color: #090;
   background: #FFFAB7;
 }
+#clock {
+    color: white;
+}
+#date {
+    color: #666;
+}
