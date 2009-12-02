@@ -9,7 +9,23 @@ describe TasksController do
   end
   
   describe "When creating a task" do
-    it "should be belong to the current project"
+    before :each do
+      @current_user = users(:quentin)
+      controller.stub!(:current_user).and_return(@current_user)
+      controller.stub!(:login_required).and_return(:true)
+      @task = tasks(:one)
+    end
+    it "should create a task" do
+      Task.stub!(:new).and_return @task
+      Task.should_receive(:new)
+      @task.should_receive(:save)
+      post :create
+    end
+    it "should be belong to the current project" do
+      Task.stub!(:new).and_return @task
+      Task.should_receive(:new)
+      post :create
+    end
     it "should have a due by date after the current time"
     it "should redirect to the task page"
     it "should be shown on the project page"
