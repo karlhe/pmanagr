@@ -1,4 +1,4 @@
-xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :ganttWidthPercent => '65', :canvasBorderColor => '999999', :canvasBorderThickness => '0', :gridBorderColor => '006600', :gridBorderAlpha => '20', :ganttPaneDuration => @hours, :ganttPaneDurationUnit => 'h'){
+xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :ganttWidthPercent => '65', :canvasBorderColor => '999999', :canvasBorderThickness => '0', :gridBorderColor => '006600', :gridBorderAlpha => '20', :ganttPaneDuration => @hours, :ganttPaneDurationUnit => 'h', :showTaskNames=>'1'){
   xml.categories(:bgColor => '009900'){
     xml.category(:start => @project.start_time.strftime("%d/%m/%Y"), :end => Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1).strftime("%d/%m/%Y"), :label => 'Timeline', :fontColor => 'ffffff', :fontSize => '16')
   }
@@ -12,10 +12,11 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
       yearBeg = yearBeg>>12
     end
     monthBeg = Date.new(@project.due_by.month == 12 ? @project.due_by.year+1: @project.due_by.year, (@project.due_by.to_date>>1).month, 1)
-    xml.category(:start=>yearBeg.strftime("%d/%m/%Y"), :end=>monthBeg.strftime("%d/%m/%Y"), :label=>monthBeg.year)
+    xml.category(:start=>yearBeg.strftime("%d/%m/%Y"), :end=>monthBeg.strftime("%d/%m/%Y"), :label=>monthBeg.year-1)
   }
   xml.categories(:bgColor=>'ffffff', :fontColor=>'1288dd', :fontSize=>'10', :isBold=>'1', :align=>'center'){
-    d = Date.new(@project.start_time.year, @project.start_time.month, 1)
+    d = Date.new(@project.start_time.year, @project.start_time.month, 1)>>1
+    xml.category(:start=>@project.start_time.strftime("%d/%m/%Y"), :end=>(d-1).strftime("%d/%m/%Y"), :label=>Date::MONTHNAMES[@project.start_time.month])
     while d <= @project.due_by.to_date
       d2 = (d>>1)-1
       xml.category(:start=>d.strftime("%d/%m/%Y"), :end=>d2.strftime("%d/%m/%Y"), :label=>Date::MONTHNAMES[d.month])
@@ -55,7 +56,7 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
       end
     }
   }
-  xml.tasks{
+  xml.tasks(:width => '10'){
     for task in @tasks
       xml.task(:label => task.name, :processId=> task.id, :start=> task.start_time.strftime("%d/%m/%Y"), :end=> task.due_by.strftime("%d/%m/%Y"), :id=>task.id, :color=>'6B8E23', :height=>'50%', :showAsGroup =>'1')
       for assignment in task.assignments
@@ -64,11 +65,11 @@ xml.chart(:dateFormat => 'dd/mm/yyyy', :outputDateFormat => 'ddds mns yy', :gant
           per = 100 * (Time.now - 60*60*24 - assignment.start_time)/(assignment.due_by - assignment.start_time)
           col = 'FF0000'
           xml.task(:label => assignment.name, :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> (Time.now).strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%')
-          xml.task(:label => assignment.name, :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> (Time.now).strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=> '4567aa', :height=>'50%')
+          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> (Time.now).strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=> '4567aa', :height=>'50%')
         else
           col = '4567aa'
           per = 100
-          xml.task(:label => assignment.name, :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%')
+          xml.task(:label => assignment.user ? assignment.user.name : "", :processId=>task.id.to_s + "-" + assignment.id.to_s, :start=> assignment.start_time.strftime("%d/%m/%Y"), :end=> assignment.due_by.strftime("%d/%m/%Y"), :id=>task.id.to_s + "-" + assignment.id.to_s, :color=>col, :height=>'50%')
         end
       end
     end
