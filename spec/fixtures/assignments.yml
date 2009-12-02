@@ -5,3 +5,13 @@
 #
 # two:
 #   column: value
+
+one:
+    id: 1
+    task_id: 1
+    user_id: 1
+    name: Buy Broom
+    desc: Get a broom to sweep the floor.
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
