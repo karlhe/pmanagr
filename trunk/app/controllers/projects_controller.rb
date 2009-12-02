@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  layout "application", :except => :gen_xml
   before_filter :login_required, :except => [:home, :index, :show]
   before_filter :check_public_access, :only => :show
   before_filter :check_admin, :only => [:edit, :update, :destroy]
@@ -60,12 +59,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def gen_xml
-    @xml = Builder::XmlMarkup.new
-    @project = Project.find(params[:project_id])
-    @tasks= @project.tasks.sort_by{|t| t.start_time}
-  end
-
   # POST /projects
   # POST /projects.xml
   def create
@@ -121,12 +114,6 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url) }
       format.xml  { head :ok }
     end
-  end
-
-  def gantt
-    @project = Project.find(params[:project_id])
-    @projpath = project_url(@project) + "/gen_xml"
-    @url = root_url
   end
 
   private
