@@ -15,3 +15,13 @@ one:
     due_by: <%= 5.days.from_now %>
     created_at: <%= Time.now %>
     start_time: <%= Time.now %>
+    
+two:
+    id: 2
+    task_id: 2
+    user_id: 2
+    name: Buy Mop
+    desc: Get a mop to mop the floor.
+    due_by: <%= 5.days.from_now %>
+    created_at: <%= Time.now %>
+    start_time: <%= Time.now %>
