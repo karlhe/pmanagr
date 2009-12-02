@@ -25,7 +25,7 @@ describe Task do
   describe "Given valid attributes" do
     it "should have a project" do 
         @task = Task.create!(@valid_attributes)
-        @Task.project.should == @project
+        @task.project.should == @project
     end
     it "should have a start time earlier than its due date" do 
         @task = Task.create!(@valid_attributes)
@@ -44,6 +44,7 @@ describe Task do
   describe "Given an task with a start time later than its due date" do
     it "should not be valid" do
         @start_late = {
+            :id => 1,
             :project => @project,
             :name => "Travel the World",
             :desc => "Amazing Gulliver's Travels!",
@@ -51,13 +52,14 @@ describe Task do
             :created_at => 5.years.ago,
             :start_time => 6.years.from_now
         }
-        Assignment.new(@start_late).should_not be_valid
+        Task.new(@start_late).should_not be_valid
     end
   end
   
   describe "Given an task with a created at time later than it's due date" do
     it "should not be valid" do
         @create_late = {
+            :id => 1,
             :project => @project,
             :name => "Travel the World",
             :desc => "Amazing Gulliver's Travels!",
@@ -65,14 +67,15 @@ describe Task do
             :created_at => 6.years.from_now,
             :start_time => 5.years.ago
         }
-        Assignment.new(@create_late).should_not be_valid
+        Task.new(@create_late).should_not be_valid
     end
   end
   
-  describe "Given an task with a project due date later than it's due date" do
+  describe "Given an task with a project due date earlier than it's due date" do
     it "should not be valid" do
         @project.due_by = 4.years.from_now
         @project_late  = {
+            :id => 1,
             :project => @project,
             :name => "Travel the World",
             :desc => "Amazing Gulliver's Travels!",
@@ -80,7 +83,7 @@ describe Task do
             :created_at => 5.years.ago,
             :start_time => 5.years.ago
         }
-        Assignment.new(@project_late).should_not be_valid
+        Task.new(@project_late).should_not be_valid
     end
   end
   
