@@ -9,11 +9,11 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :desc, :due_by, :start_time
 
   def validate
-      errors.add("Public", "cannot be nil") unless public != nil
-      errors.add("Start time", "must be before due date") unless (due_by != nil and start_time != nil and self.start_time < self.due_by)
-      errors.add("Due by", "must be after now") unless (due_by != nil and self.created_at < self.due_by)
+    errors.add("Public", "cannot be nil") unless public != nil
+    errors.add("Start time", "must be before due date") unless (due_by != nil and start_time != nil and self.start_time < self.due_by)
+    errors.add("Due by", "must be after now") unless (due_by != nil and ((created_at == nil and Time.now < self.due_by) or (created_at != nil and created_at < self.due_by)))
   end
-
+  
   def is_public?
     return public
   end
