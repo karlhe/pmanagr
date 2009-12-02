@@ -6,7 +6,7 @@
   <% if @upcoming_assignments.present? %><%= render :partial => "upcoming_assignments" %><% end %>
   <% if @recent_activity.present? %><%= render :partial => "recent_activities" %><% end %>
   
-<%= render :partial=> "assignments/assignments_of_a_user" %>
+
 </div>
 
 <div id="right_div">
@@ -22,17 +22,6 @@
     </ul>
   <% end -%>
 
-  <h2>Your Projects</h2>
-  <div class="white">
-    <% if @user.full_memberships.blank? -%>
-      <p>You are currently a member of no projects.</p>
-    <% else -%>
-      <ul>
-      <% @user.full_memberships.each do |membership| -%>
-        <li><%= link_to membership.project.name, project_path(membership.project) %> (<%= membership.level %>)</li>
-      <% end -%>
-      </ul>
-    <% end -%>
-  </div>
+  <%= render :partial=> "user_side_bar" %>
   <div class="clear"></div>
 </div>
