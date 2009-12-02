@@ -4,16 +4,16 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label "Project name" %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :desc %><br />
-    <%= f.text_area :desc %>
+    <%= f.label "Public project" %>
+    <%= f.check_box :public %>
   </p>
   <p>
-    <%= f.label :public %><br />
-    <%= f.check_box :public %>
+    <%= f.label "Description" %><br />
+    <%= f.text_area :desc %>
   </p>
   <p>
     <%= f.label :start_time %><br />

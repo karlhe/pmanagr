@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :check_token_for_registration, :only => :register
-  before_filter :check_user_privacy, :only => [:show, :edit]
+  before_filter :check_user_privacy, :only => :show
+  before_filter :check_self, :only => :edit
   
   def show
     begin @user = User.find(params[:id])
@@ -86,6 +87,14 @@ class UsersController < ApplicationController
         redirect_to root_path
       end
     rescue Exception
+    end
+  end
+
+  def check_self
+    @user = User.find(params[:id])
+    if @user != current_user
+      flash[:error] = "Access denied"
+      redirect_to root_path
     end
   end
 

@@ -1,0 +1,18 @@
+<div class="information box">
+<h3><%= link_to @project.name, project_path(@project) %></h3>
+
+<p>
+  <b>Description:</b>
+  <%=h @project.desc %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <strong> <%=h showtime(@project.start_time) %> </strong> till <strong> <%=h showtime(@project.due_by) %> </strong>
+</p>
+
+<p>
+  <b>Completed At:</b>
+  <%= @project.completed_at ? showtime(@project.completed_at) : "Not Completed" %>
+</p>
+</div>

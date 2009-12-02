@@ -1,4 +1,4 @@
-<h2>Your Projects</h2>
+<h2>Your Projects <%= link_to '(New project)', new_project_path %> </h2>
 <div class="white">
   <% if @user.full_memberships.blank? -%>
     <p>You are currently a member of no projects.</p>

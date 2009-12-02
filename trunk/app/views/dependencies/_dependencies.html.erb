@@ -1,3 +1,11 @@
+<div class="dependency box">
+
+<h3>Dependencies
+  <%= link_to "(Add)", new_dependency_path(:task_id => @task) %>
+</h3>
+
+<% unless @task.cleared_prerequisites? %><p class="error">Prerequisites for task have not been cleared!</p><% end %>
+
 <table>
   <tr>
     <th>Prerequisite</th>
@@ -18,4 +26,5 @@
 <% end %>
 </table>
 
-<%= link_to "Add Prerequisites", new_dependency_path(:task_id => @task) %>
+
+</div>

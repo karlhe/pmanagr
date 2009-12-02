@@ -1,12 +1,17 @@
+<h3>Assignments
+    <% if logged_in? and current_user.is_owner?(@task.project) %>
+      (<%= link_to 'New Assignment', new_project_task_assignment_path(@task.project, @task) %>)
+    <% end %>
+</h3>
 <table>
   <tr>
     <th>Name</th>
-    <th>Desc</th>
-    <th>Owner</th>
-    <th>Due</th>
+    <th>Description</th>
+    <th>Assignee</th>
+    <th>Due Date</th>
     <th>Status</th>
     <% if logged_in? && current_user.is_owner?(@task.project) %>
-    <th colspan="2">Admin</th>
+    <th colspan="2">Administration</th>
     <%end%>
   </tr>
 
@@ -15,7 +20,7 @@
     <td><%= link_to assig.name, project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%=h assig.desc %></td>
     <td><%= assig.user.present? ? "#{link_to assig.user.name, user_path(assig.user)}" : "#{link_to 'Take', take_project_task_assignment_path(@task.project,@task,assig)}" %></td>
-    <td><%=h assig.due_by %></td>
+    <td><%=h showtime(assig.due_by) %></td>
     <td>
       <% if assig.is_complete? -%>
         Completed at <%=h showtime(assig.completed_at) %>
