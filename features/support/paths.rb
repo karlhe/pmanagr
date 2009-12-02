@@ -10,9 +10,9 @@ module NavigationHelpers
     
     when /the home\s?page/i
       root_path
-    when /the dashboard/i
+    when /(the|my) dashboard/i
       dashboard_path
-    when /pubic projects/i
+    when /public projects/i
       projects_path
     when /the "([^\"]*)" project page/i
       project_path(Project.find(:first, :conditions => { :name => $1 }))
