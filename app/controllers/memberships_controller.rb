@@ -42,10 +42,10 @@ class MembershipsController < ApplicationController
       @membership.user_id = uid
       @membership.set_permission("pending")
       if @membership.save
-        flash[:notice] = "Member invited to project."
+        flash[:notice] = "Member has been invited to this project."
         redirect_to new_project_membership_path(@project)
       else
-        flash[:error] = "Could not invite member."
+        flash[:error] = "Invite failed."
         redirect_to new_project_membership_path(@project)
       end
     elsif @project.is_public?
@@ -55,7 +55,7 @@ class MembershipsController < ApplicationController
         flash[:notice] = "You have requested to join the project."
         redirect_to project_path(@project)
       else
-        flash[:error] = "Request to join project has failed."
+        flash[:error] = "Request failed."
         redirect_to project_path(@project)
       end
     else

@@ -4,7 +4,7 @@
     <th>Desc</th>
     <th>Due By</th>
     <th>Status</th>
-    <%if current_user.is_owner?(@project)%>
+    <%if logged_in? && current_user.is_owner?(@project)%>
     <th colspan="2">Admin</th>
     <%end%>
   </tr>
@@ -23,7 +23,7 @@
       <% end -%>
     </td>
     
-    <%if current_user.is_owner?(@project)%>
+    <%if logged_in? && current_user.is_owner?(@project)%>
     <td><%= link_to 'Edit', edit_project_task_path(@project,task) %></td>
     <td><%= link_to 'Destroy', project_task_path(@project,task), :confirm => 'Are you sure?', :method => :delete %></td>
     <%end%>

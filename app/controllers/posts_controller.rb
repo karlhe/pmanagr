@@ -52,7 +52,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = 'post was successfully created.'
+        #flash[:notice] = 'post was successfully created.'
         format.html { redirect_to project_discussion_post_path(@project,@discussion,@post) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        flash[:notice] = 'post was successfully updated.'
+        flash[:notice] = 'The post was successfully updated.'
         format.html { redirect_to(@post) }
         format.xml  { head :ok }
       else

@@ -11,14 +11,11 @@ class AssignmentsController < ApplicationController
       @assignment.user = current_user
       if @assignment.save
         flash[:notice] = "You have taken the assignment."
-        #redirect_to project_task_path(@project,@task)
       else
-        flash[:error] = "Failed to take the assignment."
-        #redirect_to project_task_path(@project,@task)
+        flash[:error] = "You cannot take the assignment."
       end
     else
       flash[:error] = "This assignment already belongs to someone else."
-      #redirect_to project_task_path(@project,@task)
     end
     redirect_to project_task_path(@project,@task)
   end
@@ -31,10 +28,8 @@ class AssignmentsController < ApplicationController
       @assignment.drop
       if @assignment.save
         flash[:notice] = "You have dropped the assignment."
-        #redirect_to project_task_path(@project,@task)
       else
-        flash[:error] = "Failed to drop the assignment."
-        #redirect_to project_task_path(@project,@task)
+        flash[:error] = "You cannot drop the assignment."
       end
     else
       flash[:error] = "You don't own this assignment."
@@ -51,10 +46,8 @@ class AssignmentsController < ApplicationController
       @assignment.complete
       if @assignment.save
         flash[:notice] = "You have taken the assignment."
-        #redirect_to project_task_path(@project,@task)
       else
         flash[:error] = "Failed to complete the assignment."
-        #redirect_to project_task_path(@project,@task)
       end
     else
       flash[:error] = "You don't own this assignment."
@@ -70,10 +63,8 @@ class AssignmentsController < ApplicationController
       @assignment.uncomplete
       if @assignment.save
         flash[:notice] = "You have taken the assignment."
-        #redirect_to project_task_path(@project,@task)
       else
         flash[:error] = "Failed to complete the assignment."
-        #redirect_to project_task_path(@project,@task)
       end
     else
       flash[:error] = "You don't own this assignment."
@@ -86,16 +77,15 @@ class AssignmentsController < ApplicationController
   def index
     #@assignments = Assignment.find(:all, :conditions => { :public => true })
     redirect_to project_task_path(params[:project_id],params[:task_id])
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.xml  { render :xml => @assignments }
-    #end
+
   end
 
   # GET /assignments/1
   # GET /assignments/1.xml
   def show
-    @assignment = Assignment.find(params[:id])
+    @assignment = Assignment.fin    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @assignments }
     @task = @assignment.task
     @project = @task.project
     
@@ -137,7 +127,7 @@ class AssignmentsController < ApplicationController
 
     respond_to do |format|
       if @assignment.save
-        flash[:notice] = 'assignment was successfully created.'
+        flash[:notice] = 'The assignment was successfully created.'
         format.html { redirect_to project_task_path(@task.project, @task)}
         format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }
       else
@@ -156,7 +146,7 @@ class AssignmentsController < ApplicationController
 
     respond_to do |format|
       if @assignment.update_attributes(params[:assignment])
-        flash[:notice] = 'assignment was successfully updated.'
+        flash[:notice] = 'The assignment was successfully updated.'
         format.html { redirect_to project_task_path(@project,@task) }
         format.xml  { head :ok }
       else

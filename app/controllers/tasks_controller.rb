@@ -19,16 +19,16 @@ class TasksController < ApplicationController
         completion = false
       end
     end
-    if  completion#all tasks are complete
+    if completion#all tasks are complete
       if @task.update_attribute(:completed_at,Time.now)
         flash[:notice] = "Task has been completed!"
         redirect_to project_path(@project)
       else
-        flash[:error] = "Failed to mark task complete!"
+        flash[:error] = "Failed to mark task as complete"
         redirect_to project_path(@project)
       end
     else
-      flash[:notice] = "Not all assignments are complete for this task!"
+      flash[:notice] = "All assignments must be complete first!"
       redirect_to project_path(@project)
     end
   end
@@ -41,10 +41,10 @@ class TasksController < ApplicationController
     #  flash[:notice] = "You do not have the privilege to reopen this task!"
     #  redirect_to project_path(@project)
     if @task.update_attribute(:completed_at,nil)
-      flash[:notice] = "Task has been reopened!"
+      flash[:notice] = "Task has been reopened."
       redirect_to project_path(@project)
     else
-      flash[:error] = "Failed to reopen task!"
+      flash[:error] = "Failed to reopen task."
       redirect_to project_path(@project)
     end
   end
@@ -99,7 +99,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        flash[:notice] = 'Task was successfully created.'
+        flash[:notice] = 'You have successfully created the task.'
         format.html { redirect_to project_task_path(@project,@task) }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else
@@ -116,7 +116,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        flash[:notice] = 'Task was successfully updated.'
+        flash[:notice] = 'You have successfully updated the task.'
         format.html { redirect_to project_task_path(@task.project,@task) }
         format.xml  { head :ok }
       else
