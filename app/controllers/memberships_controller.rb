@@ -71,7 +71,7 @@ class MembershipsController < ApplicationController
       if @membership.level == "pending" and current_user == @membership.user
         if @membership.update_attribute(:privilege, Membership.permission("user"))
           flash[:notice] = "Project invitation accepted!"
-          redirect_to dashboard_path
+          redirect_to project_path(@project)
         else
           flash[:error] = "Failed to accept invite."
           redirect_to dashboard_path
@@ -107,7 +107,7 @@ class MembershipsController < ApplicationController
     elsif @membership.user == current_user
       if @membership.destroy
         flash[:notice] = "User removed from project."
-        redirect_to project_path(@project)
+        redirect_to dashboard_path
       else
         flash[:error] = "Could not remove user."
         redirect_to project_path(@project)

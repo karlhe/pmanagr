@@ -16,7 +16,7 @@
     <% @user.pending_memberships.each do |invite| -%>
       <li>
         <%= link_to invite.project.name, project_path(invite.project) %>
-        (<%= link_to "accept", project_membership_path(invite.project,invite,:accept => true), :method => :put %>|<%= link_to "reject", project_membership_path(invite.project,invite), :method => :delete %>)
+        (<%= link_to "accept", project_membership_path(invite.project,invite,:accept => true), :method => :put, :title => "Accept #{invite.project.name} invitation" %>|<%= link_to "reject", project_membership_path(invite.project,invite), :method => :delete, :title => "Reject #{invite.project.name} invitation" %>)
       </li>
     <% end -%>
     </ul>

@@ -8,33 +8,40 @@ Feature: Inviting Users to Projects
 
   Background:
     Given a user called "Anthony Leung"
-    And a user called "Jasmine Nguyen"
-    And a user called "Rose Yuan"
-    And a user called "Donna Woo"
-    And a unregistered person called "Kelly Wang"
-    And "Anthony Leung" is administrator for a private project called "CSR"
+    And I am logged in as "Anthony Leung"
+    And I own a public project called "CSR"
 
   Scenario: Anthony Leung invites Jasmine Nguyen, Donna Woo, and Rose Yuan to the CSR project
-    Given I am logged in as "Anthony Leung"
-    When I invite Jasmine Nguyen, Donna Woo, and Rose Yuan to join
-    Then it should create new memberships for each with a pending status
-    And an invitation should appear on each invitee's user dashboard
-    And the project should show Jasmine, Donna, and Rose as a pending members
-    And I should see the project page
+    Given a user called "Jasmine Nguyen"
+    And a user called "Rose Yuan"
+    And a user called "Donna Woo"
+    And I am logged in as "Anthony Leung"
+    When I invite "Jasmine Nguyen" to "CSR"
+    And I invite "Rose Yuan" to "CSR"
+    And I invite "Donna Woo" to "CSR"
+    Then it should add "Jasmine Nguyen" to "CSR" as a pending member
+    And it should add "Rose Yuan" to "CSR" as a pending member
+    And it should add "Donna Woo" to "CSR" as a pending member
 
   Scenario: Jasmine Nguyen accepts the invitation
+    Given a user called "Jasmine Nguyen"
+    And I am logged in as "Anthony Leung"
+    And I invite "Jasmine Nguyen" to "CSR"
+    
     Given I am logged in as "Jasmine Nguyen"
-    When I accept the invitation
-    Then it should change the membership status to accepted
-    And Jasmine should appear as a normal member on the project
-    And I should see the project page
+    When I accept the "CSR" invitation
+    Then I should be a "user" for "CSR"
+    And I should be on the "CSR" project page
 
   Scenario: Rose Yuan rejects Anthony Leung's invitation
+    Given a user called "Rose Yuan"
+    And I am logged in as "Anthony Leung"
+    And I invite "Rose Yuan" to "CSR"
+    
     Given I am logged in as "Rose Yuan"
-    When I decline the invitation
-    Then it should delete the pending membership
-    And Rose should be removed from the project member list
-    And I should see the project page
+    When I reject the "CSR" invitation
+    Then I should not be a member of "CSR"
+    And I should be on my dashboard
 
   Scenario: Anthony Leung cancels Donna Woo's invitation
     Given I am logged in as "Anthony Leung"

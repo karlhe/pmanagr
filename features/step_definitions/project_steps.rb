@@ -47,3 +47,6 @@ Then /^"([^\"]*)" (should|should not) appear in (.+)$/ do |name, should, page|
     response.should_not contain(name)
   end
 end
+
+
+
