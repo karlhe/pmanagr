@@ -21,8 +21,8 @@ production:
   reconnect: false
   database: pmanagr_production
   pool: 5
-  username: root
-  password: stephenchang
-  host: localhost
+  username: pmanagr
+  password: a123456
+  host: mysql.anhangzhu.com
 cucumber:
   <<: *TEST
