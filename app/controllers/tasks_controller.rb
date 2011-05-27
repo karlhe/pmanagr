@@ -91,6 +91,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     @project = @task.project
+    pm_candidates_list
   end
 
   # POST /tasks
@@ -120,6 +121,8 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
+    pm_candidates_list
+    
     respond_to do |format|
       if @task.update_attributes(params[:task])
         flash[:notice] = 'You have successfully updated the task.'
