@@ -3,8 +3,9 @@ class Task < ActiveRecord::Base
   has_many :assignments, :dependent => :destroy
   has_many :dependencies
   has_many :prerequisites, :through => :dependencies
+  belongs_to  :manager, :class_name => "User"
 
-  validates_presence_of :name, :desc
+  validates_presence_of :name, :desc, :manager_id
   
   def validate
     errors.add("Start time", "must be before due date") unless (due_by != nil and start_time != nil and self.start_time < self.due_by)

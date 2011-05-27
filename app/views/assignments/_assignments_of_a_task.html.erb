@@ -1,5 +1,5 @@
 <h3>Assignments
-    <% if logged_in? and current_user.is_owner?(@task.project) %>
+    <% if logged_in? and (current_user.is_owner?(@task.project) or current_user.is_manager?(@task)) %>
       (<%= link_to 'New Assignment', new_project_task_assignment_path(@task.project, @task) %>)
     <% end %>
 </h3>
@@ -10,7 +10,7 @@
     <th>Assignee</th>
     <th>Due Date</th>
     <th>Status</th>
-    <% if logged_in? && current_user.is_owner?(@task.project) %>
+    <% if logged_in? and (current_user.is_owner?(@task.project) || current_user.is_manager?(@task)) %>
     <th colspan="2">Administration</th>
     <%end%>
   </tr>
@@ -29,7 +29,7 @@
         Not completed yet <%= link_to '(complete)', complete_project_task_assignment_path(assig.task.project,assig.task,assig), :confirm => 'Mark this assignment as complete?' %>
       <% end -%>
     </td>
-    <% if logged_in? && current_user.is_owner?(@task.project) %>
+    <% if logged_in? and (current_user.is_owner?(@task.project) || current_user.is_manager?(@task)) %>
     <td><%= link_to 'Edit', edit_project_task_assignment_path(@task.project_id,@task,assig) %></td>
     <td><%= link_to 'Destroy', project_task_assignment_path(@task.project_id,@task,assig), :confirm => 'Are you sure?', :method => :delete %></td>
     <%end%>

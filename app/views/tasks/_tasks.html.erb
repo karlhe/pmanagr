@@ -3,6 +3,7 @@
     <th>Name</th>
     <th>Desc</th>
     <th>Due By</th>
+	<th>PM</th>
     <th>Status</th>
     <%if logged_in? && current_user.is_owner?(@project)%>
     <th colspan="2">Admin</th>
@@ -14,7 +15,7 @@
     <td><%= link_to task.name, project_task_path(@project,task) %></td>
     <td><%=h task.desc %></td>
     <td><%=h showtime(task.due_by) %></td>
-    
+    <td><%= link_to task.manager.name, user_path(task.manager) %></td>
     <td>
       <% if task.completed_at.present? -%>
         <%= link_to 'Completed', reopen_project_task_path(@project,task), :confirm => 'Reopen task?', :title => "Reopen #{task.name}" %> at <%=h showtime(task.completed_at) %>

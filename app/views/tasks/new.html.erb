@@ -17,6 +17,9 @@
     <%= f.datetime_select :due_by %>
   </p>
   <p>
+	<%= f.select :manager_id, @candidates.collect { |c| [c.name, c.id] }, :prompt => "Select PM" %>
+  </p>
+  <p>
     <%= f.label "Description" %><br />
     <%= f.text_area :desc %>
   </p>

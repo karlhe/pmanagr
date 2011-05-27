@@ -78,7 +78,9 @@ class TasksController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @task = @project.tasks.build
-
+    
+    pm_candidates_list
+  
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @task }
@@ -96,6 +98,8 @@ class TasksController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @task = @project.tasks.build(params[:task])
+    
+    pm_candidates_list
 
     respond_to do |format|
       if @task.save
@@ -108,6 +112,8 @@ class TasksController < ApplicationController
       end
     end
   end
+  
+
 
   # PUT /tasks/1
   # PUT /tasks/1.xml
@@ -140,6 +146,12 @@ class TasksController < ApplicationController
   end
   
   private
+  
+  def pm_candidates_list
+    @members = @project.memberships.select { |member| member.is_approved? }
+    @candidates = @members.collect { |member| member.user }
+  end
+  
   def check_project_member
 	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
 	unless !status.blank? and (status.is_owner? or status.is_user?)
@@ -150,8 +162,8 @@ class TasksController < ApplicationController
   
   def check_admin
     @project = Project.find(params[:project_id])
-	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	unless !status.blank? and status.is_owner?
+	  status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
+	  unless (!status.blank? && status.is_owner?) || current_user.is_manager?(@task)
       redirect_to project_path(@project)
       flash[:error] = 'You are not an admin for this project.'
     end

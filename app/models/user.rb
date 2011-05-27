@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :projects, :through => :memberships
   has_many :assignments
-  has_many :tasks, :through => :assignments
+  has_many :tasks, :through => :assignments, :uniq => true
   has_many :posts
   
   include Authentication
@@ -79,6 +79,14 @@ class User < ActiveRecord::Base
   def is_owner?(project)
     membership = project.memberships.find(:first, :conditions => { :user_id => self.id })
     !membership.blank? and membership.is_owner?
+  end
+  
+  def is_manager?(task)
+    self == task.manager
+  end
+  
+  def can_complete_assignment?(assignment)
+    assignment.user == self || self.is_manager?(assignment.task) || self.is_owner?(assignment.task.project)
   end
 
   def is_user?(project)

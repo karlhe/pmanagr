@@ -1,5 +1,5 @@
 class DependenciesController < ApplicationController
-  before_filter :task_required, :only => [:new, :create]
+  before_filter :task_required, :only => [:new, :create, :destroy]
   before_filter :login_required
   before_filter :check_project_member
   before_filter :check_admin
@@ -62,7 +62,7 @@ class DependenciesController < ApplicationController
 
   # DELETE /dependencies/1
   # DELETE /dependencies/1.xml
-  def destroy    
+  def destroy
     if @dependency.destroy
       flash[:notice] = "Dependency removed."
     else
@@ -95,7 +95,7 @@ class DependenciesController < ApplicationController
     
     def check_admin
 	    status = current_user.memberships.select{|m| m.project_id == @task.project.id}.first
-	    unless !status.blank? and status.is_owner?
+	    unless (!status.blank? && status.is_owner?) || current_user.is_manager?(@task)
         redirect_to project_task_path(@task.project,@task)
         flash[:error] = 'You are not an admin for this project.'
       end
