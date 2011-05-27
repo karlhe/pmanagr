@@ -1,36 +1,42 @@
-# Replace with the HTTP (NOT HTTPS) read-only URL of your Google Code SVN.
+set :user,        'porkeypop'                       # Your dreamhost account's username
+set :domain,      'anhangzhu.com'              # Dreamhost servername where your account is located
+set :project,     'pmanagr'                 # Your application as its called in the repository
+set :application, 'pmanagr.anhangzhu.com'         # Your app's location (domain or sub-domain name as setup in panel)
+set :directory,   "/home/#{user}/#{application}" # The standard Dreamhost setup
+
+# Default Environment Variables
+default_environment["GEM_PATH"] = "/home/#{user}/.gems:/usr/lib/ruby/gems/1.8"
+
+# Version Control Configuration
 set :repository, "http://pmanagr.googlecode.com/svn/trunk/"
 
-# Directory for deployment on the production (remote) machine.
-set :deploy_to, "/mnt/app"
+# Roles (Servers)
+role :web, domain
+role :app, domain
+role :db,  domain, :primary => true
 
-# Replace the below with the hostname of your EC2 instance.
-set :machine_name, "ec2-174-129-166-224.compute-1.amazonaws.com"
+# Deploy Configuration
+set :deploy_to,  directory
+set :deploy_via, :export
 
-# We're using one instance for all three roles.
-role :app, "#{machine_name}"
-role :web, "#{machine_name}"
-role :db,  "#{machine_name}", :primary => true
-
+# Additional Settings
+default_run_options[:pty] = true                 # Forgo errors when deploying from windows
+#ssh_options[:keys] = %w(/Path/To/id_rsa)        # If you are using ssh_keys
+set :chmod755, "app config db lib public vendor script script/* public/disp*"
 set :use_sudo, false
-set :user, "root"
 
-ssh_options[:keys] = File.join(ENV["EC2_HOME"], "\id_rsa-cs194")
-
+# Passenger Configuration
 namespace :deploy do
-  %w(start stop restart).each do |action|
-     desc "#{action} the Thin processes"
-     task action.to_sym do
-       find_and_execute_task("thin:#{action}")
-    end
-  end
-end
+  
 
-namespace :thin do
-  %w(start stop restart).each do |action|
-  desc "#{action} the app's Thin Cluster"
-    task action.to_sym, :roles => :app do
-      run "thin #{action} -d -c #{deploy_to}/current -e production -p 80"
-    end
+  
+  [:start, :stop].each do |t| 
+    task t do; end 
   end
+  desc "Restarts your application."
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
+  end
+  
+
 end
