@@ -41,7 +41,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:id])
     @task = @assignment.task
     @project = @task.project
-    if @assignment.user == current_user && (not @assignment.is_complete?)
+    if @assignment.user.can_complete_assignment?(@assignment) && !@assignment.is_complete?
     @assignment.complete
       if @assignment.save
         flash[:notice] = "You marked this assignment as complete."
@@ -58,7 +58,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:id])
     @task = @assignment.task
     @project = @task.project
-    if @assignment.user == current_user && @assignment.is_complete?
+    if @assignment.user.can_complete_assignment?(@assignment) && @assignment.is_complete?
       @assignment.uncomplete
       if @assignment.save
         flash[:notice] = "You marked this assignment as incomplete."
@@ -169,8 +169,8 @@ class AssignmentsController < ApplicationController
 
   private
   def check_project_member
-	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	unless status.is_owner? or status.is_user?
+	  status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
+	  unless status.is_owner? or status.is_user?
       redirect_to root_path
       flash[:error] = 'You are not a member of this project.'
     end
@@ -179,8 +179,9 @@ class AssignmentsController < ApplicationController
   def check_admin
     @task = Task.find(params[:task_id])
     @project = @task.project
-	status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
-	unless !status.blank? and status.is_owner?
+	  
+	  status = current_user.memberships.select{|m| m.project_id.to_s == params[:project_id]}.first
+	  unless (!status.blank? && status.is_owner?) || current_user.is_manager?(@task)
       redirect_to project_task_path(@project, @task)
       flash[:error] = 'You are not an admin for this project.'
     end

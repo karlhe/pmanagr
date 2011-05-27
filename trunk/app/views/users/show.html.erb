@@ -1,7 +1,8 @@
+
 <div id="left_div">
   <h2><%= dashboard_title %></h2>
   <p>Member since <%= showdate(@user.created_at) %>.</p>
-  
+  //show user data here
   <% if @late_assignments.present? %><%= render :partial => "late_assignments" %><% end %>
   <% if @upcoming_assignments.present? %><%= render :partial => "upcoming_assignments" %><% end %>
   <% if @recent_activity.present? %><%= render :partial => "recent_activities" %><% end %>

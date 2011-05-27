@@ -4,7 +4,7 @@
 <p>
   <%= @assignee.present? ? "Currently assigned to: #{link_to @assignee.name, user_path(@assignee)}"  : "Not assigned" %>
 </p>
-<% if current_user.is_owner?(@assignment.task.project) %>
+<% if logged_in? and current_user.is_owner?(@assignment.task.project) or current_user.is_manager?(@assignment.task)%>
   <%= render :partial => "assign" %>
 <% end %>
 
