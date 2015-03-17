@@ -1,0 +1,1 @@
+PManagr is a system for managing small- to medium-sized projects. The goal is a simple, intuitive system that conveys information with minimal confusion, while offering helpful visualizations and data organization.
